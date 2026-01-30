@@ -22,19 +22,58 @@ async function loadData() {
     }
 }
 
-// Get fallback data if JSON fails
+// Get fallback data if JSON fails - robust fallback with complete data
 function getFallbackData() {
     return {
+        empresa: {
+            nombre: "CleanPro Solutions"
+        },
         servicios: [
-            { id: "oficinas", nombre: "Oficinas Corporativas", descripcion: "Espacios de trabajo impecables", icono: "building-2" },
-            { id: "post-obra", nombre: "Final de Obra", descripcion: "Dejamos tu proyecto listo", icono: "hard-hat" },
-            { id: "hogar", nombre: "Hogar Premium", descripcion: "Tu hogar merece el mejor cuidado", icono: "home" }
+            { id: "oficinas", nombre: "Oficinas Corporativas", descripcion: "Espacios de trabajo impecables que impulsan la productividad", icono: "building-2" },
+            { id: "post-obra", nombre: "Final de Obra", descripcion: "Dejamos tu proyecto listo para la entrega", icono: "hard-hat" },
+            { id: "hogar", nombre: "Hogar Premium", descripcion: "Tu hogar merece el mejor cuidado profesional", icono: "home" }
         ],
         staff: [
-            { nombre: "Carlos García", puesto: "Supervisor", verificado: true, foto: "https://via.placeholder.com/150" }
+            { nombre: "Carlos García", puesto: "Supervisor General", especialidad: "Coordinación de equipos", experiencia: "8 años", verificado: true, foto: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face" },
+            { nombre: "Marta Rodríguez", puesto: "Especialista Post-Obra", especialidad: "Limpieza técnica", experiencia: "6 años", verificado: true, foto: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=300&h=300&fit=crop&crop=face" },
+            { nombre: "Luis Mendoza", puesto: "Técnico Industrial", especialidad: "Maquinaria pesada", experiencia: "10 años", verificado: true, foto: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&crop=face" }
         ],
         testimonios: [
-            { cliente: "Tech Solutions", texto: "Servicio impecable y puntual.", autor: "María González", rating: 5 }
+            { cliente: "Tech Solutions S.A.", texto: "Servicio impecable y puntual. Nuestras oficinas nunca habían lucido tan bien.", autor: "María González", cargo: "Directora de Operaciones", rating: 5 },
+            { cliente: "Constructora Moderna", texto: "Entregamos el edificio antes de tiempo gracias a su eficiencia.", autor: "Roberto Jiménez", cargo: "Gerente de Proyectos", rating: 5 },
+            { cliente: "Hospital Central", texto: "Cumplen con todos los protocolos de bioseguridad.", autor: "Dra. Patricia Luna", cargo: "Directora Administrativa", rating: 5 }
+        ],
+        checklistBasica: [
+            { item: "Aspirado de pisos y alfombras", incluido: true },
+            { item: "Limpieza de superficies", incluido: true },
+            { item: "Vaciado de papeleras", incluido: true },
+            { item: "Limpieza de baños", incluido: true },
+            { item: "Desinfección de puntos de contacto", incluido: false },
+            { item: "Limpieza de techos y molduras", incluido: false }
+        ],
+        checklistProfunda: [
+            { item: "Aspirado de pisos y alfombras", incluido: true },
+            { item: "Limpieza de superficies", incluido: true },
+            { item: "Vaciado de papeleras", incluido: true },
+            { item: "Limpieza de baños", incluido: true },
+            { item: "Desinfección de puntos de contacto", incluido: true },
+            { item: "Limpieza de techos y molduras", incluido: true },
+            { item: "Tratamiento de manchas", incluido: true },
+            { item: "Pulido de pisos", incluido: true }
+        ],
+        frecuencias: [
+            { id: "unica", nombre: "Única vez" },
+            { id: "semanal", nombre: "Semanal" },
+            { id: "quincenal", nombre: "Quincenal" },
+            { id: "mensual", nombre: "Mensual" }
+        ],
+        proximasVisitas: [
+            { fecha: "2024-02-15", hora: "09:00", servicio: "Limpieza de Oficina", estado: "confirmada" },
+            { fecha: "2024-02-22", hora: "14:00", servicio: "Limpieza Profunda", estado: "pendiente" }
+        ],
+        historialFacturas: [
+            { numero: "FAC-2024-001", fecha: "2024-01-15", concepto: "Limpieza mensual oficinas", estado: "pagada" },
+            { numero: "FAC-2024-002", fecha: "2024-02-01", concepto: "Limpieza mensual oficinas", estado: "pendiente" }
         ]
     };
 }
@@ -203,12 +242,12 @@ function renderChecklist(type) {
 // Handle tab change
 function handleTabChange(e) {
     const type = e.target.dataset.tab;
-    
+
     document.querySelectorAll('.tab-btn').forEach(btn => {
         btn.classList.remove('active');
     });
     e.target.classList.add('active');
-    
+
     renderChecklist(type);
 }
 
@@ -217,7 +256,7 @@ function initializeBeforeAfterSlider() {
     const container = document.querySelector('.before-after-container');
     const handle = document.querySelector('.slider-handle');
     const beforeImg = document.querySelector('.before-image');
-    
+
     if (!container || !handle || !beforeImg) return;
 
     let isDragging = false;
@@ -226,7 +265,7 @@ function initializeBeforeAfterSlider() {
         const rect = container.getBoundingClientRect();
         let percentage = ((x - rect.left) / rect.width) * 100;
         percentage = Math.max(0, Math.min(100, percentage));
-        
+
         handle.style.left = `${percentage}%`;
         beforeImg.style.width = `${percentage}%`;
     };
@@ -300,8 +339,18 @@ function renderPortalData() {
 // Handle quoter form submission
 function handleQuoterSubmit(e) {
     e.preventDefault();
-    
-    const formData = new FormData(e.target);
+
+    const form = e.target;
+    const telefono = form.querySelector('[name="telefono"]');
+
+    // Validate phone number (only digits, +, -, spaces)
+    if (telefono && !/^[\d\s\+\-\(\)]{7,20}$/.test(telefono.value)) {
+        showNotification('Por favor, ingresa un número de teléfono válido.', 'error');
+        telefono.focus();
+        return;
+    }
+
+    const formData = new FormData(form);
     const data = {
         servicio: formData.get('servicio'),
         frecuencia: formData.get('frecuencia'),
@@ -317,15 +366,41 @@ function handleQuoterSubmit(e) {
     leads.push(data);
     localStorage.setItem('cleanpro_leads', JSON.stringify(leads));
 
-    // Show summary modal
-    showQuoteSummary(data);
+    // Get company name
+    const empresaNombre = appData?.empresa?.nombre || 'CleanPro Solutions';
+
+    // Replace form with success message
+    const formContainer = document.getElementById('quoterFormContainer');
+    if (formContainer) {
+        formContainer.innerHTML = `
+            <div class="text-center py-12 animate-fade-in">
+                <div class="w-24 h-24 mx-auto mb-6 rounded-full bg-gradient-to-br from-green-400 to-emerald-500 flex items-center justify-center shadow-lg shadow-green-500/30">
+                    <i data-lucide="check" class="w-12 h-12 text-white"></i>
+                </div>
+                <h3 class="text-3xl font-bold text-gray-900 mb-4">¡Solicitud Recibida!</h3>
+                <p class="text-lg text-gray-600 max-w-md mx-auto mb-6">
+                    Un asesor de <strong class="text-primary-600">${empresaNombre}</strong> validará la disponibilidad en tu zona y te contactará en <strong>menos de 2 horas</strong>.
+                </p>
+                <div class="bg-gray-50 rounded-xl p-6 max-w-sm mx-auto">
+                    <p class="text-sm text-gray-500 mb-2">Resumen de tu solicitud:</p>
+                    <p class="font-semibold text-gray-800">${appData?.servicios?.find(s => s.id === data.servicio)?.nombre || data.servicio}</p>
+                    <p class="text-gray-600">${data.m2} m² · ${appData?.frecuencias?.find(f => f.id === data.frecuencia)?.nombre || data.frecuencia}</p>
+                </div>
+                <button onclick="resetQuoterForm()" class="mt-8 text-primary-600 hover:text-primary-700 font-medium flex items-center gap-2 mx-auto">
+                    <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                    Enviar otra solicitud
+                </button>
+            </div>
+        `;
+        lucide.createIcons();
+    }
 }
 
 // Show quote summary
 function showQuoteSummary(data) {
     const modal = document.getElementById('quoteSummaryModal');
     const content = document.getElementById('quoteSummaryContent');
-    
+
     if (!modal || !content) return;
 
     const serviceName = appData?.servicios?.find(s => s.id === data.servicio)?.nombre || data.servicio;
@@ -416,7 +491,7 @@ function setupFileUpload() {
 // Handle recruitment form submission
 function handleRecruitmentSubmit(e) {
     e.preventDefault();
-    
+
     const formData = new FormData(e.target);
     const data = {
         nombreCompleto: formData.get('nombreCompleto'),
@@ -470,7 +545,7 @@ function closeLeadPopup() {
 // Handle lead form submission
 function handleLeadSubmit(e) {
     e.preventDefault();
-    
+
     const email = document.getElementById('leadEmail')?.value;
     if (!email) return;
 
@@ -485,19 +560,18 @@ function handleLeadSubmit(e) {
 // Show notification
 function showNotification(message, type = 'info') {
     const notification = document.createElement('div');
-    notification.className = `fixed bottom-6 right-6 px-6 py-4 rounded-xl shadow-2xl z-50 transform transition-all duration-500 ${
-        type === 'success' ? 'bg-green-500' : type === 'error' ? 'bg-red-500' : 'bg-teal-500'
-    } text-white font-medium`;
+    notification.className = `fixed bottom-6 right-6 px-6 py-4 rounded-xl shadow-2xl z-50 transform transition-all duration-500 ${type === 'success' ? 'bg-green-500' : type === 'error' ? 'bg-red-500' : 'bg-teal-500'
+        } text-white font-medium`;
     notification.innerHTML = `
         <div class="flex items-center gap-3">
             <i data-lucide="${type === 'success' ? 'check-circle' : type === 'error' ? 'alert-circle' : 'info'}" class="w-5 h-5"></i>
             <span>${message}</span>
         </div>
     `;
-    
+
     document.body.appendChild(notification);
     lucide.createIcons();
-    
+
     setTimeout(() => {
         notification.classList.add('translate-y-20', 'opacity-0');
         setTimeout(() => notification.remove(), 500);
@@ -526,6 +600,91 @@ function formatDate(dateString) {
     return new Date(dateString).toLocaleDateString('es-ES', options);
 }
 
+// Reset quoter form to initial state
+function resetQuoterForm() {
+    const formContainer = document.getElementById('quoterFormContainer');
+    if (formContainer) {
+        formContainer.innerHTML = getQuoterFormHTML();
+
+        // Re-attach event listeners
+        const quoterForm = document.getElementById('quoterForm');
+        if (quoterForm) {
+            quoterForm.addEventListener('submit', handleQuoterSubmit);
+        }
+
+        const m2Range = document.getElementById('m2Range');
+        const m2Value = document.getElementById('m2Value');
+        if (m2Range && m2Value) {
+            m2Range.addEventListener('input', (e) => {
+                m2Value.textContent = e.target.value;
+            });
+        }
+
+        lucide.createIcons();
+    }
+}
+
+// Get quoter form HTML template
+function getQuoterFormHTML() {
+    return `
+        <form id="quoterForm" class="space-y-6">
+            <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-2">Tipo de Servicio *</label>
+                    <select name="servicio" class="form-input w-full px-4 py-3 rounded-xl bg-white" required>
+                        <option value="">Selecciona un servicio</option>
+                        <option value="oficinas">Oficinas Corporativas</option>
+                        <option value="post-obra">Final de Obra</option>
+                        <option value="hospitalario">Hospitalario</option>
+                        <option value="industrial">Industrial</option>
+                        <option value="hogar">Hogar Premium</option>
+                        <option value="eventos">Eventos</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-2">Frecuencia *</label>
+                    <select name="frecuencia" class="form-input w-full px-4 py-3 rounded-xl bg-white" required>
+                        <option value="">Selecciona frecuencia</option>
+                        <option value="unica">Única vez</option>
+                        <option value="semanal">Semanal</option>
+                        <option value="quincenal">Quincenal</option>
+                        <option value="mensual">Mensual</option>
+                        <option value="diario">Diario (L-V)</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <label class="block text-sm font-semibold text-gray-700 mb-4">Superficie Aproximada: <span id="m2Value" class="text-primary-600 text-lg font-bold">100</span> m²</label>
+                <input type="range" id="m2Range" min="20" max="1000" value="100" class="w-full" required>
+                <div class="flex justify-between text-sm text-gray-500 mt-2">
+                    <span>20 m²</span>
+                    <span>1000 m²</span>
+                </div>
+            </div>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-2">Nombre *</label>
+                    <input type="text" name="nombre" class="form-input w-full px-4 py-3 rounded-xl bg-white" placeholder="Tu nombre" required>
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-2">Teléfono *</label>
+                    <input type="tel" name="telefono" class="form-input w-full px-4 py-3 rounded-xl bg-white" placeholder="+1 555 123 4567" required pattern="[\\d\\s\\+\\-\\(\\)]{7,20}" title="Ingresa un número de teléfono válido">
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-2">Email *</label>
+                    <input type="email" name="email" class="form-input w-full px-4 py-3 rounded-xl bg-white" placeholder="tu@email.com" required>
+                </div>
+            </div>
+            <button type="submit" class="w-full btn-primary py-4 rounded-xl text-white font-bold text-lg flex items-center justify-center gap-2 min-h-[52px]">
+                <i data-lucide="send" class="w-5 h-5"></i>
+                Enviar para Validar Disponibilidad
+            </button>
+        </form>
+    `;
+}
+
 // Make functions available globally
 window.closeQuoteSummary = closeQuoteSummary;
 window.closeLeadPopup = closeLeadPopup;
+window.resetQuoterForm = resetQuoterForm;
+window.showLeadPopup = showLeadPopup;
