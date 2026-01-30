@@ -1,0 +1,30 @@
+name: Deploy Automatico SFTP
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  deploy-via-sftp:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🚚 Obtener código más reciente
+        uses: actions/checkout@v4
+
+      - name: 🧹 Limpiar archivos de sistema (Seguridad)
+        run: |
+          rm -rf .git
+          rm -rf .github
+          rm -rf .gitignore
+
+      - name: 📂 Subir a Hosting (SFTP)
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
+        with:
+          username: ${{ secrets.SFTP_USER }}
+          server: ${{ secrets.SFTP_HOST }}
+          password: ${{ secrets.SFTP_PASSWORD }}
+          port: ${{ secrets.SFTP_PORT }}
+          local_path: './'
+          remote_path: '/home/andressmart/cr-sites.com/limpieza-muestras'
+          delete_remote_files: true 
+          sftp_only: true

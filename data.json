@@ -1,0 +1,196 @@
+{
+  "empresa": {
+    "nombre": "CleanPro Solutions",
+    "slogan": "Limpieza profesional que transforma espacios",
+    "telefono": "+1 (555) 123-4567",
+    "email": "contacto@cleanpro.com",
+    "direccion": "Av. Principal 1234, Ciudad"
+  },
+  "servicios": [
+    {
+      "id": "oficinas",
+      "nombre": "Oficinas Corporativas",
+      "descripcion": "Espacios de trabajo impecables que impulsan la productividad",
+      "icono": "building-2"
+    },
+    {
+      "id": "post-obra",
+      "nombre": "Final de Obra",
+      "descripcion": "Dejamos tu proyecto listo para la entrega",
+      "icono": "hard-hat"
+    },
+    {
+      "id": "hospitalario",
+      "nombre": "Hospitalario",
+      "descripcion": "Protocolos de desinfección certificados",
+      "icono": "heart-pulse"
+    },
+    {
+      "id": "industrial",
+      "nombre": "Industrial",
+      "descripcion": "Soluciones para grandes superficies y maquinaria",
+      "icono": "factory"
+    },
+    {
+      "id": "hogar",
+      "nombre": "Hogar Premium",
+      "descripcion": "Tu hogar merece el mejor cuidado",
+      "icono": "home"
+    },
+    {
+      "id": "eventos",
+      "nombre": "Eventos",
+      "descripcion": "Antes y después de tus eventos especiales",
+      "icono": "party-popper"
+    }
+  ],
+  "staff": [
+    {
+      "id": 1,
+      "nombre": "Carlos García",
+      "puesto": "Supervisor General",
+      "especialidad": "Coordinación de equipos",
+      "experiencia": "8 años",
+      "verificado": true,
+      "foto": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face"
+    },
+    {
+      "id": 2,
+      "nombre": "Marta Rodríguez",
+      "puesto": "Especialista Post-Obra",
+      "especialidad": "Limpieza técnica",
+      "experiencia": "6 años",
+      "verificado": true,
+      "foto": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=300&h=300&fit=crop&crop=face"
+    },
+    {
+      "id": 3,
+      "nombre": "Luis Mendoza",
+      "puesto": "Técnico Industrial",
+      "especialidad": "Maquinaria pesada",
+      "experiencia": "10 años",
+      "verificado": true,
+      "foto": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&crop=face"
+    },
+    {
+      "id": 4,
+      "nombre": "Ana Martínez",
+      "puesto": "Coordinadora Hospitalaria",
+      "especialidad": "Protocolos sanitarios",
+      "experiencia": "7 años",
+      "verificado": true,
+      "foto": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&h=300&fit=crop&crop=face"
+    },
+    {
+      "id": 5,
+      "nombre": "Pedro Sánchez",
+      "puesto": "Líder de Equipo",
+      "especialidad": "Oficinas corporativas",
+      "experiencia": "5 años",
+      "verificado": true,
+      "foto": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300&h=300&fit=crop&crop=face"
+    },
+    {
+      "id": 6,
+      "nombre": "Laura Vega",
+      "puesto": "Especialista Hogar",
+      "especialidad": "Limpieza residencial",
+      "experiencia": "4 años",
+      "verificado": true,
+      "foto": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=300&h=300&fit=crop&crop=face"
+    }
+  ],
+  "testimonios": [
+    {
+      "id": 1,
+      "cliente": "Tech Solutions S.A.",
+      "texto": "Servicio impecable y puntual. Nuestras oficinas nunca habían lucido tan bien. El equipo es profesional y discreto.",
+      "autor": "María González",
+      "cargo": "Directora de Operaciones",
+      "rating": 5
+    },
+    {
+      "id": 2,
+      "cliente": "Constructora Moderna",
+      "texto": "Entregamos el edificio antes de tiempo gracias a su eficiencia en la limpieza post-obra. Altamente recomendados.",
+      "autor": "Roberto Jiménez",
+      "cargo": "Gerente de Proyectos",
+      "rating": 5
+    },
+    {
+      "id": 3,
+      "cliente": "Hospital Central",
+      "texto": "Cumplen con todos los protocolos de bioseguridad. La tranquilidad que nos dan no tiene precio.",
+      "autor": "Dra. Patricia Luna",
+      "cargo": "Directora Administrativa",
+      "rating": 5
+    }
+  ],
+  "checklistBasica": [
+    { "item": "Aspirado de pisos y alfombras", "incluido": true },
+    { "item": "Limpieza de superficies", "incluido": true },
+    { "item": "Vaciado de papeleras", "incluido": true },
+    { "item": "Limpieza de baños", "incluido": true },
+    { "item": "Limpieza de cristales interiores", "incluido": true },
+    { "item": "Desinfección de puntos de contacto", "incluido": false },
+    { "item": "Limpieza de techos y molduras", "incluido": false },
+    { "item": "Tratamiento de manchas", "incluido": false }
+  ],
+  "checklistProfunda": [
+    { "item": "Aspirado de pisos y alfombras", "incluido": true },
+    { "item": "Limpieza de superficies", "incluido": true },
+    { "item": "Vaciado de papeleras", "incluido": true },
+    { "item": "Limpieza de baños", "incluido": true },
+    { "item": "Limpieza de cristales interiores", "incluido": true },
+    { "item": "Desinfección de puntos de contacto", "incluido": true },
+    { "item": "Limpieza de techos y molduras", "incluido": true },
+    { "item": "Tratamiento de manchas", "incluido": true },
+    { "item": "Limpieza de persianas y cortinas", "incluido": true },
+    { "item": "Desinfección con nebulización", "incluido": true },
+    { "item": "Limpieza de conductos de aire", "incluido": true },
+    { "item": "Pulido de pisos", "incluido": true }
+  ],
+  "frecuencias": [
+    { "id": "unica", "nombre": "Única vez", "descripcion": "Servicio puntual" },
+    { "id": "semanal", "nombre": "Semanal", "descripcion": "1 visita por semana" },
+    { "id": "quincenal", "nombre": "Quincenal", "descripcion": "2 visitas al mes" },
+    { "id": "mensual", "nombre": "Mensual", "descripcion": "1 visita al mes" },
+    { "id": "diario", "nombre": "Diario", "descripcion": "De lunes a viernes" }
+  ],
+  "proximasVisitas": [
+    {
+      "fecha": "2024-02-15",
+      "hora": "09:00",
+      "servicio": "Limpieza de Oficina",
+      "equipo": "Carlos G., Ana M.",
+      "estado": "confirmada"
+    },
+    {
+      "fecha": "2024-02-22",
+      "hora": "14:00",
+      "servicio": "Limpieza Profunda",
+      "equipo": "Marta R., Luis M.",
+      "estado": "pendiente"
+    }
+  ],
+  "historialFacturas": [
+    {
+      "numero": "FAC-2024-001",
+      "fecha": "2024-01-15",
+      "concepto": "Limpieza mensual oficinas",
+      "estado": "pagada"
+    },
+    {
+      "numero": "FAC-2024-002",
+      "fecha": "2024-01-30",
+      "concepto": "Servicio extra post-evento",
+      "estado": "pagada"
+    },
+    {
+      "numero": "FAC-2024-003",
+      "fecha": "2024-02-01",
+      "concepto": "Limpieza mensual oficinas",
+      "estado": "pendiente"
+    }
+  ]
+}

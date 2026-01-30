@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CleanPro Solutions | Limpieza Profesional que Transforma Espacios</title>
+    <meta name="description" content="Servicios de limpieza profesional para oficinas, hogares, industrias y más. Calidad garantizada y personal verificado.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: { 50: '#f0fdfa', 100: '#ccfbf1', 200: '#99f6e4', 300: '#5eead4', 400: '#2dd4bf', 500: '#14b8a6', 600: '#0d9488', 700: '#0f766e', 800: '#115e59', 900: '#134e4a' },
+                        secondary: { 400: '#22d3ee', 500: '#06b6d4', 600: '#0891b2' }
+                    },
+                    fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="font-sans antialiased">
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <a href="#" class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary-500 to-secondary-500 flex items-center justify-center">
+                        <i data-lucide="sparkles" class="w-6 h-6 text-white"></i>
+                    </div>
+                    <span class="text-xl font-bold text-gray-900">CleanPro</span>
+                </a>
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="#servicios" class="nav-link text-gray-700 hover:text-primary-600 font-medium">Servicios</a>
+                    <a href="#cotizador" class="nav-link text-gray-700 hover:text-primary-600 font-medium">Cotizar</a>
+                    <a href="#equipo" class="nav-link text-gray-700 hover:text-primary-600 font-medium">Equipo</a>
+                    <a href="#portal" class="nav-link text-gray-700 hover:text-primary-600 font-medium">Portal</a>
+                    <a href="#trabaja" class="btn-primary px-6 py-2.5 rounded-full text-white font-semibold">Únete al Equipo</a>
+                </div>
+                <button id="menuBtn" class="md:hidden p-2 text-gray-700"><i data-lucide="menu" class="w-6 h-6"></i></button>
+            </div>
+        </div>
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-t shadow-lg">
+            <div class="px-4 py-4 space-y-3">
+                <a href="#servicios" class="block py-2 text-gray-700 font-medium">Servicios</a>
+                <a href="#cotizador" class="block py-2 text-gray-700 font-medium">Cotizar</a>
+                <a href="#equipo" class="block py-2 text-gray-700 font-medium">Equipo</a>
+                <a href="#portal" class="block py-2 text-gray-700 font-medium">Portal</a>
+                <a href="#trabaja" class="block py-2 text-primary-600 font-semibold">Únete al Equipo</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="gradient-hero min-h-screen flex items-center relative overflow-hidden">
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="absolute top-20 left-10 w-72 h-72 bg-primary-500/20 rounded-full blur-3xl float-animation"></div>
+            <div class="absolute bottom-20 right-10 w-96 h-96 bg-secondary-400/20 rounded-full blur-3xl float-animation-delayed"></div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full text-white/90 text-sm mb-6">
+                        <i data-lucide="shield-check" class="w-4 h-4"></i>
+                        Personal 100% Verificado
+                    </div>
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6">
+                        Limpieza Profesional que
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary-300 to-secondary-300"> Transforma </span>
+                        Espacios
+                    </h1>
+                    <p class="text-xl text-gray-300 mb-8 max-w-xl">
+                        Soluciones integrales de limpieza para empresas y hogares. Equipos capacitados, productos ecológicos y resultados garantizados.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#cotizador" class="btn-primary px-8 py-4 rounded-full text-white font-bold text-lg flex items-center gap-2 pulse-glow">
+                            <i data-lucide="calculator" class="w-5 h-5"></i>
+                            Cotización Inmediata
+                        </a>
+                        <a href="#servicios" class="btn-secondary px-8 py-4 rounded-full font-bold text-lg border-white text-white hover:bg-white hover:text-gray-900">
+                            Ver Servicios
+                        </a>
+                    </div>
+                    <div class="flex items-center gap-8 mt-12">
+                        <div><p class="text-3xl font-bold text-white">500+</p><p class="text-gray-400">Clientes Activos</p></div>
+                        <div class="w-px h-12 bg-white/20"></div>
+                        <div><p class="text-3xl font-bold text-white">15+</p><p class="text-gray-400">Años de Experiencia</p></div>
+                        <div class="w-px h-12 bg-white/20"></div>
+                        <div><p class="text-3xl font-bold text-white">98%</p><p class="text-gray-400">Satisfacción</p></div>
+                    </div>
+                </div>
+                <div class="hidden lg:block relative">
+                    <div class="glass-card rounded-3xl p-8 transform rotate-3 hover:rotate-0 transition-transform duration-500">
+                        <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=600&h=400&fit=crop" alt="Equipo de limpieza profesional" class="rounded-2xl shadow-2xl">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 scroll-indicator">
+            <i data-lucide="chevron-down" class="w-8 h-8 text-white/50"></i>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="servicios" class="py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="inline-block px-4 py-2 bg-primary-100 text-primary-700 rounded-full text-sm font-semibold mb-4">Nuestros Servicios</span>
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Soluciones para Cada Necesidad</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Desde oficinas corporativas hasta el hogar, tenemos el servicio perfecto para ti.</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="service-card bg-white rounded-3xl p-8 shadow-lg border border-gray-100">
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary-500 to-secondary-500 flex items-center justify-center mb-6"><i data-lucide="building-2" class="w-8 h-8 text-white"></i></div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3">Oficinas Corporativas</h3>
+                    <p class="text-gray-600 mb-4">Espacios de trabajo impecables que impulsan la productividad de tu equipo.</p>
+                    <div class="flex items-center justify-between pt-4 border-t border-gray-100">
+                        <span class="text-sm text-gray-500">Personalizado</span>
+                        <span class="text-primary-600 font-semibold">A convenir</span>
+                    </div>
+                </div>
+                <div class="service-card bg-white rounded-3xl p-8 shadow-lg border border-gray-100">
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-amber-500 to-orange-500 flex items-center justify-center mb-6"><i data-lucide="hard-hat" class="w-8 h-8 text-white"></i></div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3">Final de Obra</h3>
+                    <p class="text-gray-600 mb-4">Dejamos tu proyecto listo para la entrega, sin rastros de polvo ni residuos.</p>
+                    <div class="flex items-center justify-between pt-4 border-t border-gray-100">
+                        <span class="text-sm text-gray-500">Por proyecto</span>
+                        <span class="text-primary-600 font-semibold">Solicitar presupuesto</span>
+                    </div>
+                </div>
+                <div class="service-card bg-white rounded-3xl p-8 shadow-lg border border-gray-100">
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-red-500 to-pink-500 flex items-center justify-center mb-6"><i data-lucide="heart-pulse" class="w-8 h-8 text-white"></i></div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3">Hospitalario</h3>
+                    <p class="text-gray-600 mb-4">Protocolos de desinfección certificados para centros de salud.</p>
+                    <div class="flex items-center justify-between pt-4 border-t border-gray-100">
+                        <span class="text-sm text-gray-500">Certificado</span>
+                        <span class="text-primary-600 font-semibold">A convenir</span>
+                    </div>
+                </div>
+                <div class="service-card bg-white rounded-3xl p-8 shadow-lg border border-gray-100">
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center mb-6"><i data-lucide="factory" class="w-8 h-8 text-white"></i></div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3">Industrial</h3>
+                    <p class="text-gray-600 mb-4">Soluciones para grandes superficies, maquinaria y naves industriales.</p>
+                    <div class="flex items-center justify-between pt-4 border-t border-gray-100">
+                        <span class="text-sm text-gray-500">Gran escala</span>
+                        <span class="text-primary-600 font-semibold">Solicitar presupuesto</span>
+                    </div>
+                </div>
+                <div class="service-card bg-white rounded-3xl p-8 shadow-lg border border-gray-100">
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-500 flex items-center justify-center mb-6"><i data-lucide="home" class="w-8 h-8 text-white"></i></div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3">Hogar Premium</h3>
+                    <p class="text-gray-600 mb-4">Tu hogar merece el mejor cuidado con productos de alta calidad.</p>
+                    <div class="flex items-center justify-between pt-4 border-t border-gray-100">
+                        <span class="text-sm text-gray-500">Residencial</span>
+                        <span class="text-primary-600 font-semibold">A convenir</span>
+                    </div>
+                </div>
+                <div class="service-card bg-white rounded-3xl p-8 shadow-lg border border-gray-100">
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-500 to-indigo-500 flex items-center justify-center mb-6"><i data-lucide="party-popper" class="w-8 h-8 text-white"></i></div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3">Eventos</h3>
+                    <p class="text-gray-600 mb-4">Antes y después de tus eventos especiales, lo dejamos impecable.</p>
+                    <div class="flex items-center justify-between pt-4 border-t border-gray-100">
+                        <span class="text-sm text-gray-500">Puntual</span>
+                        <span class="text-primary-600 font-semibold">Solicitar presupuesto</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dynamic Quoter Section -->
+    <section id="cotizador" class="py-24 bg-gradient-to-br from-gray-900 via-gray-800 to-primary-900">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="inline-block px-4 py-2 bg-white/10 text-white rounded-full text-sm font-semibold mb-4">Cotizador Inteligente</span>
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Solicita tu Presupuesto</h2>
+                <p class="text-xl text-gray-300">Completa el formulario y recibe una cotización personalizada</p>
+            </div>
+            <form id="quoterForm" class="glass-card rounded-3xl p-8 md:p-10">
+                <div class="grid md:grid-cols-2 gap-6 mb-8">
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">Tipo de Servicio</label>
+                        <select name="servicio" class="form-input w-full px-4 py-3 rounded-xl bg-white" required>
+                            <option value="">Selecciona un servicio</option>
+                            <option value="oficinas">Oficinas Corporativas</option>
+                            <option value="post-obra">Final de Obra</option>
+                            <option value="hospitalario">Hospitalario</option>
+                            <option value="industrial">Industrial</option>
+                            <option value="hogar">Hogar Premium</option>
+                            <option value="eventos">Eventos</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">Frecuencia</label>
+                        <select name="frecuencia" class="form-input w-full px-4 py-3 rounded-xl bg-white" required>
+                            <option value="">Selecciona frecuencia</option>
+                            <option value="unica">Única vez</option>
+                            <option value="semanal">Semanal</option>
+                            <option value="quincenal">Quincenal</option>
+                            <option value="mensual">Mensual</option>
+                            <option value="diario">Diario (L-V)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="mb-8">
+                    <label class="block text-sm font-semibold text-gray-700 mb-4">Superficie Aproximada: <span id="m2Value" class="text-primary-600 text-lg">100</span> m²</label>
+                    <input type="range" id="m2Range" min="20" max="1000" value="100" class="w-full">
+                    <div class="flex justify-between text-sm text-gray-500 mt-2">
+                        <span>20 m²</span>
+                        <span>1000 m²</span>
+                    </div>
+                </div>
+                <div class="grid md:grid-cols-3 gap-6 mb-8">
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">Nombre</label>
+                        <input type="text" name="nombre" class="form-input w-full px-4 py-3 rounded-xl bg-white" placeholder="Tu nombre" required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">Teléfono</label>
+                        <input type="tel" name="telefono" class="form-input w-full px-4 py-3 rounded-xl bg-white" placeholder="+1 555 123 4567" required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">Email</label>
+                        <input type="email" name="email" class="form-input w-full px-4 py-3 rounded-xl bg-white" placeholder="tu@email.com" required>
+                    </div>
+                </div>
+                <button type="submit" class="w-full btn-primary py-4 rounded-xl text-white font-bold text-lg flex items-center justify-center gap-2">
+                    <i data-lucide="send" class="w-5 h-5"></i>
+                    Enviar para Validar Disponibilidad
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Interactive Checklist Section -->
+    <section class="py-24 bg-white">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="inline-block px-4 py-2 bg-primary-100 text-primary-700 rounded-full text-sm font-semibold mb-4">¿Qué Incluye?</span>
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Compara Nuestros Planes</h2>
+                <p class="text-xl text-gray-600">Elige el nivel de limpieza que mejor se adapte a tus necesidades</p>
+            </div>
+            <div class="flex justify-center gap-4 mb-10">
+                <button class="tab-btn active px-8 py-3 rounded-full font-semibold transition-all" data-tab="basica">Limpieza Básica</button>
+                <button class="tab-btn px-8 py-3 rounded-full font-semibold transition-all" data-tab="profunda">Limpieza Profunda</button>
+            </div>
+            <div id="checklistContainer" class="bg-gray-50 rounded-3xl p-8"></div>
+        </div>
+    </section>
+
+    <!-- Before/After Slider Section -->
+    <section class="py-24 bg-gray-50">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="inline-block px-4 py-2 bg-primary-100 text-primary-700 rounded-full text-sm font-semibold mb-4">Resultados Reales</span>
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Antes y Después</h2>
+                <p class="text-xl text-gray-600">Desliza para ver la diferencia que hacemos</p>
+            </div>
+            <div class="before-after-container shadow-2xl">
+                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&h=800&fit=crop" alt="Después de la limpieza" class="after-image">
+                <div class="before-image">
+                    <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=1200&h=800&fit=crop" alt="Antes de la limpieza">
+                </div>
+                <div class="slider-handle"></div>
+                <div class="absolute top-4 left-4 bg-red-500 text-white px-4 py-2 rounded-full font-semibold text-sm shadow-lg">ANTES</div>
+                <div class="absolute top-4 right-4 bg-green-500 text-white px-4 py-2 rounded-full font-semibold text-sm shadow-lg">DESPUÉS</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Staff Section -->
+    <section id="equipo" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="inline-block px-4 py-2 bg-primary-100 text-primary-700 rounded-full text-sm font-semibold mb-4">Nuestro Equipo</span>
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Profesionales Verificados</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Cada miembro de nuestro equipo pasa por rigurosos procesos de selección y verificación</p>
+            </div>
+            <div id="staffGrid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-24 bg-gradient-to-br from-primary-50 to-secondary-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="inline-block px-4 py-2 bg-primary-100 text-primary-700 rounded-full text-sm font-semibold mb-4">Testimonios</span>
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Lo Que Dicen Nuestros Clientes</h2>
+            </div>
+            <div id="testimonialGrid" class="grid md:grid-cols-3 gap-8"></div>
+        </div>
+    </section>
+
+    <!-- Client Portal Simulation -->
+    <section id="portal" class="py-24 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="inline-block px-4 py-2 bg-purple-100 text-purple-700 rounded-full text-sm font-semibold mb-4">Portal de Cliente (Demo)</span>
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Tu Espacio Personal</h2>
+                <p class="text-xl text-gray-600">Gestiona tus servicios, consulta visitas y revisa facturas desde un solo lugar</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="portal-card rounded-3xl p-8 shadow-xl">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-primary-500 to-secondary-500 flex items-center justify-center">
+                            <i data-lucide="calendar-check" class="w-6 h-6 text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900">Próximas Visitas</h3>
+                    </div>
+                    <div id="upcomingVisits" class="space-y-4"></div>
+                </div>
+                <div class="portal-card rounded-3xl p-8 shadow-xl">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-gray-600 to-gray-800 flex items-center justify-center">
+                            <i data-lucide="receipt" class="w-6 h-6 text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900">Historial de Facturas</h3>
+                    </div>
+                    <div id="invoicesHistory" class="space-y-4"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recruitment Section -->
+    <section id="trabaja" class="py-24 bg-gradient-to-br from-gray-900 to-gray-800">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="inline-block px-4 py-2 bg-white/10 text-white rounded-full text-sm font-semibold mb-4">Trabaja con Nosotros</span>
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Únete al Equipo CleanPro</h2>
+                <p class="text-xl text-gray-300">Buscamos profesionales comprometidos con la excelencia</p>
+            </div>
+            <form id="recruitmentForm" class="glass-card rounded-3xl p-8 md:p-10">
+                <div class="grid md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">Nombre Completo *</label>
+                        <input type="text" name="nombreCompleto" class="form-input w-full px-4 py-3 rounded-xl bg-white" required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">Email *</label>
+                        <input type="email" name="emailRecruit" class="form-input w-full px-4 py-3 rounded-xl bg-white" required>
+                    </div>
+                </div>
+                <div class="grid md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">Teléfono *</label>
+                        <input type="tel" name="telefonoRecruit" class="form-input w-full px-4 py-3 rounded-xl bg-white" required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">Experiencia</label>
+                        <select name="experiencia" class="form-input w-full px-4 py-3 rounded-xl bg-white">
+                            <option value="sin">Sin experiencia</option>
+                            <option value="1-2">1-2 años</option>
+                            <option value="3-5">3-5 años</option>
+                            <option value="5+">Más de 5 años</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="mb-6">
+                    <label class="block text-sm font-semibold text-gray-700 mb-2">Disponibilidad</label>
+                    <select name="disponibilidad" class="form-input w-full px-4 py-3 rounded-xl bg-white">
+                        <option value="completa">Tiempo completo</option>
+                        <option value="parcial">Medio tiempo</option>
+                        <option value="fines">Fines de semana</option>
+                    </select>
+                </div>
+                <div class="mb-6">
+                    <label class="block text-sm font-semibold text-gray-700 mb-2">Adjuntar CV (PDF)</label>
+                    <div id="fileUploadArea" class="file-upload-area rounded-xl p-8 text-center cursor-pointer">
+                        <i data-lucide="upload-cloud" class="w-12 h-12 text-gray-400 mx-auto mb-3"></i>
+                        <p class="text-gray-600">Arrastra tu archivo aquí o <span class="text-primary-600 font-semibold">haz clic para seleccionar</span></p>
+                        <p id="fileName" class="text-primary-600 font-semibold mt-2 hidden"></p>
+                    </div>
+                    <input type="file" id="cvFile" accept=".pdf,.doc,.docx" class="hidden">
+                </div>
+                <div class="mb-6">
+                    <label class="block text-sm font-semibold text-gray-700 mb-2">¿Por qué quieres trabajar con nosotros?</label>
+                    <textarea name="mensaje" rows="3" class="form-input w-full px-4 py-3 rounded-xl bg-white resize-none" placeholder="Cuéntanos sobre ti..."></textarea>
+                </div>
+                <button type="submit" class="w-full btn-primary py-4 rounded-xl text-white font-bold text-lg flex items-center justify-center gap-2">
+                    <i data-lucide="user-plus" class="w-5 h-5"></i>
+                    Enviar Solicitud
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer with Lead Magnet -->
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div class="md:col-span-2">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-primary-500 to-secondary-500 flex items-center justify-center">
+                            <i data-lucide="sparkles" class="w-7 h-7 text-white"></i>
+                        </div>
+                        <span class="text-2xl font-bold">CleanPro Solutions</span>
+                    </div>
+                    <p class="text-gray-400 mb-6 max-w-md">Transformamos espacios con profesionalismo y dedicación. Más de 15 años brindando servicios de limpieza de alta calidad.</p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/10 hover:bg-primary-500 flex items-center justify-center transition-colors"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/10 hover:bg-primary-500 flex items-center justify-center transition-colors"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/10 hover:bg-primary-500 flex items-center justify-center transition-colors"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Servicios</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li><a href="#servicios" class="hover:text-primary-400 transition-colors">Oficinas</a></li>
+                        <li><a href="#servicios" class="hover:text-primary-400 transition-colors">Final de Obra</a></li>
+                        <li><a href="#servicios" class="hover:text-primary-400 transition-colors">Hospitalario</a></li>
+                        <li><a href="#servicios" class="hover:text-primary-400 transition-colors">Industrial</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Descarga Gratis</h4>
+                    <div class="bg-gradient-to-br from-primary-600 to-secondary-600 rounded-2xl p-6">
+                        <i data-lucide="book-open" class="w-10 h-10 mb-3"></i>
+                        <h5 class="font-bold mb-2">Guía de Mantenimiento</h5>
+                        <p class="text-sm text-white/80 mb-4">Tips profesionales para mantener tu oficina impecable</p>
+                        <button onclick="showLeadPopup()" class="w-full bg-white text-primary-600 font-bold py-2 rounded-lg hover:bg-gray-100 transition-colors">Descargar Guía</button>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-500 text-sm">&copy; 2024 CleanPro Solutions. Todos los derechos reservados.</p>
+                <p class="text-gray-500 text-sm">Demo desarrollada por <span class="text-primary-400 font-semibold">Tu Agencia Digital</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Quote Summary Modal -->
+    <div id="quoteSummaryModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 modal-overlay">
+        <div class="modal-content bg-white rounded-3xl shadow-2xl max-w-lg w-full p-8">
+            <div class="flex items-center justify-between mb-6">
+                <h3 class="text-2xl font-bold text-gray-900">Resumen de tu Solicitud</h3>
+                <button onclick="closeQuoteSummary()" class="w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center"><i data-lucide="x" class="w-5 h-5 text-gray-600"></i></button>
+            </div>
+            <div id="quoteSummaryContent"></div>
+            <button onclick="closeQuoteSummary()" class="mt-6 w-full btn-primary py-3 rounded-xl text-white font-bold">Entendido</button>
+        </div>
+    </div>
+
+    <!-- Lead Magnet Popup -->
+    <div id="leadPopup" class="fixed inset-0 z-50 hidden items-center justify-center p-4 modal-overlay">
+        <div class="lead-popup bg-white rounded-3xl shadow-2xl max-w-md w-full overflow-hidden">
+            <div class="bg-gradient-to-br from-primary-500 to-secondary-500 p-8 text-white text-center">
+                <i data-lucide="gift" class="w-16 h-16 mx-auto mb-4"></i>
+                <h3 class="text-2xl font-bold mb-2">¡Regalo para Ti!</h3>
+                <p class="text-white/90">Descarga gratis nuestra guía profesional de mantenimiento de oficinas</p>
+            </div>
+            <form id="leadForm" class="p-8">
+                <div class="mb-4">
+                    <label class="block text-sm font-semibold text-gray-700 mb-2">Tu Email</label>
+                    <input type="email" id="leadEmail" class="form-input w-full px-4 py-3 rounded-xl bg-white" placeholder="correo@ejemplo.com" required>
+                </div>
+                <button type="submit" class="w-full btn-primary py-3 rounded-xl text-white font-bold flex items-center justify-center gap-2">
+                    <i data-lucide="download" class="w-5 h-5"></i>
+                    Descargar Guía Gratis
+                </button>
+                <button type="button" id="closePopup" class="w-full mt-3 py-2 text-gray-500 hover:text-gray-700 font-medium text-sm">No, gracias</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="app.js"></script>
+</body>
+</html>
