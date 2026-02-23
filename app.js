@@ -15,7 +15,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     renderChecklist('basica');
     setupNavbar();
     setupMobileMenu();
-    setupBeforeAfterSlider();
     setupTabs();
     setupRecruitmentForm();
     setupLeadPopup();
@@ -216,36 +215,7 @@ function setupMobileMenu() {
     );
 }
 
-// ── Before/After Slider ────────────────────────────────────
 
-function setupBeforeAfterSlider() {
-    const container = document.querySelector('.before-after-container');
-    const handle = document.querySelector('.slider-handle');
-    const beforeImg = document.querySelector('.before-image');
-    if (!container || !handle || !beforeImg) return;
-
-    let isDragging = false;
-
-    const update = (x) => {
-        const rect = container.getBoundingClientRect();
-        let pct = ((x - rect.left) / rect.width) * 100;
-        pct = Math.max(2, Math.min(98, pct));
-        handle.style.left = `${pct}%`;
-        beforeImg.style.width = `${pct}%`;
-    };
-
-    handle.addEventListener('mousedown', (e) => { isDragging = true; e.preventDefault(); });
-    document.addEventListener('mouseup', () => { isDragging = false; });
-    document.addEventListener('mousemove', (e) => { if (isDragging) update(e.clientX); });
-
-    handle.addEventListener('touchstart', () => { isDragging = true; }, { passive: true });
-    document.addEventListener('touchend', () => { isDragging = false; });
-    document.addEventListener('touchmove', (e) => {
-        if (isDragging) update(e.touches[0].clientX);
-    }, { passive: true });
-
-    container.addEventListener('click', (e) => update(e.clientX));
-}
 
 // ── Recruitment Form ───────────────────────────────────────
 
