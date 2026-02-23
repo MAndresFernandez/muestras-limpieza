@@ -14,10 +14,17 @@ async function loadData() {
     try {
         const response = await fetch('data.json');
         appData = await response.json();
+        // Merge admin panel overrides from localStorage
+        const localOverride = localStorage.getItem('cleanpro_admin_data');
+        if (localOverride) {
+            try {
+                const parsed = JSON.parse(localOverride);
+                if (parsed.staff) appData.staff = parsed.staff;
+            } catch (e) { /* ignore */ }
+        }
         console.log('Data loaded successfully', appData);
     } catch (error) {
         console.error('Error loading data:', error);
-        // Fallback data
         appData = getFallbackData();
     }
 }
@@ -80,6 +87,7 @@ function getFallbackData() {
 
 // Initialize all components
 function initializeComponents() {
+    renderFeaturedCollaborators();
     renderStaffGrid();
     renderTestimonials();
     renderChecklist('basica');
@@ -157,13 +165,62 @@ function setupEventListeners() {
     setupScrollNavbar();
 }
 
+// Render featured collaborators
+function renderFeaturedCollaborators() {
+    const container = document.getElementById('featuredGrid');
+    if (!container || !appData?.staff) return;
+
+    const featured = appData.staff.filter(s => s.destacado);
+    if (featured.length === 0) {
+        container.closest('section').style.display = 'none';
+        return;
+    }
+
+    container.innerHTML = featured.map(member => {
+        const stars = Array(5).fill().map((_, i) =>
+            `<i data-lucide="star" class="w-4 h-4 ${i < Math.round(member.rating || 0) ? 'text-amber-400 fill-amber-400' : 'text-gray-300'}"></i>`
+        ).join('');
+        return `
+        <a href="trabajador.html?id=${member.id}" class="featured-card group block bg-gradient-to-br from-white to-gray-50 rounded-3xl shadow-xl overflow-hidden border border-gray-100 hover:shadow-2xl transition-all duration-400 hover:-translate-y-2">
+            <div class="relative">
+                <img src="${member.foto}" alt="${member.nombre}" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                <div class="absolute bottom-4 left-4 right-4">
+                    <div class="flex items-center gap-2 mb-1">
+                        <span class="bg-amber-400 text-amber-900 px-2 py-0.5 rounded-full text-xs font-bold">⭐ TOP</span>
+                        ${member.verificado ? '<span class="bg-emerald-500 text-white px-2 py-0.5 rounded-full text-xs font-semibold">✓ Verificado</span>' : ''}
+                    </div>
+                    <h3 class="text-2xl font-extrabold text-white">${member.nombre}</h3>
+                </div>
+            </div>
+            <div class="p-6">
+                <p class="text-primary-600 font-semibold text-lg">${member.puesto}</p>
+                <p class="text-gray-500 text-sm mt-1">${member.especialidad}</p>
+                <div class="flex items-center justify-between mt-4">
+                    <div class="flex items-center gap-1.5">
+                        ${stars}
+                        <span class="text-sm font-bold text-gray-700 ml-1">${(member.rating || 0).toFixed(1)}</span>
+                        <span class="text-sm text-gray-400">(${(member.resenas || []).length})</span>
+                    </div>
+                    <span class="text-sm text-primary-600 font-semibold flex items-center gap-1 group-hover:gap-2 transition-all">
+                        Ver perfil <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </span>
+                </div>
+            </div>
+        </a>
+    `;
+    }).join('');
+
+    lucide.createIcons();
+}
+
 // Render staff grid
 function renderStaffGrid() {
     const container = document.getElementById('staffGrid');
     if (!container || !appData?.staff) return;
 
     container.innerHTML = appData.staff.map(member => `
-        <div class="staff-card bg-white rounded-2xl shadow-lg overflow-hidden group cursor-pointer">
+        <a href="trabajador.html?id=${member.id}" class="staff-card bg-white rounded-2xl shadow-lg overflow-hidden group cursor-pointer block">
             <div class="relative">
                 <img src="${member.foto}" alt="${member.nombre}" 
                      class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500">
@@ -183,7 +240,7 @@ function renderStaffGrid() {
                     <span>${member.experiencia || 'Experiencia verificada'}</span>
                 </div>
             </div>
-        </div>
+        </a>
     `).join('');
 
     lucide.createIcons();

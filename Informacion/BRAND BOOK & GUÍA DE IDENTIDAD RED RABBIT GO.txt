@@ -1,0 +1,43 @@
+# BRAND BOOK & GUÍA DE IDENTIDAD: RED RABBIT GO
+
+## 1. INFORMACIÓN INSTITUCIONAL
+
+* **Nombre de la Marca:** Red Rabbit Go
+* **Propósito (Quiénes Somos):** Proveemos soluciones de limpieza que superen los estándares convencionales, permitiendo a nuestros clientes delegar la gestión de su entorno con la certeza de recibir un servicio de clase.
+* **Diferenciales Clave (USP):**
+1. **Capital Humano Especializado:** Personal seleccionado bajo rigurosos estándares de seguridad y capacitado en técnicas de higienización avanzada y atención premium.
+2. **Protocolos de Higiene Industrial:** Sistemas de desinfección industriales adaptados al ámbito doméstico (espacios bioseguros y libres de alérgenos).
+3. **Compromiso Ético y Legal:** Total transparencia administrativa con colaboradores respaldados legalmente y con seguridad social (mitigación de riesgo para el cliente).
+
+
+
+## 2. IDENTIDAD VISUAL (ASSETS)
+
+* **Archivo del Logo:** `logoredrabbitgo.svg` (Uso indispensable de formato vectorial .SVG)
+* **Paleta de Colores Institucionales (JSON):**
+
+```json
+{
+  "brand": "Red Rabbit Go",
+  "palette": {
+    "primary_red": "#D92534",
+    "secondary_red": "#D92525",
+    "muted_rose": "#A66A6A",
+    "light_pink": "#F2AEAE",
+    "off_white": "#F2F2F2"
+  }
+}
+
+```
+
+## 3. ALCANCE Y CONTACTO
+
+* **Zonas de Cobertura:** La Plata, Ensenada, Berisso, Tolosa, Ringuelet, Gonnet, City Bell.
+* **Canal de Venta Principal:** WhatsApp
+* **Número de Contacto:** `542216924104` (Formato internacional para botones de acción/API).
+
+---
+
+### Notas para el Agente de IA:
+
+> Al generar contenido para Red Rabbit Go, prioriza un tono profesional, seguro y de alta gama (Premium). Utiliza el color `#D92534` como color de acento principal en llamadas a la acción (CTAs) y el `#F2F2F2` para fondos o espacios negativos.

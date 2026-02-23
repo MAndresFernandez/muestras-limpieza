@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Gestión | CleanPro Solutions</title>
+    <meta name="description" content="Panel de administración para gestionar trabajadores de CleanPro Solutions.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: { 50: '#f0fdfa', 100: '#ccfbf1', 200: '#99f6e4', 300: '#5eead4', 400: '#2dd4bf', 500: '#14b8a6', 600: '#0d9488', 700: '#0f766e', 800: '#115e59', 900: '#134e4a' },
+                        secondary: { 400: '#22d3ee', 500: '#06b6d4', 600: '#0891b2' }
+                    },
+                    fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .login-bg {
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0d9488 100%);
+            min-height: 100vh;
+        }
+
+        .panel-sidebar {
+            background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+        }
+
+        .stat-card {
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.15);
+        }
+
+        .worker-row {
+            transition: all 0.2s ease;
+        }
+
+        .worker-row:hover {
+            background: #f0fdfa;
+        }
+
+        .modal-backdrop {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(4px);
+        }
+
+        .editable-field {
+            transition: all 0.2s ease;
+            border: 2px solid transparent;
+        }
+
+        .editable-field:hover {
+            border-color: #e2e8f0;
+        }
+
+        .editable-field:focus {
+            border-color: #0d9488;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.1);
+        }
+
+        .tab-panel {
+            display: none;
+        }
+
+        .tab-panel.active {
+            display: block;
+        }
+
+        .sidebar-link {
+            transition: all 0.2s ease;
+        }
+
+        .sidebar-link:hover,
+        .sidebar-link.active {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .sidebar-link.active {
+            border-left: 3px solid #14b8a6;
+        }
+    </style>
+</head>
+
+<body class="font-sans antialiased">
+
+    <!-- ============ LOGIN SCREEN ============ -->
+    <div id="loginScreen" class="login-bg flex items-center justify-center p-4">
+        <div class="w-full max-w-md">
+            <div class="text-center mb-8">
+                <div
+                    class="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary-500 to-secondary-500 flex items-center justify-center mx-auto mb-4 shadow-lg shadow-primary-500/30">
+                    <i data-lucide="sparkles" class="w-9 h-9 text-white"></i>
+                </div>
+                <h1 class="text-3xl font-extrabold text-white mb-2">Panel de Gestión</h1>
+                <p class="text-gray-400">Ingresa tus credenciales para acceder</p>
+            </div>
+
+            <form id="loginForm" class="glass-card rounded-2xl p-8 space-y-6">
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-2">Usuario</label>
+                    <div class="relative">
+                        <i data-lucide="user"
+                            class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400"></i>
+                        <input type="text" id="loginUser" class="form-input w-full pl-12 pr-4 py-3 rounded-xl bg-white"
+                            placeholder="Tu usuario" required autocomplete="username">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-2">Contraseña</label>
+                    <div class="relative">
+                        <i data-lucide="lock"
+                            class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400"></i>
+                        <input type="password" id="loginPass"
+                            class="form-input w-full pl-12 pr-12 py-3 rounded-xl bg-white" placeholder="Tu contraseña"
+                            required autocomplete="current-password">
+                        <button type="button" id="togglePassBtn"
+                            class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600">
+                            <i data-lucide="eye" class="w-5 h-5" id="eyeIcon"></i>
+                        </button>
+                    </div>
+                </div>
+                <div id="loginError" class="hidden bg-red-50 text-red-600 text-sm p-3 rounded-xl font-medium"></div>
+                <button type="submit"
+                    class="w-full btn-primary py-3.5 rounded-xl text-white font-bold text-lg flex items-center justify-center gap-2">
+                    <i data-lucide="log-in" class="w-5 h-5"></i>
+                    Iniciar Sesión
+                </button>
+            </form>
+
+            <p class="text-center text-gray-500 text-sm mt-6">
+                <a href="index.html" class="text-primary-300 hover:text-primary-200 font-medium">← Volver al sitio</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- ============ ADMIN PANEL ============ -->
+    <div id="adminPanel" class="hidden min-h-screen bg-gray-50">
+        <!-- Top Bar -->
+        <header class="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-40">
+            <div class="max-w-full mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between h-16">
+                    <div class="flex items-center gap-4">
+                        <button id="sidebarToggle" class="lg:hidden p-2 text-gray-600 hover:text-gray-900">
+                            <i data-lucide="menu" class="w-6 h-6"></i>
+                        </button>
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="w-9 h-9 rounded-lg bg-gradient-to-br from-primary-500 to-secondary-500 flex items-center justify-center">
+                                <i data-lucide="sparkles" class="w-5 h-5 text-white"></i>
+                            </div>
+                            <span class="text-lg font-bold text-gray-900 hidden sm:block">CleanPro Admin</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <span id="currentUser" class="text-sm text-gray-500 hidden sm:block"></span>
+                        <button onclick="handleLogout()"
+                            class="flex items-center gap-2 text-gray-600 hover:text-red-600 font-medium text-sm transition-colors">
+                            <i data-lucide="log-out" class="w-4 h-4"></i>
+                            Salir
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="flex">
+            <!-- Sidebar -->
+            <aside id="sidebar"
+                class="panel-sidebar w-64 min-h-[calc(100vh-64px)] p-4 hidden lg:block fixed lg:static z-30">
+                <nav class="space-y-1">
+                    <button onclick="showTab('dashboard')"
+                        class="sidebar-link active w-full text-left flex items-center gap-3 px-4 py-3 rounded-xl text-white font-medium"
+                        data-tab="dashboard">
+                        <i data-lucide="layout-dashboard" class="w-5 h-5"></i>
+                        Dashboard
+                    </button>
+                    <button onclick="showTab('workers')"
+                        class="sidebar-link w-full text-left flex items-center gap-3 px-4 py-3 rounded-xl text-gray-300 font-medium"
+                        data-tab="workers">
+                        <i data-lucide="users" class="w-5 h-5"></i>
+                        Trabajadores
+                    </button>
+                    <button onclick="showTab('reviews')"
+                        class="sidebar-link w-full text-left flex items-center gap-3 px-4 py-3 rounded-xl text-gray-300 font-medium"
+                        data-tab="reviews">
+                        <i data-lucide="star" class="w-5 h-5"></i>
+                        Reseñas
+                    </button>
+                    <button onclick="showTab('settings')"
+                        class="sidebar-link w-full text-left flex items-center gap-3 px-4 py-3 rounded-xl text-gray-300 font-medium"
+                        data-tab="settings">
+                        <i data-lucide="settings" class="w-5 h-5"></i>
+                        Configuración
+                    </button>
+                </nav>
+            </aside>
+
+            <!-- Main Content -->
+            <main class="flex-1 p-6 lg:p-8 max-w-full overflow-x-hidden">
+
+                <!-- ===== DASHBOARD TAB ===== -->
+                <div id="tab-dashboard" class="tab-panel active">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6">Dashboard</h2>
+                    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                        <div class="stat-card bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="w-12 h-12 rounded-xl bg-primary-100 flex items-center justify-center">
+                                    <i data-lucide="users" class="w-6 h-6 text-primary-600"></i>
+                                </div>
+                                <span
+                                    class="text-xs font-semibold text-green-600 bg-green-100 px-2 py-1 rounded-full">Activos</span>
+                            </div>
+                            <p id="statTotal" class="text-3xl font-extrabold text-gray-900">0</p>
+                            <p class="text-sm text-gray-500">Total Trabajadores</p>
+                        </div>
+                        <div class="stat-card bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="w-12 h-12 rounded-xl bg-amber-100 flex items-center justify-center">
+                                    <i data-lucide="trophy" class="w-6 h-6 text-amber-600"></i>
+                                </div>
+                                <span
+                                    class="text-xs font-semibold text-amber-600 bg-amber-100 px-2 py-1 rounded-full">Top</span>
+                            </div>
+                            <p id="statDestacados" class="text-3xl font-extrabold text-gray-900">0</p>
+                            <p class="text-sm text-gray-500">Destacados</p>
+                        </div>
+                        <div class="stat-card bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center">
+                                    <i data-lucide="shield-check" class="w-6 h-6 text-blue-600"></i>
+                                </div>
+                            </div>
+                            <p id="statVerificados" class="text-3xl font-extrabold text-gray-900">0</p>
+                            <p class="text-sm text-gray-500">Verificados</p>
+                        </div>
+                        <div class="stat-card bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="w-12 h-12 rounded-xl bg-purple-100 flex items-center justify-center">
+                                    <i data-lucide="message-square" class="w-6 h-6 text-purple-600"></i>
+                                </div>
+                            </div>
+                            <p id="statResenas" class="text-3xl font-extrabold text-gray-900">0</p>
+                            <p class="text-sm text-gray-500">Total Reseñas</p>
+                        </div>
+                    </div>
+
+                    <!-- Quick list -->
+                    <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+                        <h3 class="text-lg font-bold text-gray-900 mb-4">Equipo Actual</h3>
+                        <div id="dashboardWorkerList" class="space-y-3"></div>
+                    </div>
+                </div>
+
+                <!-- ===== WORKERS TAB ===== -->
+                <div id="tab-workers" class="tab-panel">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+                        <h2 class="text-2xl font-bold text-gray-900">Gestión de Trabajadores</h2>
+                        <button onclick="openWorkerModal()"
+                            class="btn-primary px-5 py-2.5 rounded-xl text-white font-semibold inline-flex items-center gap-2">
+                            <i data-lucide="user-plus" class="w-5 h-5"></i>
+                            Agregar Trabajador
+                        </button>
+                    </div>
+
+                    <!-- Search -->
+                    <div class="mb-6">
+                        <div class="relative max-w-md">
+                            <i data-lucide="search"
+                                class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400"></i>
+                            <input type="text" id="workerSearch" placeholder="Buscar por nombre o puesto..."
+                                class="form-input w-full pl-12 pr-4 py-3 rounded-xl bg-white" oninput="filterWorkers()">
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+                        <div class="overflow-x-auto">
+                            <table class="w-full">
+                                <thead>
+                                    <tr class="bg-gray-50 text-left">
+                                        <th class="px-6 py-4 text-sm font-semibold text-gray-600">Trabajador</th>
+                                        <th class="px-6 py-4 text-sm font-semibold text-gray-600 hidden md:table-cell">
+                                            Puesto</th>
+                                        <th class="px-6 py-4 text-sm font-semibold text-gray-600 hidden lg:table-cell">
+                                            Rating</th>
+                                        <th class="px-6 py-4 text-sm font-semibold text-gray-600 hidden sm:table-cell">
+                                            Estado</th>
+                                        <th class="px-6 py-4 text-sm font-semibold text-gray-600 text-right">Acciones
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody id="workersTableBody" class="divide-y divide-gray-100"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ===== REVIEWS TAB ===== -->
+                <div id="tab-reviews" class="tab-panel">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6">Todas las Reseñas</h2>
+                    <div id="allReviewsList" class="space-y-4"></div>
+                </div>
+
+                <!-- ===== SETTINGS TAB ===== -->
+                <div id="tab-settings" class="tab-panel">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6">Configuración</h2>
+                    <div class="max-w-lg">
+                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 mb-6">
+                            <h3 class="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+                                <i data-lucide="key" class="w-5 h-5 text-primary-500"></i>
+                                Cambiar Contraseña
+                            </h3>
+                            <form id="changePassForm" class="space-y-4">
+                                <div>
+                                    <label class="block text-sm font-semibold text-gray-700 mb-2">Contraseña
+                                        Actual</label>
+                                    <input type="password" id="currentPassword"
+                                        class="form-input w-full px-4 py-3 rounded-xl bg-white" required>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-semibold text-gray-700 mb-2">Nueva
+                                        Contraseña</label>
+                                    <input type="password" id="newPassword"
+                                        class="form-input w-full px-4 py-3 rounded-xl bg-white" required minlength="6">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-semibold text-gray-700 mb-2">Confirmar Nueva
+                                        Contraseña</label>
+                                    <input type="password" id="confirmPassword"
+                                        class="form-input w-full px-4 py-3 rounded-xl bg-white" required minlength="6">
+                                </div>
+                                <div id="passChangeMsg" class="hidden text-sm p-3 rounded-xl font-medium"></div>
+                                <button type="submit"
+                                    class="btn-primary px-6 py-3 rounded-xl text-white font-semibold flex items-center gap-2">
+                                    <i data-lucide="save" class="w-5 h-5"></i>
+                                    Guardar Contraseña
+                                </button>
+                            </form>
+                        </div>
+
+                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+                            <h3 class="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+                                <i data-lucide="download" class="w-5 h-5 text-primary-500"></i>
+                                Exportar Datos
+                            </h3>
+                            <p class="text-gray-500 text-sm mb-4">Descarga toda la información de trabajadores en
+                                formato JSON.</p>
+                            <button onclick="exportData()"
+                                class="btn-secondary px-6 py-3 rounded-xl font-semibold flex items-center gap-2 border-2 border-primary-500 text-primary-600 hover:bg-primary-500 hover:text-white transition-colors">
+                                <i data-lucide="file-json" class="w-5 h-5"></i>
+                                Descargar JSON
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </main>
+        </div>
+    </div>
+
+    <!-- ============ WORKER EDIT MODAL ============ -->
+    <div id="workerModal"
+        class="hidden fixed inset-0 z-50 flex items-start justify-center p-4 pt-20 modal-backdrop overflow-y-auto">
+        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-2xl modal-content mb-8">
+            <div class="flex items-center justify-between px-8 py-5 border-b border-gray-100">
+                <h3 id="modalTitle" class="text-xl font-bold text-gray-900">Editar Trabajador</h3>
+                <button onclick="closeWorkerModal()"
+                    class="w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center">
+                    <i data-lucide="x" class="w-5 h-5 text-gray-600"></i>
+                </button>
+            </div>
+            <form id="workerForm" class="p-8 space-y-5">
+                <input type="hidden" id="wf_id">
+                <div class="grid md:grid-cols-2 gap-5">
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">Nombre *</label>
+                        <input type="text" id="wf_nombre" class="form-input w-full px-4 py-3 rounded-xl bg-white"
+                            required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">Puesto *</label>
+                        <input type="text" id="wf_puesto" class="form-input w-full px-4 py-3 rounded-xl bg-white"
+                            required>
+                    </div>
+                </div>
+                <div class="grid md:grid-cols-2 gap-5">
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">Especialidad</label>
+                        <input type="text" id="wf_especialidad" class="form-input w-full px-4 py-3 rounded-xl bg-white">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">Experiencia</label>
+                        <input type="text" id="wf_experiencia" class="form-input w-full px-4 py-3 rounded-xl bg-white"
+                            placeholder="ej: 5 años">
+                    </div>
+                </div>
+                <div class="grid md:grid-cols-2 gap-5">
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">Teléfono</label>
+                        <input type="tel" id="wf_telefono" class="form-input w-full px-4 py-3 rounded-xl bg-white">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">Email</label>
+                        <input type="email" id="wf_email" class="form-input w-full px-4 py-3 rounded-xl bg-white">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-1">URL de Foto</label>
+                    <input type="url" id="wf_foto" class="form-input w-full px-4 py-3 rounded-xl bg-white"
+                        placeholder="https://...">
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-1">Biografía</label>
+                    <textarea id="wf_bio" rows="3"
+                        class="form-input w-full px-4 py-3 rounded-xl bg-white resize-none"></textarea>
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-1">Habilidades (separadas por
+                        coma)</label>
+                    <input type="text" id="wf_habilidades" class="form-input w-full px-4 py-3 rounded-xl bg-white"
+                        placeholder="Liderazgo, Limpieza corporativa, ...">
+                </div>
+                <div class="grid md:grid-cols-2 gap-5">
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">Disponibilidad</label>
+                        <select id="wf_disponibilidad" class="form-input w-full px-4 py-3 rounded-xl bg-white">
+                            <option value="Tiempo completo">Tiempo completo</option>
+                            <option value="Medio tiempo">Medio tiempo</option>
+                            <option value="Fines de semana">Fines de semana</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">Fecha de Ingreso</label>
+                        <input type="date" id="wf_fechaIngreso" class="form-input w-full px-4 py-3 rounded-xl bg-white">
+                    </div>
+                </div>
+                <div class="flex items-center gap-6">
+                    <label class="flex items-center gap-2 cursor-pointer">
+                        <input type="checkbox" id="wf_verificado" class="w-5 h-5 rounded text-primary-500">
+                        <span class="text-sm font-medium text-gray-700">Verificado</span>
+                    </label>
+                    <label class="flex items-center gap-2 cursor-pointer">
+                        <input type="checkbox" id="wf_destacado" class="w-5 h-5 rounded text-primary-500">
+                        <span class="text-sm font-medium text-gray-700">Destacado (aparece en Home)</span>
+                    </label>
+                </div>
+                <div class="flex gap-3 pt-4 border-t border-gray-100">
+                    <button type="submit"
+                        class="btn-primary px-6 py-3 rounded-xl text-white font-semibold flex items-center gap-2">
+                        <i data-lucide="save" class="w-5 h-5"></i>
+                        Guardar
+                    </button>
+                    <button type="button" onclick="closeWorkerModal()"
+                        class="px-6 py-3 rounded-xl border-2 border-gray-200 text-gray-600 font-semibold hover:bg-gray-50">
+                        Cancelar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ============ DELETE CONFIRMATION MODAL ============ -->
+    <div id="deleteModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 modal-backdrop">
+        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-sm p-8 text-center modal-content">
+            <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-red-100 flex items-center justify-center">
+                <i data-lucide="trash-2" class="w-8 h-8 text-red-500"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">¿Eliminar trabajador?</h3>
+            <p id="deleteWorkerName" class="text-gray-500 mb-6"></p>
+            <div class="flex gap-3 justify-center">
+                <button onclick="confirmDelete()"
+                    class="px-6 py-2.5 rounded-xl bg-red-500 text-white font-semibold hover:bg-red-600 transition-colors">Eliminar</button>
+                <button onclick="closeDeleteModal()"
+                    class="px-6 py-2.5 rounded-xl border-2 border-gray-200 text-gray-600 font-semibold hover:bg-gray-50">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="panel.js"></script>
+</body>
+
+</html>

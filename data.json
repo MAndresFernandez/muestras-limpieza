@@ -6,6 +6,11 @@
     "email": "contacto@cleanpro.com",
     "direccion": "Av. Principal 1234, Ciudad"
   },
+  "auth": {
+    "username": "sol34",
+    "passwordHash": "281fa509617d8b3641dbeb3585677a92ff718be6de50a3dcd56cbe4cb3f7289e",
+    "salt": "cLe4nPr0_s4lt_2024"
+  },
   "servicios": [
     {
       "id": "oficinas",
@@ -52,7 +57,50 @@
       "especialidad": "Coordinación de equipos",
       "experiencia": "8 años",
       "verificado": true,
-      "foto": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face"
+      "destacado": true,
+      "rating": 4.9,
+      "foto": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face",
+      "telefono": "+1 555 100 0001",
+      "email": "carlos.garcia@cleanpro.com",
+      "bio": "Líder natural con más de 8 años coordinando equipos de limpieza profesional en entornos corporativos de alta exigencia. Especialista en optimización de procesos y gestión de grandes superficies.",
+      "habilidades": [
+        "Liderazgo de equipos",
+        "Limpieza corporativa",
+        "Gestión de turnos",
+        "Control de calidad",
+        "Productos ecológicos"
+      ],
+      "disponibilidad": "Tiempo completo",
+      "fechaIngreso": "2018-03-15",
+      "documentosVerificados": [
+        "DNI",
+        "Antecedentes",
+        "Referencias",
+        "Certificaciones"
+      ],
+      "resenas": [
+        {
+          "autor": "María González",
+          "empresa": "Tech Solutions S.A.",
+          "texto": "Carlos siempre llega puntual y su equipo deja las oficinas impecables. Muy profesional.",
+          "rating": 5,
+          "fecha": "2025-11-10"
+        },
+        {
+          "autor": "Roberto Jiménez",
+          "empresa": "Constructora Moderna",
+          "texto": "Excelente coordinación. Gestionó a todo el equipo en nuestro edificio de 20 pisos sin ningún problema.",
+          "rating": 5,
+          "fecha": "2025-09-22"
+        },
+        {
+          "autor": "Laura Mendez",
+          "empresa": "Bufete Legal Central",
+          "texto": "Muy detallista y cuidadoso con los espacios sensibles de la oficina. Lo recomendamos totalmente.",
+          "rating": 5,
+          "fecha": "2025-07-14"
+        }
+      ]
     },
     {
       "id": 2,
@@ -61,7 +109,50 @@
       "especialidad": "Limpieza técnica",
       "experiencia": "6 años",
       "verificado": true,
-      "foto": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=300&h=300&fit=crop&crop=face"
+      "destacado": true,
+      "rating": 4.8,
+      "foto": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=300&h=300&fit=crop&crop=face",
+      "telefono": "+1 555 100 0002",
+      "email": "marta.rodriguez@cleanpro.com",
+      "bio": "Experta en limpieza técnica post-obra con conocimiento profundo en materiales de construcción y técnicas de remoción segura. Ha trabajado en más de 200 proyectos de entrega.",
+      "habilidades": [
+        "Limpieza post-obra",
+        "Remoción de residuos",
+        "Manejo de químicos",
+        "Cristales y fachadas",
+        "Pisos especiales"
+      ],
+      "disponibilidad": "Tiempo completo",
+      "fechaIngreso": "2020-01-10",
+      "documentosVerificados": [
+        "DNI",
+        "Antecedentes",
+        "Referencias",
+        "Seguro médico"
+      ],
+      "resenas": [
+        {
+          "autor": "Ing. Pablo Torres",
+          "empresa": "Torres Construcciones",
+          "texto": "Marta fue fundamental para entregar nuestro proyecto a tiempo. Su trabajo en la limpieza post-obra es impecable.",
+          "rating": 5,
+          "fecha": "2025-12-01"
+        },
+        {
+          "autor": "Arq. Sofía Vidal",
+          "empresa": "Estudio Vidal",
+          "texto": "Increíble atención al detalle. Los pisos quedaron como nuevos después de una obra compleja.",
+          "rating": 5,
+          "fecha": "2025-10-18"
+        },
+        {
+          "autor": "Carlos Ruiz",
+          "empresa": "Inmobiliaria Sur",
+          "texto": "Muy profesional y eficiente. El departamento quedó listo para mostrar a compradores.",
+          "rating": 4,
+          "fecha": "2025-08-05"
+        }
+      ]
     },
     {
       "id": 3,
@@ -70,7 +161,44 @@
       "especialidad": "Maquinaria pesada",
       "experiencia": "10 años",
       "verificado": true,
-      "foto": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&crop=face"
+      "destacado": true,
+      "rating": 4.9,
+      "foto": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&crop=face",
+      "telefono": "+1 555 100 0003",
+      "email": "luis.mendoza@cleanpro.com",
+      "bio": "Veterano de la limpieza industrial con una década de experiencia en plantas manufactureras, naves logísticas y centros de distribución. Certificado en manejo de equipos de limpieza industrial de alta presión.",
+      "habilidades": [
+        "Limpieza industrial",
+        "Maquinaria de alta presión",
+        "Desengrasado",
+        "Pisos epóxicos",
+        "Normas de seguridad"
+      ],
+      "disponibilidad": "Tiempo completo",
+      "fechaIngreso": "2016-06-20",
+      "documentosVerificados": [
+        "DNI",
+        "Antecedentes",
+        "Referencias",
+        "Certificación industrial",
+        "Seguro médico"
+      ],
+      "resenas": [
+        {
+          "autor": "Ing. Fernando Díaz",
+          "empresa": "Planta Metalúrgica Norte",
+          "texto": "Luis conoce como nadie la limpieza industrial. Nuestras instalaciones pasan todas las auditorías gracias a él.",
+          "rating": 5,
+          "fecha": "2025-11-25"
+        },
+        {
+          "autor": "Marcela Ortiz",
+          "empresa": "Logística Express",
+          "texto": "Trabaja con mucha responsabilidad y cuidado. Nuestro depósito de 5000m² siempre está impecable.",
+          "rating": 5,
+          "fecha": "2025-09-12"
+        }
+      ]
     },
     {
       "id": 4,
@@ -79,7 +207,43 @@
       "especialidad": "Protocolos sanitarios",
       "experiencia": "7 años",
       "verificado": true,
-      "foto": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&h=300&fit=crop&crop=face"
+      "destacado": false,
+      "rating": 4.7,
+      "foto": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&h=300&fit=crop&crop=face",
+      "telefono": "+1 555 100 0004",
+      "email": "ana.martinez@cleanpro.com",
+      "bio": "Especialista en protocolos de bioseguridad y desinfección hospitalaria. Capacitada en normas ISO para entornos clínicos y laboratorios. Coordina equipos en centros de salud con altos estándares sanitarios.",
+      "habilidades": [
+        "Protocolos de bioseguridad",
+        "Desinfección hospitalaria",
+        "Normas ISO",
+        "Manejo de residuos biológicos",
+        "Capacitación de personal"
+      ],
+      "disponibilidad": "Tiempo completo",
+      "fechaIngreso": "2019-04-01",
+      "documentosVerificados": [
+        "DNI",
+        "Antecedentes",
+        "Referencias",
+        "Certificación sanitaria"
+      ],
+      "resenas": [
+        {
+          "autor": "Dra. Patricia Luna",
+          "empresa": "Hospital Central",
+          "texto": "Ana cumple con todos los protocolos de bioseguridad. La tranquilidad que nos da no tiene precio.",
+          "rating": 5,
+          "fecha": "2025-10-30"
+        },
+        {
+          "autor": "Dr. Miguel Sosa",
+          "empresa": "Clínica del Pilar",
+          "texto": "Muy comprometida con su trabajo. Se nota su experiencia en el sector salud.",
+          "rating": 4,
+          "fecha": "2025-08-20"
+        }
+      ]
     },
     {
       "id": 5,
@@ -88,7 +252,42 @@
       "especialidad": "Oficinas corporativas",
       "experiencia": "5 años",
       "verificado": true,
-      "foto": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300&h=300&fit=crop&crop=face"
+      "destacado": false,
+      "rating": 4.6,
+      "foto": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300&h=300&fit=crop&crop=face",
+      "telefono": "+1 555 100 0005",
+      "email": "pedro.sanchez@cleanpro.com",
+      "bio": "Líder de equipo enfocado en la limpieza de espacios corporativos de mediana y gran escala. Ágil en la organización de horarios y recursos para garantizar resultados óptimos sin interrumpir la operativa del cliente.",
+      "habilidades": [
+        "Oficinas corporativas",
+        "Gestión de tiempos",
+        "Limpieza de cristales",
+        "Desinfección de superficies",
+        "Trabajo en equipo"
+      ],
+      "disponibilidad": "Tiempo completo",
+      "fechaIngreso": "2021-02-14",
+      "documentosVerificados": [
+        "DNI",
+        "Antecedentes",
+        "Referencias"
+      ],
+      "resenas": [
+        {
+          "autor": "Gabriela Fuentes",
+          "empresa": "Agencia Creativa Loop",
+          "texto": "Pedro y su equipo trabajan de forma silenciosa y eficiente. Perfecto para nuestra oficina abierta.",
+          "rating": 5,
+          "fecha": "2025-12-05"
+        },
+        {
+          "autor": "Tomás Herrera",
+          "empresa": "Coworking Hub",
+          "texto": "Siempre puntual y con buena actitud. Las áreas comunes siempre lucen bien.",
+          "rating": 4,
+          "fecha": "2025-10-10"
+        }
+      ]
     },
     {
       "id": 6,
@@ -97,7 +296,42 @@
       "especialidad": "Limpieza residencial",
       "experiencia": "4 años",
       "verificado": true,
-      "foto": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=300&h=300&fit=crop&crop=face"
+      "destacado": false,
+      "rating": 4.8,
+      "foto": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=300&h=300&fit=crop&crop=face",
+      "telefono": "+1 555 100 0006",
+      "email": "laura.vega@cleanpro.com",
+      "bio": "Apasionada por brindar un hogar impecable a cada familia. Especialista en productos no tóxicos y técnicas de limpieza ecológica. Trato amable y confianza total de los clientes.",
+      "habilidades": [
+        "Limpieza residencial",
+        "Productos ecológicos",
+        "Organización de espacios",
+        "Limpieza profunda",
+        "Atención al cliente"
+      ],
+      "disponibilidad": "Medio tiempo",
+      "fechaIngreso": "2022-08-01",
+      "documentosVerificados": [
+        "DNI",
+        "Antecedentes",
+        "Referencias"
+      ],
+      "resenas": [
+        {
+          "autor": "Carolina Paz",
+          "empresa": "Cliente particular",
+          "texto": "Laura es un sol. Mi casa queda perfecta cada vez que viene. Totalmente confiable.",
+          "rating": 5,
+          "fecha": "2025-11-15"
+        },
+        {
+          "autor": "Familia Rodríguez",
+          "empresa": "Cliente particular",
+          "texto": "Llevamos un año con Laura y es parte de la familia. Súper responsable y cariñosa.",
+          "rating": 5,
+          "fecha": "2025-09-01"
+        }
+      ]
     }
   ],
   "testimonios": [
@@ -127,35 +361,115 @@
     }
   ],
   "checklistBasica": [
-    { "item": "Aspirado de pisos y alfombras", "incluido": true },
-    { "item": "Limpieza de superficies", "incluido": true },
-    { "item": "Vaciado de papeleras", "incluido": true },
-    { "item": "Limpieza de baños", "incluido": true },
-    { "item": "Limpieza de cristales interiores", "incluido": true },
-    { "item": "Desinfección de puntos de contacto", "incluido": false },
-    { "item": "Limpieza de techos y molduras", "incluido": false },
-    { "item": "Tratamiento de manchas", "incluido": false }
+    {
+      "item": "Aspirado de pisos y alfombras",
+      "incluido": true
+    },
+    {
+      "item": "Limpieza de superficies",
+      "incluido": true
+    },
+    {
+      "item": "Vaciado de papeleras",
+      "incluido": true
+    },
+    {
+      "item": "Limpieza de baños",
+      "incluido": true
+    },
+    {
+      "item": "Limpieza de cristales interiores",
+      "incluido": true
+    },
+    {
+      "item": "Desinfección de puntos de contacto",
+      "incluido": false
+    },
+    {
+      "item": "Limpieza de techos y molduras",
+      "incluido": false
+    },
+    {
+      "item": "Tratamiento de manchas",
+      "incluido": false
+    }
   ],
   "checklistProfunda": [
-    { "item": "Aspirado de pisos y alfombras", "incluido": true },
-    { "item": "Limpieza de superficies", "incluido": true },
-    { "item": "Vaciado de papeleras", "incluido": true },
-    { "item": "Limpieza de baños", "incluido": true },
-    { "item": "Limpieza de cristales interiores", "incluido": true },
-    { "item": "Desinfección de puntos de contacto", "incluido": true },
-    { "item": "Limpieza de techos y molduras", "incluido": true },
-    { "item": "Tratamiento de manchas", "incluido": true },
-    { "item": "Limpieza de persianas y cortinas", "incluido": true },
-    { "item": "Desinfección con nebulización", "incluido": true },
-    { "item": "Limpieza de conductos de aire", "incluido": true },
-    { "item": "Pulido de pisos", "incluido": true }
+    {
+      "item": "Aspirado de pisos y alfombras",
+      "incluido": true
+    },
+    {
+      "item": "Limpieza de superficies",
+      "incluido": true
+    },
+    {
+      "item": "Vaciado de papeleras",
+      "incluido": true
+    },
+    {
+      "item": "Limpieza de baños",
+      "incluido": true
+    },
+    {
+      "item": "Limpieza de cristales interiores",
+      "incluido": true
+    },
+    {
+      "item": "Desinfección de puntos de contacto",
+      "incluido": true
+    },
+    {
+      "item": "Limpieza de techos y molduras",
+      "incluido": true
+    },
+    {
+      "item": "Tratamiento de manchas",
+      "incluido": true
+    },
+    {
+      "item": "Limpieza de persianas y cortinas",
+      "incluido": true
+    },
+    {
+      "item": "Desinfección con nebulización",
+      "incluido": true
+    },
+    {
+      "item": "Limpieza de conductos de aire",
+      "incluido": true
+    },
+    {
+      "item": "Pulido de pisos",
+      "incluido": true
+    }
   ],
   "frecuencias": [
-    { "id": "unica", "nombre": "Única vez", "descripcion": "Servicio puntual" },
-    { "id": "semanal", "nombre": "Semanal", "descripcion": "1 visita por semana" },
-    { "id": "quincenal", "nombre": "Quincenal", "descripcion": "2 visitas al mes" },
-    { "id": "mensual", "nombre": "Mensual", "descripcion": "1 visita al mes" },
-    { "id": "diario", "nombre": "Diario", "descripcion": "De lunes a viernes" }
+    {
+      "id": "unica",
+      "nombre": "Única vez",
+      "descripcion": "Servicio puntual"
+    },
+    {
+      "id": "semanal",
+      "nombre": "Semanal",
+      "descripcion": "1 visita por semana"
+    },
+    {
+      "id": "quincenal",
+      "nombre": "Quincenal",
+      "descripcion": "2 visitas al mes"
+    },
+    {
+      "id": "mensual",
+      "nombre": "Mensual",
+      "descripcion": "1 visita al mes"
+    },
+    {
+      "id": "diario",
+      "nombre": "Diario",
+      "descripcion": "De lunes a viernes"
+    }
   ],
   "proximasVisitas": [
     {
