@@ -501,6 +501,17 @@ footer a:hover {
     color: var(--pink-light);
 }
 
+/* Ensure no invert on SVGs in footer */
+footer svg,
+footer img {
+    filter: none !important;
+}
+
+#quoteSummaryModal,
+#leadPopup {
+    z-index: 9999;
+}
+
 /* ── Accessibility ──────────────────────────────────────── */
 
 button:focus-visible,
