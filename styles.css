@@ -204,7 +204,7 @@ h6 {
 
 .logo-brand-text {
     font-family: 'Inter', sans-serif;
-    color: var(--red);
+    color: var(--red) !important;
     line-height: 0.85;
     font-weight: 900;
     display: flex;
@@ -215,6 +215,11 @@ h6 {
 
 .logo-brand-text span {
     display: block;
+}
+
+.logo-brand-text.text-white,
+.footer-logo-text {
+    color: #ffffff !important;
 }
 
 /* ── Buttons ────────────────────────────────────────────── */
