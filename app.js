@@ -62,7 +62,7 @@ function renderFeaturedCollaborators() {
 
     const featured = appData.staff.filter(s => s.destacado);
     if (featured.length === 0) {
-        grid.innerHTML = '<p class="text-gray-500 col-span-3 text-center py-8">No hay colaboradores destacados aún.</p>';
+        grid.innerHTML = '<p class="text-gray-600 col-span-3 text-center py-8">No hay colaboradores destacados aún.</p>';
         return;
     }
 
@@ -82,8 +82,8 @@ function renderFeaturedCollaborators() {
             </div>
             <div class="p-5">
                 <h3 class="text-lg font-bold text-gray-900 group-hover:text-primary-500 transition-colors">${s.nombre}</h3>
-                <p class="text-primary-500 font-medium text-sm">${s.puesto}</p>
-                <p class="text-gray-500 text-sm mt-1">${s.especialidad || ''}</p>
+                <p class="text-primary-600 font-medium text-sm">${s.puesto}</p>
+                <p class="text-gray-600 text-sm mt-1">${s.especialidad || ''}</p>
             </div>
         </a>
     `).join('');
@@ -111,9 +111,9 @@ function renderStaffGrid() {
                         <span class="font-semibold text-gray-900">${(s.rating || 0).toFixed(1)}</span>
                     </div>
                 </div>
-                <p class="text-primary-500 font-medium text-sm">${s.puesto}</p>
-                <p class="text-gray-500 text-sm">${s.especialidad || ''}</p>
-                <p class="text-xs text-gray-400 mt-2"><i data-lucide="clock" class="w-3 h-3 inline"></i> ${s.experiencia || ''}</p>
+                <p class="text-primary-600 font-medium text-sm">${s.puesto}</p>
+                <p class="text-gray-600 text-sm">${s.especialidad || ''}</p>
+                <p class="text-xs text-gray-500 mt-2"><i data-lucide="clock" class="w-3 h-3 inline"></i> ${s.experiencia || ''}</p>
             </div>
         </a>
     `).join('');
@@ -185,17 +185,15 @@ function setupNavbar() {
     const updateNavbar = () => {
         if (window.scrollY > 60) {
             navbar.classList.add('scrolled');
-            navbar.querySelectorAll('.nav-link').forEach(l => {
-                l.classList.remove('text-white/80');
-                l.classList.add('text-gray-700');
-            });
         } else {
             navbar.classList.remove('scrolled');
-            navbar.querySelectorAll('.nav-link').forEach(l => {
-                l.classList.remove('text-gray-700');
-                l.classList.add('text-white/80');
-            });
         }
+
+        // Ensure links are visible (dark color) since the background is light
+        navbar.querySelectorAll('.nav-link').forEach(l => {
+            l.classList.remove('text-white/80');
+            l.classList.add('text-gray-700');
+        });
     };
 
     window.addEventListener('scroll', updateNavbar, { passive: true });
