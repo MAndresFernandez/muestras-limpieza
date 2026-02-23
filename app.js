@@ -188,12 +188,6 @@ function setupNavbar() {
         } else {
             navbar.classList.remove('scrolled');
         }
-
-        // Ensure links are visible (dark color) since the background is light
-        navbar.querySelectorAll('.nav-link').forEach(l => {
-            l.classList.remove('text-white/80');
-            l.classList.add('text-gray-700');
-        });
     };
 
     window.addEventListener('scroll', updateNavbar, { passive: true });

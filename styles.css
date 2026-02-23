@@ -178,6 +178,7 @@ h6 {
 .nav-link {
     position: relative;
     font-weight: 500;
+    color: #404040 !important;
     transition: color 0.2s;
 }
 
