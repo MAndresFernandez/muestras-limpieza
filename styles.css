@@ -200,6 +200,23 @@ h6 {
     color: var(--red) !important;
 }
 
+/* ── Brand Logo Text ────────────────────────────────────── */
+
+.logo-brand-text {
+    font-family: 'Inter', sans-serif;
+    color: var(--red);
+    line-height: 0.85;
+    font-weight: 900;
+    display: flex;
+    flex-direction: column;
+    font-size: 1.1rem;
+    letter-spacing: -0.02em;
+}
+
+.logo-brand-text span {
+    display: block;
+}
+
 /* ── Buttons ────────────────────────────────────────────── */
 
 .btn-primary {
@@ -509,4 +526,16 @@ select:focus-visible {
         width: 56px;
         height: 56px;
     }
+}
+
+/* ── Modal & Popup Cleanup ─────────────────────────────── */
+.modal-overlay {
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(8px);
+    pointer-events: auto;
+}
+
+#leadPopup.hidden,
+#quoteSummaryModal.hidden {
+    display: none !important;
 }
