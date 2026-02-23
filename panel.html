@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panel de Gestión | CleanPro Solutions</title>
-    <meta name="description" content="Panel de administración para gestionar trabajadores de CleanPro Solutions.">
+    <title>Panel de Gestión | Red Rabbit Go</title>
+    <meta name="description" content="Panel de administración para gestionar colaboradores de Red Rabbit Go.">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,8 +20,8 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: { 50: '#f0fdfa', 100: '#ccfbf1', 200: '#99f6e4', 300: '#5eead4', 400: '#2dd4bf', 500: '#14b8a6', 600: '#0d9488', 700: '#0f766e', 800: '#115e59', 900: '#134e4a' },
-                        secondary: { 400: '#22d3ee', 500: '#06b6d4', 600: '#0891b2' }
+                        primary: { 50: '#fef2f2', 100: '#fee2e2', 200: '#fecaca', 300: '#F2AEAE', 400: '#E84450', 500: '#D92534', 600: '#B51E2C', 700: '#991B1B', 800: '#7F1D1D', 900: '#611515' },
+                        secondary: { 400: '#F2AEAE', 500: '#D92525', 600: '#A66A6A' }
                     },
                     fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] }
                 }
@@ -36,7 +36,7 @@
     <link rel="stylesheet" href="styles.css">
     <style>
         .login-bg {
-            background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0d9488 100%);
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d1215 50%, #D92534 100%);
             min-height: 100vh;
         }
 
@@ -58,7 +58,7 @@
         }
 
         .worker-row:hover {
-            background: #f0fdfa;
+            background: #fef2f2;
         }
 
         .modal-backdrop {
@@ -76,9 +76,9 @@
         }
 
         .editable-field:focus {
-            border-color: #0d9488;
+            border-color: #D92534;
             outline: none;
-            box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.1);
+            box-shadow: 0 0 0 3px rgba(217, 37, 52, 0.1);
         }
 
         .tab-panel {
@@ -99,7 +99,7 @@
         }
 
         .sidebar-link.active {
-            border-left: 3px solid #14b8a6;
+            border-left: 3px solid #D92534;
         }
     </style>
 </head>
@@ -110,12 +110,11 @@
     <div id="loginScreen" class="login-bg flex items-center justify-center p-4">
         <div class="w-full max-w-md">
             <div class="text-center mb-8">
-                <div
-                    class="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary-500 to-secondary-500 flex items-center justify-center mx-auto mb-4 shadow-lg shadow-primary-500/30">
-                    <i data-lucide="sparkles" class="w-9 h-9 text-white"></i>
+                <div class="flex items-center justify-center gap-3 mb-4">
+                    <img src="logoredrabbitgo.svg" alt="Red Rabbit Go" class="h-12 w-auto invert">
                 </div>
                 <h1 class="text-3xl font-extrabold text-white mb-2">Panel de Gestión</h1>
-                <p class="text-gray-400">Ingresa tus credenciales para acceder</p>
+                <p class="text-gray-400">Ingresá tus credenciales para acceder</p>
             </div>
 
             <form id="loginForm" class="glass-card rounded-2xl p-8 space-y-6">
@@ -167,11 +166,8 @@
                             <i data-lucide="menu" class="w-6 h-6"></i>
                         </button>
                         <div class="flex items-center gap-3">
-                            <div
-                                class="w-9 h-9 rounded-lg bg-gradient-to-br from-primary-500 to-secondary-500 flex items-center justify-center">
-                                <i data-lucide="sparkles" class="w-5 h-5 text-white"></i>
-                            </div>
-                            <span class="text-lg font-bold text-gray-900 hidden sm:block">CleanPro Admin</span>
+                            <img src="logoredrabbitgo.svg" alt="Red Rabbit Go" class="h-8 w-auto">
+                            <span class="text-lg font-bold text-gray-900 hidden sm:block">Red Rabbit Go Admin</span>
                         </div>
                     </div>
                     <div class="flex items-center gap-4">

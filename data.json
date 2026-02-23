@@ -1,10 +1,19 @@
 {
   "empresa": {
-    "nombre": "CleanPro Solutions",
-    "slogan": "Limpieza profesional que transforma espacios",
-    "telefono": "+1 (555) 123-4567",
-    "email": "contacto@cleanpro.com",
-    "direccion": "Av. Principal 1234, Ciudad"
+    "nombre": "Red Rabbit Go",
+    "slogan": "Limpieza de Clase, Ahora en tu Hogar",
+    "telefono": "542216924104",
+    "whatsapp": "542216924104",
+    "email": "contacto@redrabbitgo.com",
+    "cobertura": [
+      "La Plata",
+      "Ensenada",
+      "Berisso",
+      "Tolosa",
+      "Ringuelet",
+      "Gonnet",
+      "City Bell"
+    ]
   },
   "auth": {
     "username": "sol34",
@@ -13,498 +22,315 @@
   },
   "servicios": [
     {
-      "id": "oficinas",
-      "nombre": "Oficinas Corporativas",
-      "descripcion": "Espacios de trabajo impecables que impulsan la productividad",
-      "icono": "building-2"
-    },
-    {
-      "id": "post-obra",
-      "nombre": "Final de Obra",
-      "descripcion": "Dejamos tu proyecto listo para la entrega",
-      "icono": "hard-hat"
-    },
-    {
-      "id": "hospitalario",
-      "nombre": "Hospitalario",
-      "descripcion": "Protocolos de desinfección certificados",
-      "icono": "heart-pulse"
-    },
-    {
-      "id": "industrial",
-      "nombre": "Industrial",
-      "descripcion": "Soluciones para grandes superficies y maquinaria",
-      "icono": "factory"
-    },
-    {
-      "id": "hogar",
-      "nombre": "Hogar Premium",
-      "descripcion": "Tu hogar merece el mejor cuidado",
+      "id": "hogar-regular",
+      "nombre": "Limpieza Regular del Hogar",
+      "descripcion": "Mantenimiento semanal o quincenal de tu casa: pisos, baños, cocina y áreas comunes con protocolos profesionales.",
       "icono": "home"
     },
     {
-      "id": "eventos",
-      "nombre": "Eventos",
-      "descripcion": "Antes y después de tus eventos especiales",
-      "icono": "party-popper"
+      "id": "hogar-profunda",
+      "nombre": "Limpieza Profunda",
+      "descripcion": "Desinfección completa con protocolos industriales adaptados a tu hogar. Ideal para mudanzas o limpiezas de temporada.",
+      "icono": "sparkles"
+    },
+    {
+      "id": "hogar-premium",
+      "nombre": "Servicio Premium",
+      "descripcion": "Atención personalizada con productos de alta gama, planchado, organización de espacios e higienización de tapizados.",
+      "icono": "crown"
+    },
+    {
+      "id": "post-evento",
+      "nombre": "Post-Evento / Post-Obra",
+      "descripcion": "Limpieza integral después de reformas, fiestas o mudanzas. Dejamos tu hogar listo para habitar.",
+      "icono": "hard-hat"
+    }
+  ],
+  "diferenciales": [
+    {
+      "titulo": "Capital Humano Especializado",
+      "descripcion": "Personal seleccionado bajo rigurosos estándares de seguridad y capacitado en técnicas de higienización avanzada y atención premium.",
+      "icono": "users"
+    },
+    {
+      "titulo": "Protocolos de Higiene Industrial",
+      "descripcion": "Sistemas de desinfección industriales adaptados al ámbito doméstico: espacios bioseguros y libres de alérgenos.",
+      "icono": "shield-check"
+    },
+    {
+      "titulo": "Compromiso Ético y Legal",
+      "descripcion": "Total transparencia administrativa con colaboradores respaldados legalmente y con seguridad social. Mitigación de riesgo para el cliente.",
+      "icono": "scale"
     }
   ],
   "staff": [
     {
       "id": 1,
       "nombre": "Carlos García",
-      "puesto": "Supervisor General",
-      "especialidad": "Coordinación de equipos",
-      "experiencia": "8 años",
+      "puesto": "Especialista en Hogares",
+      "especialidad": "Limpieza residencial premium",
+      "experiencia": "5 años",
       "verificado": true,
       "destacado": true,
       "rating": 4.9,
       "foto": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face",
-      "telefono": "+1 555 100 0001",
-      "email": "carlos.garcia@cleanpro.com",
-      "bio": "Líder natural con más de 8 años coordinando equipos de limpieza profesional en entornos corporativos de alta exigencia. Especialista en optimización de procesos y gestión de grandes superficies.",
+      "telefono": "+54 221 555-0101",
+      "email": "carlos@redrabbitgo.com",
+      "bio": "Especialista en limpieza residencial de alta gama. Con más de 5 años de experiencia, Carlos se destaca por su atención al detalle y uso de técnicas profesionales adaptadas al hogar. Capacitado en protocolos de bioseguridad y manejo de productos premium.",
       "habilidades": [
-        "Liderazgo de equipos",
-        "Limpieza corporativa",
-        "Gestión de turnos",
-        "Control de calidad",
-        "Productos ecológicos"
+        "Desinfección avanzada",
+        "Limpieza de tapizados",
+        "Organización de espacios",
+        "Cristales y ventanales",
+        "Atención premium"
       ],
       "disponibilidad": "Tiempo completo",
-      "fechaIngreso": "2018-03-15",
+      "fechaIngreso": "2020-03-15",
       "documentosVerificados": [
         "DNI",
-        "Antecedentes",
-        "Referencias",
-        "Certificaciones"
+        "Antecedentes penales",
+        "Seguro ART",
+        "Certificado de salud"
       ],
       "resenas": [
         {
-          "autor": "María González",
-          "empresa": "Tech Solutions S.A.",
-          "texto": "Carlos siempre llega puntual y su equipo deja las oficinas impecables. Muy profesional.",
+          "autor": "María L.",
+          "empresa": "Hogar en City Bell",
+          "texto": "Carlos es impecable, siempre puntual y deja la casa reluciente. Me encanta la atención al detalle.",
           "rating": 5,
           "fecha": "2025-11-10"
         },
         {
-          "autor": "Roberto Jiménez",
-          "empresa": "Constructora Moderna",
-          "texto": "Excelente coordinación. Gestionó a todo el equipo en nuestro edificio de 20 pisos sin ningún problema.",
+          "autor": "Juan P.",
+          "empresa": "Departamento en La Plata",
+          "texto": "Excelente profesional. Usa productos de primera calidad y se nota la diferencia con otros servicios.",
           "rating": 5,
-          "fecha": "2025-09-22"
+          "fecha": "2025-10-22"
         },
         {
-          "autor": "Laura Mendez",
-          "empresa": "Bufete Legal Central",
-          "texto": "Muy detallista y cuidadoso con los espacios sensibles de la oficina. Lo recomendamos totalmente.",
-          "rating": 5,
-          "fecha": "2025-07-14"
+          "autor": "Sofía R.",
+          "empresa": "Casa en Gonnet",
+          "texto": "Muy profesional y confiable. Mi casa queda impecable cada vez que viene.",
+          "rating": 4,
+          "fecha": "2025-09-15"
         }
       ]
     },
     {
       "id": 2,
-      "nombre": "Marta Rodríguez",
-      "puesto": "Especialista Post-Obra",
-      "especialidad": "Limpieza técnica",
-      "experiencia": "6 años",
+      "nombre": "Ana Martínez",
+      "puesto": "Coordinadora de Limpieza",
+      "especialidad": "Gestión y limpieza profunda",
+      "experiencia": "8 años",
       "verificado": true,
       "destacado": true,
       "rating": 4.8,
       "foto": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=300&h=300&fit=crop&crop=face",
-      "telefono": "+1 555 100 0002",
-      "email": "marta.rodriguez@cleanpro.com",
-      "bio": "Experta en limpieza técnica post-obra con conocimiento profundo en materiales de construcción y técnicas de remoción segura. Ha trabajado en más de 200 proyectos de entrega.",
+      "telefono": "+54 221 555-0102",
+      "email": "ana@redrabbitgo.com",
+      "bio": "Ana lidera la coordinación de equipos y es especialista en limpiezas profundas residenciales. Con 8 años de trayectoria, combina técnicas industriales con el cuidado que tu hogar merece. Referente en capacitación de nuevo personal.",
       "habilidades": [
-        "Limpieza post-obra",
-        "Remoción de residuos",
-        "Manejo de químicos",
-        "Cristales y fachadas",
-        "Pisos especiales"
+        "Coordinación de equipos",
+        "Limpieza profunda",
+        "Desinfección hospitalaria",
+        "Manejo de productos eco",
+        "Capacitación"
       ],
       "disponibilidad": "Tiempo completo",
-      "fechaIngreso": "2020-01-10",
+      "fechaIngreso": "2018-06-01",
       "documentosVerificados": [
         "DNI",
-        "Antecedentes",
-        "Referencias",
-        "Seguro médico"
+        "Antecedentes penales",
+        "Seguro ART",
+        "Certificado de salud",
+        "Carnet de manipulación"
       ],
       "resenas": [
         {
-          "autor": "Ing. Pablo Torres",
-          "empresa": "Torres Construcciones",
-          "texto": "Marta fue fundamental para entregar nuestro proyecto a tiempo. Su trabajo en la limpieza post-obra es impecable.",
+          "autor": "Laura G.",
+          "empresa": "Casa en Tolosa",
+          "texto": "Ana transformó mi casa después de la refacción. Un antes y después total. Muy recomendable.",
           "rating": 5,
           "fecha": "2025-12-01"
         },
         {
-          "autor": "Arq. Sofía Vidal",
-          "empresa": "Estudio Vidal",
-          "texto": "Increíble atención al detalle. Los pisos quedaron como nuevos después de una obra compleja.",
+          "autor": "Marcos D.",
+          "empresa": "Departamento en Berisso",
+          "texto": "Organiza todo perfecto, llega con todo lo necesario y el resultado es profesional de verdad.",
           "rating": 5,
-          "fecha": "2025-10-18"
-        },
-        {
-          "autor": "Carlos Ruiz",
-          "empresa": "Inmobiliaria Sur",
-          "texto": "Muy profesional y eficiente. El departamento quedó listo para mostrar a compradores.",
-          "rating": 4,
-          "fecha": "2025-08-05"
+          "fecha": "2025-11-20"
         }
       ]
     },
     {
       "id": 3,
-      "nombre": "Luis Mendoza",
-      "puesto": "Técnico Industrial",
-      "especialidad": "Maquinaria pesada",
-      "experiencia": "10 años",
+      "nombre": "Roberto Sánchez",
+      "puesto": "Técnico de Higienización",
+      "especialidad": "Desinfección y bioseguridad",
+      "experiencia": "6 años",
       "verificado": true,
       "destacado": true,
-      "rating": 4.9,
-      "foto": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&crop=face",
-      "telefono": "+1 555 100 0003",
-      "email": "luis.mendoza@cleanpro.com",
-      "bio": "Veterano de la limpieza industrial con una década de experiencia en plantas manufactureras, naves logísticas y centros de distribución. Certificado en manejo de equipos de limpieza industrial de alta presión.",
+      "rating": 4.7,
+      "foto": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=300&h=300&fit=crop&crop=face",
+      "telefono": "+54 221 555-0103",
+      "email": "roberto@redrabbitgo.com",
+      "bio": "Roberto es nuestro referente en protocolos de desinfección industrial adaptados al hogar. Especializado en ambientes bioseguros, libres de alérgenos y contaminantes. Ideal para familias con niños o mascotas que requieren máxima higiene.",
       "habilidades": [
-        "Limpieza industrial",
-        "Maquinaria de alta presión",
-        "Desengrasado",
-        "Pisos epóxicos",
-        "Normas de seguridad"
+        "Desinfección industrial",
+        "Control de alérgenos",
+        "Limpieza de conductos",
+        "Tratamiento anti-ácaros",
+        "Bioseguridad"
       ],
       "disponibilidad": "Tiempo completo",
-      "fechaIngreso": "2016-06-20",
+      "fechaIngreso": "2019-09-10",
       "documentosVerificados": [
         "DNI",
-        "Antecedentes",
-        "Referencias",
-        "Certificación industrial",
-        "Seguro médico"
+        "Antecedentes penales",
+        "Seguro ART",
+        "Certificado de salud"
       ],
       "resenas": [
         {
-          "autor": "Ing. Fernando Díaz",
-          "empresa": "Planta Metalúrgica Norte",
-          "texto": "Luis conoce como nadie la limpieza industrial. Nuestras instalaciones pasan todas las auditorías gracias a él.",
+          "autor": "Carolina V.",
+          "empresa": "Casa en Ringuelet",
+          "texto": "Roberto hizo la desinfección después de que nos mudamos. El nivel de limpieza es otro mundo.",
           "rating": 5,
-          "fecha": "2025-11-25"
+          "fecha": "2025-10-05"
         },
         {
-          "autor": "Marcela Ortiz",
-          "empresa": "Logística Express",
-          "texto": "Trabaja con mucha responsabilidad y cuidado. Nuestro depósito de 5000m² siempre está impecable.",
-          "rating": 5,
-          "fecha": "2025-09-12"
+          "autor": "Diego M.",
+          "empresa": "Hogar en Ensenada",
+          "texto": "Muy serio y metódico. Te explica todo el proceso y el resultado es impecable.",
+          "rating": 4,
+          "fecha": "2025-09-28"
         }
       ]
     },
     {
       "id": 4,
-      "nombre": "Ana Martínez",
-      "puesto": "Coordinadora Hospitalaria",
-      "especialidad": "Protocolos sanitarios",
-      "experiencia": "7 años",
+      "nombre": "Lucía Fernández",
+      "puesto": "Especialista Premium",
+      "especialidad": "Atención VIP y organización",
+      "experiencia": "4 años",
       "verificado": true,
       "destacado": false,
-      "rating": 4.7,
+      "rating": 4.6,
       "foto": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&h=300&fit=crop&crop=face",
-      "telefono": "+1 555 100 0004",
-      "email": "ana.martinez@cleanpro.com",
-      "bio": "Especialista en protocolos de bioseguridad y desinfección hospitalaria. Capacitada en normas ISO para entornos clínicos y laboratorios. Coordina equipos en centros de salud con altos estándares sanitarios.",
+      "telefono": "+54 221 555-0104",
+      "email": "lucia@redrabbitgo.com",
+      "bio": "Lucía se especializa en el servicio premium: limpieza, planchado, organización de armarios y atención personalizada para hogares que buscan un estándar superior. Cada visita es una experiencia de orden y confort.",
       "habilidades": [
-        "Protocolos de bioseguridad",
-        "Desinfección hospitalaria",
-        "Normas ISO",
-        "Manejo de residuos biológicos",
-        "Capacitación de personal"
+        "Organización Marie Kondo",
+        "Planchado profesional",
+        "Limpieza de textiles",
+        "Aromaterapia del hogar",
+        "Atención VIP"
       ],
       "disponibilidad": "Tiempo completo",
-      "fechaIngreso": "2019-04-01",
+      "fechaIngreso": "2021-01-20",
       "documentosVerificados": [
         "DNI",
-        "Antecedentes",
-        "Referencias",
-        "Certificación sanitaria"
+        "Antecedentes penales",
+        "Seguro ART"
       ],
       "resenas": [
         {
-          "autor": "Dra. Patricia Luna",
-          "empresa": "Hospital Central",
-          "texto": "Ana cumple con todos los protocolos de bioseguridad. La tranquilidad que nos da no tiene precio.",
+          "autor": "Valentina S.",
+          "empresa": "Casa en City Bell",
+          "texto": "Lucía es increíble. No solo limpia sino que organiza todo y deja un aroma hermoso. Un lujo.",
           "rating": 5,
-          "fecha": "2025-10-30"
-        },
-        {
-          "autor": "Dr. Miguel Sosa",
-          "empresa": "Clínica del Pilar",
-          "texto": "Muy comprometida con su trabajo. Se nota su experiencia en el sector salud.",
-          "rating": 4,
-          "fecha": "2025-08-20"
+          "fecha": "2025-11-30"
         }
       ]
     },
     {
       "id": 5,
-      "nombre": "Pedro Sánchez",
-      "puesto": "Líder de Equipo",
-      "especialidad": "Oficinas corporativas",
-      "experiencia": "5 años",
+      "nombre": "Miguel Torres",
+      "puesto": "Operario de Limpieza",
+      "especialidad": "Post-obra y mudanzas",
+      "experiencia": "7 años",
       "verificado": true,
       "destacado": false,
-      "rating": 4.6,
+      "rating": 4.5,
       "foto": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300&h=300&fit=crop&crop=face",
-      "telefono": "+1 555 100 0005",
-      "email": "pedro.sanchez@cleanpro.com",
-      "bio": "Líder de equipo enfocado en la limpieza de espacios corporativos de mediana y gran escala. Ágil en la organización de horarios y recursos para garantizar resultados óptimos sin interrumpir la operativa del cliente.",
+      "telefono": "+54 221 555-0105",
+      "email": "miguel@redrabbitgo.com",
+      "bio": "Miguel está especializado en limpiezas post-obra y mudanzas. Con 7 años de experiencia, maneja equipos de limpieza industrial y transforma espacios recién construidos o renovados en hogares listos para habitar.",
       "habilidades": [
-        "Oficinas corporativas",
-        "Gestión de tiempos",
-        "Limpieza de cristales",
-        "Desinfección de superficies",
-        "Trabajo en equipo"
+        "Limpieza post-obra",
+        "Remoción de escombros finos",
+        "Pulido de pisos",
+        "Limpieza de vidrios en altura",
+        "Trabajo pesado"
       ],
       "disponibilidad": "Tiempo completo",
-      "fechaIngreso": "2021-02-14",
+      "fechaIngreso": "2018-11-05",
       "documentosVerificados": [
         "DNI",
-        "Antecedentes",
-        "Referencias"
+        "Antecedentes penales",
+        "Seguro ART",
+        "Certificado de salud"
       ],
       "resenas": [
         {
-          "autor": "Gabriela Fuentes",
-          "empresa": "Agencia Creativa Loop",
-          "texto": "Pedro y su equipo trabajan de forma silenciosa y eficiente. Perfecto para nuestra oficina abierta.",
+          "autor": "Fernando A.",
+          "empresa": "Obra nueva en La Plata",
+          "texto": "Terminamos la obra y Miguel dejó el departamento impecable en un día. Muy eficiente.",
           "rating": 5,
-          "fecha": "2025-12-05"
+          "fecha": "2025-08-15"
         },
         {
-          "autor": "Tomás Herrera",
-          "empresa": "Coworking Hub",
-          "texto": "Siempre puntual y con buena actitud. Las áreas comunes siempre lucen bien.",
+          "autor": "Patricia N.",
+          "empresa": "Mudanza en Gonnet",
+          "texto": "Nos ayudó con la limpieza pre y post mudanza. Excelente servicio y muy trabajador.",
           "rating": 4,
-          "fecha": "2025-10-10"
-        }
-      ]
-    },
-    {
-      "id": 6,
-      "nombre": "Laura Vega",
-      "puesto": "Especialista Hogar",
-      "especialidad": "Limpieza residencial",
-      "experiencia": "4 años",
-      "verificado": true,
-      "destacado": false,
-      "rating": 4.8,
-      "foto": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=300&h=300&fit=crop&crop=face",
-      "telefono": "+1 555 100 0006",
-      "email": "laura.vega@cleanpro.com",
-      "bio": "Apasionada por brindar un hogar impecable a cada familia. Especialista en productos no tóxicos y técnicas de limpieza ecológica. Trato amable y confianza total de los clientes.",
-      "habilidades": [
-        "Limpieza residencial",
-        "Productos ecológicos",
-        "Organización de espacios",
-        "Limpieza profunda",
-        "Atención al cliente"
-      ],
-      "disponibilidad": "Medio tiempo",
-      "fechaIngreso": "2022-08-01",
-      "documentosVerificados": [
-        "DNI",
-        "Antecedentes",
-        "Referencias"
-      ],
-      "resenas": [
-        {
-          "autor": "Carolina Paz",
-          "empresa": "Cliente particular",
-          "texto": "Laura es un sol. Mi casa queda perfecta cada vez que viene. Totalmente confiable.",
-          "rating": 5,
-          "fecha": "2025-11-15"
-        },
-        {
-          "autor": "Familia Rodríguez",
-          "empresa": "Cliente particular",
-          "texto": "Llevamos un año con Laura y es parte de la familia. Súper responsable y cariñosa.",
-          "rating": 5,
-          "fecha": "2025-09-01"
+          "fecha": "2025-07-20"
         }
       ]
     }
   ],
   "testimonios": [
     {
-      "id": 1,
-      "cliente": "Tech Solutions S.A.",
-      "texto": "Servicio impecable y puntual. Nuestras oficinas nunca habían lucido tan bien. El equipo es profesional y discreto.",
-      "autor": "María González",
-      "cargo": "Directora de Operaciones",
+      "nombre": "Marina Gómez",
+      "cargo": "Vecina de City Bell",
+      "texto": "Nunca había contratado un servicio así para mi casa. La diferencia con una empleada particular es abismal. Todo legal, seguro y profesional.",
       "rating": 5
     },
     {
-      "id": 2,
-      "cliente": "Constructora Moderna",
-      "texto": "Entregamos el edificio antes de tiempo gracias a su eficiencia en la limpieza post-obra. Altamente recomendados.",
-      "autor": "Roberto Jiménez",
-      "cargo": "Gerente de Proyectos",
+      "nombre": "Esteban Ruiz",
+      "cargo": "Profesional, La Plata centro",
+      "texto": "Trabajo todo el día y no tengo tiempo para limpiar. Con Red Rabbit Go resuelvo en una llamada y confío plenamente en quien entra a mi departamento.",
       "rating": 5
     },
     {
-      "id": 3,
-      "cliente": "Hospital Central",
-      "texto": "Cumplen con todos los protocolos de bioseguridad. La tranquilidad que nos dan no tiene precio.",
-      "autor": "Dra. Patricia Luna",
-      "cargo": "Directora Administrativa",
+      "nombre": "Claudia Pereyra",
+      "cargo": "Madre de familia, Gonnet",
+      "texto": "Lo que más valoro es la tranquilidad de saber que el personal tiene antecedentes verificados y seguro. Con niños en casa, eso no tiene precio.",
       "rating": 5
     }
   ],
-  "checklistBasica": [
-    {
-      "item": "Aspirado de pisos y alfombras",
-      "incluido": true
-    },
-    {
-      "item": "Limpieza de superficies",
-      "incluido": true
-    },
-    {
-      "item": "Vaciado de papeleras",
-      "incluido": true
-    },
-    {
-      "item": "Limpieza de baños",
-      "incluido": true
-    },
-    {
-      "item": "Limpieza de cristales interiores",
-      "incluido": true
-    },
-    {
-      "item": "Desinfección de puntos de contacto",
-      "incluido": false
-    },
-    {
-      "item": "Limpieza de techos y molduras",
-      "incluido": false
-    },
-    {
-      "item": "Tratamiento de manchas",
-      "incluido": false
-    }
-  ],
-  "checklistProfunda": [
-    {
-      "item": "Aspirado de pisos y alfombras",
-      "incluido": true
-    },
-    {
-      "item": "Limpieza de superficies",
-      "incluido": true
-    },
-    {
-      "item": "Vaciado de papeleras",
-      "incluido": true
-    },
-    {
-      "item": "Limpieza de baños",
-      "incluido": true
-    },
-    {
-      "item": "Limpieza de cristales interiores",
-      "incluido": true
-    },
-    {
-      "item": "Desinfección de puntos de contacto",
-      "incluido": true
-    },
-    {
-      "item": "Limpieza de techos y molduras",
-      "incluido": true
-    },
-    {
-      "item": "Tratamiento de manchas",
-      "incluido": true
-    },
-    {
-      "item": "Limpieza de persianas y cortinas",
-      "incluido": true
-    },
-    {
-      "item": "Desinfección con nebulización",
-      "incluido": true
-    },
-    {
-      "item": "Limpieza de conductos de aire",
-      "incluido": true
-    },
-    {
-      "item": "Pulido de pisos",
-      "incluido": true
-    }
-  ],
-  "frecuencias": [
-    {
-      "id": "unica",
-      "nombre": "Única vez",
-      "descripcion": "Servicio puntual"
-    },
-    {
-      "id": "semanal",
-      "nombre": "Semanal",
-      "descripcion": "1 visita por semana"
-    },
-    {
-      "id": "quincenal",
-      "nombre": "Quincenal",
-      "descripcion": "2 visitas al mes"
-    },
-    {
-      "id": "mensual",
-      "nombre": "Mensual",
-      "descripcion": "1 visita al mes"
-    },
-    {
-      "id": "diario",
-      "nombre": "Diario",
-      "descripcion": "De lunes a viernes"
-    }
-  ],
-  "proximasVisitas": [
-    {
-      "fecha": "2024-02-15",
-      "hora": "09:00",
-      "servicio": "Limpieza de Oficina",
-      "equipo": "Carlos G., Ana M.",
-      "estado": "confirmada"
-    },
-    {
-      "fecha": "2024-02-22",
-      "hora": "14:00",
-      "servicio": "Limpieza Profunda",
-      "equipo": "Marta R., Luis M.",
-      "estado": "pendiente"
-    }
-  ],
-  "historialFacturas": [
-    {
-      "numero": "FAC-2024-001",
-      "fecha": "2024-01-15",
-      "concepto": "Limpieza mensual oficinas",
-      "estado": "pagada"
-    },
-    {
-      "numero": "FAC-2024-002",
-      "fecha": "2024-01-30",
-      "concepto": "Servicio extra post-evento",
-      "estado": "pagada"
-    },
-    {
-      "numero": "FAC-2024-003",
-      "fecha": "2024-02-01",
-      "concepto": "Limpieza mensual oficinas",
-      "estado": "pendiente"
-    }
-  ]
+  "checklist": {
+    "basica": [
+      "Barrido y trapeado de todos los pisos",
+      "Limpieza de baños completos",
+      "Limpieza de cocina (mesadas, anafe, pileta)",
+      "Limpieza de polvo en superficies",
+      "Vaciado de cestos de basura",
+      "Aspirado de alfombras",
+      "Tendido de camas"
+    ],
+    "profunda": [
+      "Todo lo incluido en Limpieza Básica",
+      "Desinfección de superficies con protocolo industrial",
+      "Limpieza interior de horno y microondas",
+      "Limpieza interior de heladera",
+      "Limpieza de vidrios y ventanas",
+      "Limpieza de zócalos y marcos",
+      "Limpieza detrás y debajo de muebles",
+      "Desinfección con vapor (opcional)",
+      "Tratamiento anti-ácaros en colchones",
+      "Aromatización final del hogar"
+    ]
+  }
 }

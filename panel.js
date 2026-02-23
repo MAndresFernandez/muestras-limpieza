@@ -1,13 +1,13 @@
-// CleanPro Panel - Admin Application Script
+// Red Rabbit Go Panel - Admin Application Script
 
 // ========== STATE ==========
 let appData = null;
 let currentSession = null;
 let deleteTargetId = null;
 
-const SESSION_KEY = 'cleanpro_session';
-const DATA_KEY = 'cleanpro_admin_data';
-const PASS_KEY = 'cleanpro_pass_override';
+const SESSION_KEY = 'redrabbit_session';
+const DATA_KEY = 'redrabbit_admin_data';
+const PASS_KEY = 'redrabbit_pass_override';
 
 // ========== INITIALIZATION ==========
 document.addEventListener('DOMContentLoaded', async () => {
@@ -39,6 +39,8 @@ async function loadData() {
 
 function saveDataLocally() {
     localStorage.setItem(DATA_KEY, JSON.stringify({ staff: appData.staff }));
+    // Also sync to workers_override so home page picks up changes
+    localStorage.setItem('workers_override', JSON.stringify(appData.staff));
 }
 
 // ========== AUTH ==========
@@ -268,7 +270,7 @@ function openWorkerModal(workerId = null) {
     if (workerId) {
         const worker = appData.staff.find(w => w.id === workerId);
         if (!worker) return;
-        title.textContent = 'Editar Trabajador';
+        title.textContent = 'Editar Colaborador';
         document.getElementById('wf_id').value = worker.id;
         document.getElementById('wf_nombre').value = worker.nombre;
         document.getElementById('wf_puesto').value = worker.puesto;
@@ -284,7 +286,7 @@ function openWorkerModal(workerId = null) {
         document.getElementById('wf_verificado').checked = worker.verificado || false;
         document.getElementById('wf_destacado').checked = worker.destacado || false;
     } else {
-        title.textContent = 'Agregar Trabajador';
+        title.textContent = 'Agregar Colaborador';
         document.getElementById('wf_id').value = '';
     }
 
@@ -471,7 +473,7 @@ function exportData() {
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = `cleanpro_data_${new Date().toISOString().slice(0, 10)}.json`;
+    a.download = `redrabbitgo_data_${new Date().toISOString().slice(0, 10)}.json`;
     a.click();
     URL.revokeObjectURL(url);
     showPanelNotification('Datos exportados correctamente', 'success');

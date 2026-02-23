@@ -4,34 +4,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CleanPro Solutions | Limpieza Profesional que Transforma Espacios</title>
+    <title>Red Rabbit Go | Limpieza Premium para tu Hogar</title>
     <meta name="description"
-        content="Servicios de limpieza profesional para oficinas, hogares, industrias y más. Calidad garantizada y personal verificado.">
+        content="Servicio de limpieza profesional para hogares en La Plata y alrededores. Personal verificado, protocolos industriales y compromiso legal. Solicitá tu turno por WhatsApp.">
 
-    <!-- Open Graph Meta Tags for WhatsApp/Social Sharing -->
-    <meta property="og:title" content="CleanPro Solutions | Limpieza Profesional">
+    <!-- Open Graph -->
+    <meta property="og:title" content="Red Rabbit Go | Limpieza Premium para tu Hogar">
     <meta property="og:description"
-        content="Servicios de limpieza profesional para oficinas, hogares e industrias. Personal verificado, productos ecológicos y resultados garantizados. Solicita tu cotización gratis.">
+        content="Limpieza profesional para hogares individuales. Personal verificado, protocolos industriales adaptados al hogar. La Plata, Ensenada, Berisso, Tolosa, Gonnet, City Bell.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://cr-sites.com/limpieza-muestras/">
+    <meta property="og:locale" content="es_AR">
     <meta property="og:image"
         content="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1200&h=630&fit=crop">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:locale" content="es_ES">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="CleanPro Solutions | Limpieza Profesional">
+    <meta name="twitter:title" content="Red Rabbit Go | Limpieza Premium para tu Hogar">
     <meta name="twitter:description"
-        content="Servicios de limpieza profesional para oficinas, hogares e industrias. Solicita tu cotización gratis.">
-    <meta name="twitter:image"
-        content="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1200&h=630&fit=crop">
+        content="Servicio de limpieza profesional para hogares individuales. Personal verificado. Pedí tu turno por WhatsApp.">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
 
     <!-- Tailwind CSS -->
@@ -41,8 +36,9 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: { 50: '#f0fdfa', 100: '#ccfbf1', 200: '#99f6e4', 300: '#5eead4', 400: '#2dd4bf', 500: '#14b8a6', 600: '#0d9488', 700: '#0f766e', 800: '#115e59', 900: '#134e4a' },
-                        secondary: { 400: '#22d3ee', 500: '#06b6d4', 600: '#0891b2' }
+                        primary: { 50: '#fef2f2', 100: '#fee2e2', 200: '#fecaca', 300: '#F2AEAE', 400: '#E84450', 500: '#D92534', 600: '#B51E2C', 700: '#991B1B', 800: '#7F1D1D', 900: '#611515' },
+                        secondary: { 400: '#F2AEAE', 500: '#D92525', 600: '#A66A6A' },
+                        brand: { offwhite: '#F2F2F2', rose: '#A66A6A', pink: '#F2AEAE' }
                     },
                     fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] }
                 }
@@ -63,21 +59,26 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
                 <a href="#" class="flex items-center gap-3">
-                    <div
-                        class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary-500 to-secondary-500 flex items-center justify-center">
-                        <i data-lucide="sparkles" class="w-6 h-6 text-white"></i>
-                    </div>
-                    <span class="text-xl font-bold text-gray-900">CleanPro</span>
+                    <img src="logoredrabbitgo.svg" alt="Red Rabbit Go" class="h-10 w-auto">
+                    <span class="text-xl font-extrabold text-gray-900">Red Rabbit Go</span>
                 </a>
                 <div class="hidden md:flex items-center gap-8">
-                    <a href="#servicios" class="nav-link text-gray-700 hover:text-primary-600 font-medium">Servicios</a>
+                    <a href="#servicios" class="nav-link text-gray-700 hover:text-primary-500 font-medium">Servicios</a>
                     <a href="#colaboradores"
-                        class="nav-link text-gray-700 hover:text-primary-600 font-medium">Colaboradores</a>
-                    <a href="#cotizador" class="nav-link text-gray-700 hover:text-primary-600 font-medium">Cotizar</a>
-                    <a href="#equipo" class="nav-link text-gray-700 hover:text-primary-600 font-medium">Equipo</a>
-                    <a href="panel.html" class="nav-link text-gray-700 hover:text-primary-600 font-medium">Panel</a>
-                    <a href="#trabaja" class="btn-primary px-6 py-2.5 rounded-full text-white font-semibold">Únete al
-                        Equipo</a>
+                        class="nav-link text-gray-700 hover:text-primary-500 font-medium">Colaboradores</a>
+                    <a href="#como-funciona" class="nav-link text-gray-700 hover:text-primary-500 font-medium">Cómo
+                        funciona</a>
+                    <a href="#equipo" class="nav-link text-gray-700 hover:text-primary-500 font-medium">Equipo</a>
+                    <a href="panel.html" class="nav-link text-gray-700 hover:text-primary-500 font-medium">Panel</a>
+                    <a href="https://wa.me/542216924104?text=Hola%20Red%20Rabbit%20Go!%20Quiero%20solicitar%20un%20servicio"
+                        target="_blank"
+                        class="btn-primary px-6 py-2.5 rounded-full text-white font-semibold inline-flex items-center gap-2">
+                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                        </svg>
+                        Pedí tu Turno
+                    </a>
                 </div>
                 <button id="menuBtn" class="md:hidden p-2 text-gray-700"><i data-lucide="menu"
                         class="w-6 h-6"></i></button>
@@ -87,10 +88,11 @@
             <div class="px-4 py-4 space-y-3">
                 <a href="#servicios" class="block py-2 text-gray-700 font-medium">Servicios</a>
                 <a href="#colaboradores" class="block py-2 text-gray-700 font-medium">Colaboradores</a>
-                <a href="#cotizador" class="block py-2 text-gray-700 font-medium">Cotizar</a>
+                <a href="#como-funciona" class="block py-2 text-gray-700 font-medium">Cómo funciona</a>
                 <a href="#equipo" class="block py-2 text-gray-700 font-medium">Equipo</a>
                 <a href="panel.html" class="block py-2 text-gray-700 font-medium">Panel</a>
-                <a href="#trabaja" class="block py-2 text-primary-600 font-semibold">Únete al Equipo</a>
+                <a href="https://wa.me/542216924104?text=Hola%20Red%20Rabbit%20Go!%20Quiero%20solicitar%20un%20servicio"
+                    target="_blank" class="block py-2 text-primary-500 font-semibold">📲 Pedí tu Turno</a>
             </div>
         </div>
     </nav>
@@ -101,7 +103,7 @@
             <div class="absolute top-20 left-10 w-72 h-72 bg-primary-500/20 rounded-full blur-3xl float-animation">
             </div>
             <div
-                class="absolute bottom-20 right-10 w-96 h-96 bg-secondary-400/20 rounded-full blur-3xl float-animation-delayed">
+                class="absolute bottom-20 right-10 w-96 h-96 bg-secondary-400/15 rounded-full blur-3xl float-animation-delayed">
             </div>
         </div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 relative z-10">
@@ -110,23 +112,26 @@
                     <div
                         class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full text-white/90 text-sm mb-6">
                         <i data-lucide="shield-check" class="w-4 h-4"></i>
-                        Personal 100% Verificado
+                        Personal 100% Verificado y con Seguro Social
                     </div>
                     <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6">
-                        Limpieza Profesional que
-                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary-300 to-secondary-300">
-                            Transforma </span>
-                        Espacios
+                        Limpieza de Clase,
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary-300 to-secondary-400">
+                            Ahora en tu Hogar </span>
                     </h1>
                     <p class="text-xl text-gray-300 mb-8 max-w-xl">
-                        Soluciones integrales de limpieza para empresas y hogares. Equipos capacitados, productos
-                        ecológicos y resultados garantizados.
+                        Somos el primer servicio de limpieza premium pensado para hogares individuales.
+                        Protocolos industriales, personal capacitado y respaldo legal. Cubrimos La Plata y alrededores.
                     </p>
                     <div class="flex flex-wrap gap-4">
-                        <a href="#cotizador"
+                        <a href="https://wa.me/542216924104?text=Hola%20Red%20Rabbit%20Go!%20Quiero%20solicitar%20un%20servicio%20de%20limpieza"
+                            target="_blank"
                             class="btn-primary px-8 py-4 rounded-full text-white font-bold text-lg flex items-center gap-2 pulse-glow">
-                            <i data-lucide="calculator" class="w-5 h-5"></i>
-                            Cotización Inmediata
+                            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                            </svg>
+                            Pedí tu Turno por WhatsApp
                         </a>
                         <a href="#servicios"
                             class="btn-secondary px-8 py-4 rounded-full font-bold text-lg border-white text-white hover:bg-white hover:text-gray-900">
@@ -135,18 +140,18 @@
                     </div>
                     <div class="flex items-center gap-8 mt-12">
                         <div>
-                            <p class="text-3xl font-bold text-white">500+</p>
-                            <p class="text-gray-400">Clientes Activos</p>
+                            <p class="text-3xl font-bold text-white">100%</p>
+                            <p class="text-gray-400">Legal y Asegurado</p>
                         </div>
                         <div class="w-px h-12 bg-white/20"></div>
                         <div>
-                            <p class="text-3xl font-bold text-white">15+</p>
-                            <p class="text-gray-400">Años de Experiencia</p>
+                            <p class="text-3xl font-bold text-white">7</p>
+                            <p class="text-gray-400">Zonas de Cobertura</p>
                         </div>
                         <div class="w-px h-12 bg-white/20"></div>
                         <div>
-                            <p class="text-3xl font-bold text-white">98%</p>
-                            <p class="text-gray-400">Satisfacción</p>
+                            <p class="text-3xl font-bold text-white">5★</p>
+                            <p class="text-gray-400">Valoración Clientes</p>
                         </div>
                     </div>
                 </div>
@@ -154,7 +159,7 @@
                     <div
                         class="glass-card rounded-3xl p-8 transform rotate-3 hover:rotate-0 transition-transform duration-500">
                         <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=600&h=400&fit=crop"
-                            alt="Equipo de limpieza profesional" class="rounded-2xl shadow-2xl">
+                            alt="Servicio de limpieza profesional para hogares" class="rounded-2xl shadow-2xl">
                     </div>
                 </div>
             </div>
@@ -164,91 +169,125 @@
         </div>
     </section>
 
+    <!-- USPs / Diferenciales Section -->
+    <section class="py-20 bg-brand-offwhite">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-14">
+                <span
+                    class="inline-block px-4 py-2 bg-primary-100 text-primary-600 rounded-full text-sm font-semibold mb-4">¿Por
+                    qué elegirnos?</span>
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Lo Que Nos Hace Diferentes</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">No somos una empresa de limpieza convencional.
+                    Revolucionamos el servicio doméstico
+                    con estándares que antes solo existían para corporaciones.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div
+                    class="bg-white rounded-3xl p-8 shadow-lg border border-gray-100 text-center group hover:shadow-2xl transition-all hover:-translate-y-2">
+                    <div
+                        class="w-20 h-20 rounded-2xl bg-gradient-to-br from-primary-500 to-primary-600 flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="users" class="w-10 h-10 text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Capital Humano Especializado</h3>
+                    <p class="text-gray-600">Personal seleccionado bajo rigurosos estándares de seguridad y capacitado
+                        en
+                        técnicas de higienización avanzada y atención premium.</p>
+                </div>
+                <div
+                    class="bg-white rounded-3xl p-8 shadow-lg border border-gray-100 text-center group hover:shadow-2xl transition-all hover:-translate-y-2">
+                    <div
+                        class="w-20 h-20 rounded-2xl bg-gradient-to-br from-primary-500 to-secondary-500 flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="shield-check" class="w-10 h-10 text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Protocolos de Higiene Industrial</h3>
+                    <p class="text-gray-600">Sistemas de desinfección industriales adaptados al ámbito doméstico:
+                        espacios
+                        bioseguros y libres de alérgenos.</p>
+                </div>
+                <div
+                    class="bg-white rounded-3xl p-8 shadow-lg border border-gray-100 text-center group hover:shadow-2xl transition-all hover:-translate-y-2">
+                    <div
+                        class="w-20 h-20 rounded-2xl bg-gradient-to-br from-secondary-600 to-brand-rose flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="scale" class="w-10 h-10 text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Compromiso Ético y Legal</h3>
+                    <p class="text-gray-600">Total transparencia administrativa. Colaboradores respaldados legalmente y
+                        con
+                        seguridad social. Mitigación de riesgo para vos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Services Section -->
-    <section id="servicios" class="py-24 bg-gray-50">
+    <section id="servicios" class="py-24 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <span
-                    class="inline-block px-4 py-2 bg-primary-100 text-primary-700 rounded-full text-sm font-semibold mb-4">Nuestros
+                    class="inline-block px-4 py-2 bg-primary-100 text-primary-600 rounded-full text-sm font-semibold mb-4">Nuestros
                     Servicios</span>
-                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Soluciones para Cada Necesidad</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Desde oficinas corporativas hasta el hogar, tenemos
-                    el servicio perfecto para ti.</p>
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Pensados para tu Hogar</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Desde la limpieza semanal hasta la desinfección
+                    profunda, adaptamos protocolos profesionales a tu casa.</p>
             </div>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <div class="service-card bg-white rounded-3xl p-8 shadow-lg border border-gray-100">
                     <div
-                        class="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary-500 to-secondary-500 flex items-center justify-center mb-6">
-                        <i data-lucide="building-2" class="w-8 h-8 text-white"></i>
+                        class="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary-500 to-primary-600 flex items-center justify-center mb-6">
+                        <i data-lucide="home" class="w-8 h-8 text-white"></i>
                     </div>
-                    <h3 class="text-2xl font-bold text-gray-900 mb-3">Oficinas Corporativas</h3>
-                    <p class="text-gray-600 mb-4">Espacios de trabajo impecables que impulsan la productividad de tu
-                        equipo.</p>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Limpieza Regular</h3>
+                    <p class="text-gray-600 mb-4">Mantenimiento semanal o quincenal: pisos, baños, cocina y áreas
+                        comunes
+                        con protocolos profesionales.</p>
                     <div class="flex items-center justify-between pt-4 border-t border-gray-100">
-                        <span class="text-sm text-gray-500">Personalizado</span>
-                        <span class="text-primary-600 font-semibold">A convenir</span>
+                        <span class="text-sm text-gray-500">Semanal / Quincenal</span>
+                        <a href="https://wa.me/542216924104?text=Hola!%20Quiero%20consultar%20por%20limpieza%20regular"
+                            target="_blank" class="text-primary-500 font-semibold text-sm">Consultar →</a>
                     </div>
                 </div>
                 <div class="service-card bg-white rounded-3xl p-8 shadow-lg border border-gray-100">
                     <div
-                        class="w-16 h-16 rounded-2xl bg-gradient-to-br from-amber-500 to-orange-500 flex items-center justify-center mb-6">
-                        <i data-lucide="hard-hat" class="w-8 h-8 text-white"></i>
+                        class="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary-400 to-secondary-500 flex items-center justify-center mb-6">
+                        <i data-lucide="sparkles" class="w-8 h-8 text-white"></i>
                     </div>
-                    <h3 class="text-2xl font-bold text-gray-900 mb-3">Final de Obra</h3>
-                    <p class="text-gray-600 mb-4">Dejamos tu proyecto listo para la entrega, sin rastros de polvo ni
-                        residuos.</p>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Limpieza Profunda</h3>
+                    <p class="text-gray-600 mb-4">Desinfección completa con protocolos industriales. Ideal para mudanzas
+                        o
+                        limpiezas de temporada.</p>
                     <div class="flex items-center justify-between pt-4 border-t border-gray-100">
-                        <span class="text-sm text-gray-500">Por proyecto</span>
-                        <span class="text-primary-600 font-semibold">Solicitar presupuesto</span>
+                        <span class="text-sm text-gray-500">Puntual</span>
+                        <a href="https://wa.me/542216924104?text=Hola!%20Quiero%20consultar%20por%20limpieza%20profunda"
+                            target="_blank" class="text-primary-500 font-semibold text-sm">Consultar →</a>
                     </div>
                 </div>
                 <div class="service-card bg-white rounded-3xl p-8 shadow-lg border border-gray-100">
                     <div
-                        class="w-16 h-16 rounded-2xl bg-gradient-to-br from-red-500 to-pink-500 flex items-center justify-center mb-6">
-                        <i data-lucide="heart-pulse" class="w-8 h-8 text-white"></i>
+                        class="w-16 h-16 rounded-2xl bg-gradient-to-br from-secondary-600 to-brand-rose flex items-center justify-center mb-6">
+                        <i data-lucide="crown" class="w-8 h-8 text-white"></i>
                     </div>
-                    <h3 class="text-2xl font-bold text-gray-900 mb-3">Hospitalario</h3>
-                    <p class="text-gray-600 mb-4">Protocolos de desinfección certificados para centros de salud.</p>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Servicio Premium</h3>
+                    <p class="text-gray-600 mb-4">Atención personalizada con productos de alta gama, planchado,
+                        organización
+                        e higienización de tapizados.</p>
                     <div class="flex items-center justify-between pt-4 border-t border-gray-100">
-                        <span class="text-sm text-gray-500">Certificado</span>
-                        <span class="text-primary-600 font-semibold">A convenir</span>
+                        <span class="text-sm text-gray-500">VIP</span>
+                        <a href="https://wa.me/542216924104?text=Hola!%20Quiero%20consultar%20por%20el%20servicio%20premium"
+                            target="_blank" class="text-primary-500 font-semibold text-sm">Consultar →</a>
                     </div>
                 </div>
                 <div class="service-card bg-white rounded-3xl p-8 shadow-lg border border-gray-100">
                     <div
                         class="w-16 h-16 rounded-2xl bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center mb-6">
-                        <i data-lucide="factory" class="w-8 h-8 text-white"></i>
+                        <i data-lucide="hard-hat" class="w-8 h-8 text-white"></i>
                     </div>
-                    <h3 class="text-2xl font-bold text-gray-900 mb-3">Industrial</h3>
-                    <p class="text-gray-600 mb-4">Soluciones para grandes superficies, maquinaria y naves industriales.
-                    </p>
-                    <div class="flex items-center justify-between pt-4 border-t border-gray-100">
-                        <span class="text-sm text-gray-500">Gran escala</span>
-                        <span class="text-primary-600 font-semibold">Solicitar presupuesto</span>
-                    </div>
-                </div>
-                <div class="service-card bg-white rounded-3xl p-8 shadow-lg border border-gray-100">
-                    <div
-                        class="w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-500 flex items-center justify-center mb-6">
-                        <i data-lucide="home" class="w-8 h-8 text-white"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-gray-900 mb-3">Hogar Premium</h3>
-                    <p class="text-gray-600 mb-4">Tu hogar merece el mejor cuidado con productos de alta calidad.</p>
-                    <div class="flex items-center justify-between pt-4 border-t border-gray-100">
-                        <span class="text-sm text-gray-500">Residencial</span>
-                        <span class="text-primary-600 font-semibold">A convenir</span>
-                    </div>
-                </div>
-                <div class="service-card bg-white rounded-3xl p-8 shadow-lg border border-gray-100">
-                    <div
-                        class="w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-500 to-indigo-500 flex items-center justify-center mb-6">
-                        <i data-lucide="party-popper" class="w-8 h-8 text-white"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-gray-900 mb-3">Eventos</h3>
-                    <p class="text-gray-600 mb-4">Antes y después de tus eventos especiales, lo dejamos impecable.</p>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Post-Obra / Evento</h3>
+                    <p class="text-gray-600 mb-4">Limpieza integral después de reformas, fiestas o mudanzas. Dejamos tu
+                        hogar listo para habitar.</p>
                     <div class="flex items-center justify-between pt-4 border-t border-gray-100">
                         <span class="text-sm text-gray-500">Puntual</span>
-                        <span class="text-primary-600 font-semibold">Solicitar presupuesto</span>
+                        <a href="https://wa.me/542216924104?text=Hola!%20Necesito%20limpieza%20post-obra"
+                            target="_blank" class="text-primary-500 font-semibold text-sm">Consultar →</a>
                     </div>
                 </div>
             </div>
@@ -256,90 +295,66 @@
     </section>
 
     <!-- Nuestros Mejores Colaboradores Section -->
-    <section id="colaboradores" class="py-24 bg-white">
+    <section id="colaboradores" class="py-24 bg-brand-offwhite">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <span
-                    class="inline-block px-4 py-2 bg-amber-100 text-amber-700 rounded-full text-sm font-semibold mb-4">⭐
+                    class="inline-block px-4 py-2 bg-primary-100 text-primary-600 rounded-full text-sm font-semibold mb-4">⭐
                     Top Profesionales</span>
                 <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Nuestros Mejores Colaboradores</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Conoce a los profesionales más valorados por nuestros
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Conocé a los profesionales más valorados por nuestros
                     clientes</p>
             </div>
             <div id="featuredGrid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
         </div>
     </section>
 
-    <!-- Dynamic Quoter Section -->
-    <section id="cotizador" class="py-24 bg-gradient-to-br from-gray-900 via-gray-800 to-primary-900">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
+    <!-- How it works / Cómo Funciona -->
+    <section id="como-funciona" class="py-24 bg-gradient-to-br from-gray-900 via-gray-800 to-primary-900">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
                 <span
-                    class="inline-block px-4 py-2 bg-white/10 text-white rounded-full text-sm font-semibold mb-4">Cotizador
-                    Inteligente</span>
-                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Solicita tu Presupuesto</h2>
-                <p class="text-xl text-gray-300">Completa el formulario y recibe una cotización personalizada</p>
+                    class="inline-block px-4 py-2 bg-white/10 text-white rounded-full text-sm font-semibold mb-4">Proceso
+                    Sencillo</span>
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">¿Cómo Funciona?</h2>
+                <p class="text-xl text-gray-300">En 3 pasos tenés un profesional verificado en tu puerta</p>
             </div>
-            <div id="quoterFormContainer" class="glass-card rounded-3xl p-8 md:p-10">
-                <form id="quoterForm" class="space-y-6">
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <div>
-                            <label class="block text-sm font-semibold text-gray-700 mb-2">Tipo de Servicio *</label>
-                            <select name="servicio" class="form-input w-full px-4 py-3 rounded-xl bg-white" required>
-                                <option value="">Selecciona un servicio</option>
-                                <option value="oficinas">Oficinas Corporativas</option>
-                                <option value="post-obra">Final de Obra</option>
-                                <option value="hospitalario">Hospitalario</option>
-                                <option value="industrial">Industrial</option>
-                                <option value="hogar">Hogar Premium</option>
-                                <option value="eventos">Eventos</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label class="block text-sm font-semibold text-gray-700 mb-2">Frecuencia *</label>
-                            <select name="frecuencia" class="form-input w-full px-4 py-3 rounded-xl bg-white" required>
-                                <option value="">Selecciona frecuencia</option>
-                                <option value="unica">Única vez</option>
-                                <option value="semanal">Semanal</option>
-                                <option value="quincenal">Quincenal</option>
-                                <option value="mensual">Mensual</option>
-                                <option value="diario">Diario (L-V)</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div>
-                        <label class="block text-sm font-semibold text-gray-700 mb-4">Superficie Aproximada: <span
-                                id="m2Value" class="text-primary-600 text-lg font-bold">100</span> m²</label>
-                        <input type="range" id="m2Range" min="20" max="1000" value="100" class="w-full" required>
-                        <div class="flex justify-between text-sm text-gray-500 mt-2">
-                            <span>20 m²</span>
-                            <span>1000 m²</span>
-                        </div>
-                    </div>
-                    <div class="grid md:grid-cols-3 gap-6">
-                        <div>
-                            <label class="block text-sm font-semibold text-gray-700 mb-2">Nombre *</label>
-                            <input type="text" name="nombre" class="form-input w-full px-4 py-3 rounded-xl bg-white"
-                                placeholder="Tu nombre" required>
-                        </div>
-                        <div>
-                            <label class="block text-sm font-semibold text-gray-700 mb-2">Teléfono *</label>
-                            <input type="tel" name="telefono" class="form-input w-full px-4 py-3 rounded-xl bg-white"
-                                placeholder="+1 555 123 4567" required pattern="[\d\s\+\-\(\)]{7,20}"
-                                title="Ingresa un número de teléfono válido">
-                        </div>
-                        <div>
-                            <label class="block text-sm font-semibold text-gray-700 mb-2">Email *</label>
-                            <input type="email" name="email" class="form-input w-full px-4 py-3 rounded-xl bg-white"
-                                placeholder="tu@email.com" required>
-                        </div>
-                    </div>
-                    <button type="submit"
-                        class="w-full btn-primary py-4 rounded-xl text-white font-bold text-lg flex items-center justify-center gap-2 min-h-[52px]">
-                        <i data-lucide="send" class="w-5 h-5"></i>
-                        Enviar para Validar Disponibilidad
-                    </button>
-                </form>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <div
+                        class="w-20 h-20 rounded-full bg-gradient-to-br from-primary-500 to-primary-600 flex items-center justify-center mx-auto mb-6 text-3xl font-black text-white shadow-lg shadow-primary-500/30">
+                        1</div>
+                    <h3 class="text-xl font-bold text-white mb-3">Escribinos por WhatsApp</h3>
+                    <p class="text-gray-400">Contanos qué tipo de limpieza necesitás, cuándo y en qué zona estás.</p>
+                </div>
+                <div class="text-center">
+                    <div
+                        class="w-20 h-20 rounded-full bg-gradient-to-br from-primary-500 to-primary-600 flex items-center justify-center mx-auto mb-6 text-3xl font-black text-white shadow-lg shadow-primary-500/30">
+                        2</div>
+                    <h3 class="text-xl font-bold text-white mb-3">Te asignamos un profesional</h3>
+                    <p class="text-gray-400">Seleccionamos al colaborador ideal según tu necesidad. Todo verificado y
+                        con
+                        seguro.</p>
+                </div>
+                <div class="text-center">
+                    <div
+                        class="w-20 h-20 rounded-full bg-gradient-to-br from-primary-500 to-primary-600 flex items-center justify-center mx-auto mb-6 text-3xl font-black text-white shadow-lg shadow-primary-500/30">
+                        3</div>
+                    <h3 class="text-xl font-bold text-white mb-3">Disfrutá tu hogar impecable</h3>
+                    <p class="text-gray-400">Nuestro equipo llega puntual, trabaja con protocolo y te deja la casa
+                        reluciente.</p>
+                </div>
+            </div>
+            <div class="text-center mt-12">
+                <a href="https://wa.me/542216924104?text=Hola!%20Quiero%20agendar%20un%20servicio%20de%20limpieza"
+                    target="_blank"
+                    class="btn-primary px-10 py-4 rounded-full text-white font-bold text-lg inline-flex items-center gap-3 pulse-glow">
+                    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                    </svg>
+                    Agendá Ahora
+                </a>
             </div>
         </div>
     </section>
@@ -349,10 +364,10 @@
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
                 <span
-                    class="inline-block px-4 py-2 bg-primary-100 text-primary-700 rounded-full text-sm font-semibold mb-4">¿Qué
+                    class="inline-block px-4 py-2 bg-primary-100 text-primary-600 rounded-full text-sm font-semibold mb-4">¿Qué
                     Incluye?</span>
-                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Compara Nuestros Planes</h2>
-                <p class="text-xl text-gray-600">Elige el nivel de limpieza que mejor se adapte a tus necesidades</p>
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Compará Nuestros Planes</h2>
+                <p class="text-xl text-gray-600">Elegí el nivel de limpieza que mejor se adapte a tu hogar</p>
             </div>
             <div class="flex justify-center gap-4 mb-10">
                 <button class="tab-btn active px-8 py-3 rounded-full font-semibold transition-all"
@@ -360,19 +375,19 @@
                 <button class="tab-btn px-8 py-3 rounded-full font-semibold transition-all" data-tab="profunda">Limpieza
                     Profunda</button>
             </div>
-            <div id="checklistContainer" class="bg-gray-50 rounded-3xl p-8"></div>
+            <div id="checklistContainer" class="bg-brand-offwhite rounded-3xl p-8"></div>
         </div>
     </section>
 
     <!-- Before/After Slider Section -->
-    <section class="py-24 bg-gray-50">
+    <section class="py-24 bg-brand-offwhite">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
                 <span
-                    class="inline-block px-4 py-2 bg-primary-100 text-primary-700 rounded-full text-sm font-semibold mb-4">Resultados
+                    class="inline-block px-4 py-2 bg-primary-100 text-primary-600 rounded-full text-sm font-semibold mb-4">Resultados
                     Reales</span>
                 <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Antes y Después</h2>
-                <p class="text-xl text-gray-600">Desliza para ver la diferencia que hacemos</p>
+                <p class="text-xl text-gray-600">Deslizá para ver la diferencia que hacemos</p>
             </div>
             <div class="before-after-container shadow-2xl">
                 <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&h=800&fit=crop"
@@ -397,60 +412,56 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <span
-                    class="inline-block px-4 py-2 bg-primary-100 text-primary-700 rounded-full text-sm font-semibold mb-4">Nuestro
+                    class="inline-block px-4 py-2 bg-primary-100 text-primary-600 rounded-full text-sm font-semibold mb-4">Nuestro
                     Equipo</span>
                 <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Profesionales Verificados</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Cada miembro de nuestro equipo pasa por rigurosos
-                    procesos de selección y verificación</p>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Cada miembro pasa por rigurosos procesos de
+                    selección,
+                    verificación de antecedentes y capacitación continua</p>
             </div>
             <div id="staffGrid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
         </div>
     </section>
 
     <!-- Testimonials Section -->
-    <section class="py-24 bg-gradient-to-br from-primary-50 to-secondary-50">
+    <section class="py-24 bg-gradient-to-br from-primary-50 to-brand-offwhite">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <span
-                    class="inline-block px-4 py-2 bg-primary-100 text-primary-700 rounded-full text-sm font-semibold mb-4">Testimonios</span>
+                    class="inline-block px-4 py-2 bg-primary-100 text-primary-600 rounded-full text-sm font-semibold mb-4">Testimonios</span>
                 <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Lo Que Dicen Nuestros Clientes</h2>
             </div>
             <div id="testimonialGrid" class="grid md:grid-cols-3 gap-8"></div>
         </div>
     </section>
 
-    <!-- Client Portal Simulation -->
-    <section id="portal" class="py-24 bg-white">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Coverage Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
                 <span
-                    class="inline-block px-4 py-2 bg-purple-100 text-purple-700 rounded-full text-sm font-semibold mb-4">Portal
-                    de Cliente (Demo)</span>
-                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Tu Espacio Personal</h2>
-                <p class="text-xl text-gray-600">Gestiona tus servicios, consulta visitas y revisa facturas desde un
-                    solo lugar</p>
+                    class="inline-block px-4 py-2 bg-primary-100 text-primary-600 rounded-full text-sm font-semibold mb-4">📍
+                    Cobertura</span>
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Zonas de Servicio</h2>
+                <p class="text-xl text-gray-600">Llegamos a tu hogar en estas localidades</p>
             </div>
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="portal-card rounded-3xl p-8 shadow-xl">
-                    <div class="flex items-center gap-3 mb-6">
-                        <div
-                            class="w-12 h-12 rounded-xl bg-gradient-to-br from-primary-500 to-secondary-500 flex items-center justify-center">
-                            <i data-lucide="calendar-check" class="w-6 h-6 text-white"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold text-gray-900">Próximas Visitas</h3>
-                    </div>
-                    <div id="upcomingVisits" class="space-y-4"></div>
-                </div>
-                <div class="portal-card rounded-3xl p-8 shadow-xl">
-                    <div class="flex items-center gap-3 mb-6">
-                        <div
-                            class="w-12 h-12 rounded-xl bg-gradient-to-br from-gray-600 to-gray-800 flex items-center justify-center">
-                            <i data-lucide="receipt" class="w-6 h-6 text-white"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold text-gray-900">Historial de Facturas</h3>
-                    </div>
-                    <div id="invoicesHistory" class="space-y-4"></div>
-                </div>
+            <div class="flex flex-wrap justify-center gap-4">
+                <span
+                    class="px-6 py-3 bg-primary-50 text-primary-700 rounded-full font-semibold border border-primary-200 text-lg">La
+                    Plata</span>
+                <span
+                    class="px-6 py-3 bg-primary-50 text-primary-700 rounded-full font-semibold border border-primary-200 text-lg">Ensenada</span>
+                <span
+                    class="px-6 py-3 bg-primary-50 text-primary-700 rounded-full font-semibold border border-primary-200 text-lg">Berisso</span>
+                <span
+                    class="px-6 py-3 bg-primary-50 text-primary-700 rounded-full font-semibold border border-primary-200 text-lg">Tolosa</span>
+                <span
+                    class="px-6 py-3 bg-primary-50 text-primary-700 rounded-full font-semibold border border-primary-200 text-lg">Ringuelet</span>
+                <span
+                    class="px-6 py-3 bg-primary-50 text-primary-700 rounded-full font-semibold border border-primary-200 text-lg">Gonnet</span>
+                <span
+                    class="px-6 py-3 bg-primary-50 text-primary-700 rounded-full font-semibold border border-primary-200 text-lg">City
+                    Bell</span>
             </div>
         </div>
     </section>
@@ -462,8 +473,9 @@
                 <span
                     class="inline-block px-4 py-2 bg-white/10 text-white rounded-full text-sm font-semibold mb-4">Trabaja
                     con Nosotros</span>
-                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Únete al Equipo CleanPro</h2>
-                <p class="text-xl text-gray-300">Buscamos profesionales comprometidos con la excelencia</p>
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Únete al Equipo Red Rabbit Go</h2>
+                <p class="text-xl text-gray-300">Buscamos profesionales comprometidos con la excelencia en la limpieza
+                    doméstica</p>
             </div>
             <form id="recruitmentForm" class="glass-card rounded-3xl p-8 md:p-10">
                 <div class="grid md:grid-cols-2 gap-6 mb-6">
@@ -495,29 +507,24 @@
                     </div>
                 </div>
                 <div class="mb-6">
-                    <label class="block text-sm font-semibold text-gray-700 mb-2">Disponibilidad</label>
-                    <select name="disponibilidad" class="form-input w-full px-4 py-3 rounded-xl bg-white">
-                        <option value="completa">Tiempo completo</option>
-                        <option value="parcial">Medio tiempo</option>
-                        <option value="fines">Fines de semana</option>
+                    <label class="block text-sm font-semibold text-gray-700 mb-2">Zona donde vivís</label>
+                    <select name="zona" class="form-input w-full px-4 py-3 rounded-xl bg-white">
+                        <option value="la-plata">La Plata</option>
+                        <option value="ensenada">Ensenada</option>
+                        <option value="berisso">Berisso</option>
+                        <option value="tolosa">Tolosa</option>
+                        <option value="ringuelet">Ringuelet</option>
+                        <option value="gonnet">Gonnet</option>
+                        <option value="city-bell">City Bell</option>
+                        <option value="otra">Otra zona</option>
                     </select>
                 </div>
                 <div class="mb-6">
-                    <label class="block text-sm font-semibold text-gray-700 mb-2">Adjuntar CV (PDF)</label>
-                    <div id="fileUploadArea" class="file-upload-area rounded-xl p-8 text-center cursor-pointer">
-                        <i data-lucide="upload-cloud" class="w-12 h-12 text-gray-400 mx-auto mb-3"></i>
-                        <p class="text-gray-600">Arrastra tu archivo aquí o <span
-                                class="text-primary-600 font-semibold">haz clic para seleccionar</span></p>
-                        <p id="fileName" class="text-primary-600 font-semibold mt-2 hidden"></p>
-                    </div>
-                    <input type="file" id="cvFile" accept=".pdf,.doc,.docx" class="hidden">
-                </div>
-                <div class="mb-6">
-                    <label class="block text-sm font-semibold text-gray-700 mb-2">¿Por qué quieres trabajar con
+                    <label class="block text-sm font-semibold text-gray-700 mb-2">¿Por qué querés trabajar con
                         nosotros?</label>
                     <textarea name="mensaje" rows="3"
                         class="form-input w-full px-4 py-3 rounded-xl bg-white resize-none"
-                        placeholder="Cuéntanos sobre ti..."></textarea>
+                        placeholder="Contanos sobre vos..."></textarea>
                 </div>
                 <button type="submit"
                     class="w-full btn-primary py-4 rounded-xl text-white font-bold text-lg flex items-center justify-center gap-2">
@@ -528,57 +535,53 @@
         </div>
     </section>
 
-    <!-- Footer with Lead Magnet -->
+    <!-- Footer -->
     <footer class="bg-gray-900 text-white py-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-4 gap-12 mb-12">
                 <div class="md:col-span-2">
                     <div class="flex items-center gap-3 mb-6">
-                        <div
-                            class="w-12 h-12 rounded-xl bg-gradient-to-br from-primary-500 to-secondary-500 flex items-center justify-center">
-                            <i data-lucide="sparkles" class="w-7 h-7 text-white"></i>
-                        </div>
-                        <span class="text-2xl font-bold">CleanPro Solutions</span>
+                        <img src="logoredrabbitgo.svg" alt="Red Rabbit Go" class="h-12 w-auto invert">
+                        <span class="text-2xl font-bold">Red Rabbit Go</span>
                     </div>
-                    <p class="text-gray-400 mb-6 max-w-md">Transformamos espacios con profesionalismo y dedicación. Más
-                        de 15 años brindando servicios de limpieza de alta calidad.</p>
-                    <div class="flex gap-4">
-                        <a href="#"
-                            class="w-10 h-10 rounded-full bg-white/10 hover:bg-primary-500 flex items-center justify-center transition-colors"><i
-                                data-lucide="facebook" class="w-5 h-5"></i></a>
-                        <a href="#"
-                            class="w-10 h-10 rounded-full bg-white/10 hover:bg-primary-500 flex items-center justify-center transition-colors"><i
-                                data-lucide="instagram" class="w-5 h-5"></i></a>
-                        <a href="#"
-                            class="w-10 h-10 rounded-full bg-white/10 hover:bg-primary-500 flex items-center justify-center transition-colors"><i
-                                data-lucide="linkedin" class="w-5 h-5"></i></a>
-                    </div>
+                    <p class="text-gray-400 mb-6 max-w-md">Proveemos soluciones de limpieza que superan los estándares
+                        convencionales. El primer servicio premium pensado para hogares individuales en La Plata y
+                        alrededores.</p>
+                    <a href="https://wa.me/542216924104?text=Hola%20Red%20Rabbit%20Go!" target="_blank"
+                        class="inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-full font-semibold transition-colors">
+                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                        </svg>
+                        Contactanos por WhatsApp
+                    </a>
                 </div>
                 <div>
                     <h4 class="font-bold text-lg mb-4">Servicios</h4>
                     <ul class="space-y-3 text-gray-400">
-                        <li><a href="#servicios" class="hover:text-primary-400 transition-colors">Oficinas</a></li>
-                        <li><a href="#servicios" class="hover:text-primary-400 transition-colors">Final de Obra</a></li>
-                        <li><a href="#servicios" class="hover:text-primary-400 transition-colors">Hospitalario</a></li>
-                        <li><a href="#servicios" class="hover:text-primary-400 transition-colors">Industrial</a></li>
+                        <li><a href="#servicios" class="hover:text-primary-400 transition-colors">Limpieza Regular</a>
+                        </li>
+                        <li><a href="#servicios" class="hover:text-primary-400 transition-colors">Limpieza Profunda</a>
+                        </li>
+                        <li><a href="#servicios" class="hover:text-primary-400 transition-colors">Servicio Premium</a>
+                        </li>
+                        <li><a href="#servicios" class="hover:text-primary-400 transition-colors">Post-Obra / Evento</a>
+                        </li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="font-bold text-lg mb-4">Descarga Gratis</h4>
-                    <div class="bg-gradient-to-br from-primary-600 to-secondary-600 rounded-2xl p-6">
-                        <i data-lucide="book-open" class="w-10 h-10 mb-3"></i>
-                        <h5 class="font-bold mb-2">Guía de Mantenimiento</h5>
-                        <p class="text-sm text-white/80 mb-4">Tips profesionales para mantener tu oficina impecable</p>
-                        <button onclick="showLeadPopup()"
-                            class="w-full bg-white text-primary-600 font-bold py-2 rounded-lg hover:bg-gray-100 transition-colors">Descargar
-                            Guía</button>
-                    </div>
+                    <h4 class="font-bold text-lg mb-4">Cobertura</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li>La Plata</li>
+                        <li>Ensenada · Berisso</li>
+                        <li>Tolosa · Ringuelet</li>
+                        <li>Gonnet · City Bell</li>
+                    </ul>
                 </div>
             </div>
             <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-                <p class="text-gray-500 text-sm">&copy; 2024 CleanPro Solutions. Todos los derechos reservados.</p>
-                <p class="text-gray-500 text-sm">Demo desarrollada por <span class="text-primary-400 font-semibold">Tu
-                        Agencia Digital</span></p>
+                <p class="text-gray-500 text-sm">&copy; 2025 Red Rabbit Go. Todos los derechos reservados.</p>
+                <p class="text-gray-500 text-sm">Servicio de limpieza premium para hogares</p>
             </div>
         </div>
     </footer>
@@ -603,8 +606,8 @@
         <div class="lead-popup bg-white rounded-3xl shadow-2xl max-w-md w-full overflow-hidden">
             <div class="bg-gradient-to-br from-primary-500 to-secondary-500 p-8 text-white text-center">
                 <i data-lucide="gift" class="w-16 h-16 mx-auto mb-4"></i>
-                <h3 class="text-2xl font-bold mb-2">¡Regalo para Ti!</h3>
-                <p class="text-white/90">Descarga gratis nuestra guía profesional de mantenimiento de oficinas</p>
+                <h3 class="text-2xl font-bold mb-2">¡Descuento Especial!</h3>
+                <p class="text-white/90">Dejanos tu email y recibí un 10% de descuento en tu primer servicio</p>
             </div>
             <form id="leadForm" class="p-8">
                 <div class="mb-4">
@@ -615,13 +618,22 @@
                 <button type="submit"
                     class="w-full btn-primary py-3 rounded-xl text-white font-bold flex items-center justify-center gap-2">
                     <i data-lucide="download" class="w-5 h-5"></i>
-                    Descargar Guía Gratis
+                    Obtener Descuento
                 </button>
                 <button type="button" id="closePopup"
                     class="w-full mt-3 py-2 text-gray-500 hover:text-gray-700 font-medium text-sm">No, gracias</button>
             </form>
         </div>
     </div>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/542216924104?text=Hola%20Red%20Rabbit%20Go!%20Quiero%20consultar%20por%20un%20servicio"
+        target="_blank" class="whatsapp-float" aria-label="Contactar por WhatsApp">
+        <svg viewBox="0 0 24 24" fill="white">
+            <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+        </svg>
+    </a>
 
     <!-- Scripts -->
     <script src="app.js"></script>
