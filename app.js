@@ -25,25 +25,10 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 async function loadData() {
     try {
-        const res = await fetch('data.json');
+        // Cache buster to ensure visitors always get the latest version after edits
+        const res = await fetch('data.json?t=' + new Date().getTime());
         if (!res.ok) throw new Error('Failed to load data.json');
         appData = await res.json();
-
-        // Merge localStorage overrides (from admin panel)
-        const localWorkers = localStorage.getItem('workers_override');
-        if (localWorkers) {
-            try {
-                const overrides = JSON.parse(localWorkers);
-                // Merge: override existing by id, add new ones
-                const merged = [...appData.staff];
-                overrides.forEach(ow => {
-                    const idx = merged.findIndex(w => w.id === ow.id);
-                    if (idx >= 0) merged[idx] = { ...merged[idx], ...ow };
-                    else merged.push(ow);
-                });
-                appData.staff = merged;
-            } catch (e) { /* ignore bad data */ }
-        }
     } catch (err) {
         console.warn('Using fallback data:', err);
         appData = {

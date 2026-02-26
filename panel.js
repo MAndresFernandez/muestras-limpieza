@@ -19,28 +19,39 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 async function loadData() {
     try {
-        const response = await fetch('data.json');
+        // Cache buster to ensure admin always gets latest
+        const response = await fetch('data.json?t=' + new Date().getTime());
         appData = await response.json();
-
-        // Merge with any localStorage overrides
-        const localOverride = localStorage.getItem(DATA_KEY);
-        if (localOverride) {
-            try {
-                const parsed = JSON.parse(localOverride);
-                appData.staff = parsed.staff || appData.staff;
-            } catch (e) {
-                console.warn('Could not parse local data override');
-            }
-        }
     } catch (error) {
         console.error('Error loading data:', error);
+        showPanelNotification('Error al cargar datos del servidor', 'error');
     }
 }
 
-function saveDataLocally() {
-    localStorage.setItem(DATA_KEY, JSON.stringify({ staff: appData.staff }));
-    // Also sync to workers_override so home page picks up changes
-    localStorage.setItem('workers_override', JSON.stringify(appData.staff));
+async function saveDataLocally() {
+    showPanelNotification('Guardando cambios en el servidor...', 'info');
+
+    try {
+        const response = await fetch('save_data.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer redrabbit_admin_token_2025'
+            },
+            body: JSON.stringify(appData)
+        });
+
+        const result = await response.json();
+
+        if (response.ok && result.success) {
+            showPanelNotification('¡Cambios guardados y publicados exitosamente!', 'success');
+        } else {
+            throw new Error(result.error || 'Server error');
+        }
+    } catch (error) {
+        console.error('Error saving data:', error);
+        showPanelNotification('Error al guardar: ' + error.message, 'error');
+    }
 }
 
 // ========== AUTH ==========
@@ -278,7 +289,8 @@ function openWorkerModal(workerId = null) {
         document.getElementById('wf_experiencia').value = worker.experiencia || '';
         document.getElementById('wf_telefono').value = worker.telefono || '';
         document.getElementById('wf_email').value = worker.email || '';
-        document.getElementById('wf_foto').value = worker.foto || '';
+        document.getElementById('wf_foto_base64').value = worker.foto || '';
+        document.getElementById('wf_foto_preview').src = worker.foto || 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=300&h=300&fit=crop&crop=face';
         document.getElementById('wf_bio').value = worker.bio || '';
         document.getElementById('wf_habilidades').value = (worker.habilidades || []).join(', ');
         document.getElementById('wf_disponibilidad').value = worker.disponibilidad || 'Tiempo completo';
@@ -288,6 +300,8 @@ function openWorkerModal(workerId = null) {
     } else {
         title.textContent = 'Agregar Colaborador';
         document.getElementById('wf_id').value = '';
+        document.getElementById('wf_foto_base64').value = '';
+        document.getElementById('wf_foto_preview').src = 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=300&h=300&fit=crop&crop=face';
     }
 
     modal.classList.remove('hidden');
@@ -302,6 +316,51 @@ function editWorker(id) {
     openWorkerModal(id);
 }
 
+// ========== BASE64 IMAGE COMPRESSION ==========
+document.getElementById('wf_foto_upload').addEventListener('change', function (e) {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = function (event) {
+        const img = new Image();
+        img.onload = function () {
+            // Compress and resize
+            const canvas = document.createElement('canvas');
+            const MAX_WIDTH = 400;
+            const MAX_HEIGHT = 400;
+            let width = img.width;
+            let height = img.height;
+
+            if (width > height) {
+                if (width > MAX_WIDTH) {
+                    height *= MAX_WIDTH / width;
+                    width = MAX_WIDTH;
+                }
+            } else {
+                if (height > MAX_HEIGHT) {
+                    width *= MAX_HEIGHT / height;
+                    height = MAX_HEIGHT;
+                }
+            }
+
+            canvas.width = width;
+            canvas.height = height;
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(img, 0, 0, width, height);
+
+            // Compress as JPEG 70% quality
+            const dataUrl = canvas.toDataURL('image/jpeg', 0.7);
+
+            // Update UI and hidden field
+            document.getElementById('wf_foto_preview').src = dataUrl;
+            document.getElementById('wf_foto_base64').value = dataUrl;
+        };
+        img.src = event.target.result;
+    };
+    reader.readAsDataURL(file);
+});
+
 function handleWorkerSubmit(e) {
     e.preventDefault();
 
@@ -313,7 +372,7 @@ function handleWorkerSubmit(e) {
         experiencia: document.getElementById('wf_experiencia').value.trim(),
         telefono: document.getElementById('wf_telefono').value.trim(),
         email: document.getElementById('wf_email').value.trim(),
-        foto: document.getElementById('wf_foto').value.trim() || 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=300&h=300&fit=crop&crop=face',
+        foto: document.getElementById('wf_foto_base64').value || 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=300&h=300&fit=crop&crop=face',
         bio: document.getElementById('wf_bio').value.trim(),
         habilidades: document.getElementById('wf_habilidades').value.split(',').map(s => s.trim()).filter(Boolean),
         disponibilidad: document.getElementById('wf_disponibilidad').value,

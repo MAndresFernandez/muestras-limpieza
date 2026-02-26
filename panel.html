@@ -447,9 +447,16 @@
                     </div>
                 </div>
                 <div>
-                    <label class="block text-sm font-semibold text-gray-700 mb-1">URL de Foto</label>
-                    <input type="url" id="wf_foto" class="form-input w-full px-4 py-3 rounded-xl bg-white"
-                        placeholder="https://...">
+                    <label class="block text-sm font-semibold text-gray-700 mb-1">Foto del Trabalador (Sube una
+                        imagen)</label>
+                    <div class="flex items-center gap-4">
+                        <img id="wf_foto_preview"
+                            src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=300&h=300&fit=crop&crop=face"
+                            class="w-16 h-16 rounded-full object-cover border border-gray-200" alt="Preview">
+                        <input type="file" id="wf_foto_upload" accept="image/*"
+                            class="form-input w-full px-4 py-3 rounded-xl bg-white text-sm">
+                        <input type="hidden" id="wf_foto_base64">
+                    </div>
                 </div>
                 <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-1">Biografía</label>

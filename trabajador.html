@@ -256,7 +256,8 @@
 
         async function loadData() {
             try {
-                const response = await fetch('data.json');
+                // Cache buster to ensure visitors always get the latest version after edits
+                const response = await fetch('data.json?t=' + new Date().getTime());
                 appData = await response.json();
             } catch (error) {
                 console.error('Error loading data:', error);
