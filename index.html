@@ -37,8 +37,8 @@
                 extend: {
                     colors: {
                         primary: { 50: '#fef2f2', 100: '#fee2e2', 200: '#fecaca', 300: '#F2AEAE', 400: '#E84450', 500: '#D92534', 600: '#B51E2C', 700: '#991B1B', 800: '#7F1D1D', 900: '#611515' },
-                        secondary: { 400: '#F2AEAE', 500: '#D92525', 600: '#A66A6A' },
-                        brand: { offwhite: '#F2F2F2', rose: '#A66A6A', pink: '#F2AEAE' }
+                        secondary: { 400: '#F2AEAE', 500: '#D92525', 600: '#B51E2C' },
+                        brand: { offwhite: '#F2F2F2', rose: '#B51E2C', pink: '#F2AEAE' }
                     },
                     fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] }
                 }
@@ -263,7 +263,7 @@
                 <div
                     class="bg-white rounded-3xl p-8 shadow-lg border border-gray-100 text-center group hover:shadow-2xl transition-all hover:-translate-y-2">
                     <div
-                        class="w-20 h-20 rounded-2xl bg-gradient-to-br from-secondary-600 to-brand-rose flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
+                        class="w-20 h-20 rounded-2xl bg-gradient-to-br from-primary-600 to-primary-700 flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
                         <i data-lucide="scale" class="w-10 h-10 text-white"></i>
                     </div>
                     <h3 class="text-xl font-bold text-gray-900 mb-3">Compromiso Ético y Legal</h3>
@@ -319,7 +319,7 @@
                 </div>
                 <div class="service-card bg-white rounded-3xl p-8 shadow-lg border border-gray-100">
                     <div
-                        class="w-16 h-16 rounded-2xl bg-gradient-to-br from-secondary-600 to-brand-rose flex items-center justify-center mb-6">
+                        class="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary-600 to-primary-700 flex items-center justify-center mb-6">
                         <i data-lucide="crown" class="w-8 h-8 text-white"></i>
                     </div>
                     <h3 class="text-xl font-bold text-gray-900 mb-3">Servicio Especializado</h3>
@@ -666,6 +666,48 @@
                 </button>
                 <button type="button" id="closePopup"
                     class="w-full mt-3 py-2 text-gray-500 hover:text-gray-700 font-medium text-sm">No, gracias</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Rating Popup Modal -->
+    <div id="ratingPopup" class="fixed inset-0 z-50 hidden items-center justify-center p-4 modal-overlay">
+        <div class="modal-content bg-white rounded-3xl shadow-2xl max-w-md w-full p-8 text-center">
+            <div class="flex items-center justify-between mb-4">
+                <h3 class="text-2xl font-bold text-gray-900 mx-auto">Calificar Servicio</h3>
+            </div>
+            <p class="text-gray-600 mb-6">¿Qué te pareció nuestro servicio?</p>
+
+            <form id="ratingForm">
+                <div class="flex justify-center gap-2 mb-6" id="starContainer">
+                    <!-- Stars -->
+                    <button type="button" class="star-btn p-2 transition-transform hover:scale-110" data-val="1">
+                        <i data-lucide="star" class="w-10 h-10 text-gray-300"></i>
+                    </button>
+                    <button type="button" class="star-btn p-2 transition-transform hover:scale-110" data-val="2">
+                        <i data-lucide="star" class="w-10 h-10 text-gray-300"></i>
+                    </button>
+                    <button type="button" class="star-btn p-2 transition-transform hover:scale-110" data-val="3">
+                        <i data-lucide="star" class="w-10 h-10 text-gray-300"></i>
+                    </button>
+                    <button type="button" class="star-btn p-2 transition-transform hover:scale-110" data-val="4">
+                        <i data-lucide="star" class="w-10 h-10 text-gray-300"></i>
+                    </button>
+                    <button type="button" class="star-btn p-2 transition-transform hover:scale-110" data-val="5">
+                        <i data-lucide="star" class="w-10 h-10 text-gray-300"></i>
+                    </button>
+                </div>
+                <input type="hidden" id="ratingValue" value="5">
+
+                <textarea id="ratingComment" class="form-input w-full px-4 py-3 rounded-xl bg-gray-50 mb-6" rows="3"
+                    placeholder="Dejá un comentario (opcional)..."></textarea>
+
+                <div class="flex gap-4">
+                    <button type="button" onclick="closeRatingPopup()"
+                        class="w-1/3 py-3 rounded-xl text-gray-600 font-bold hover:bg-gray-100 transition-colors">Cancelar</button>
+                    <button type="submit"
+                        class="w-2/3 btn-primary py-3 rounded-xl text-white font-bold inline-flex justify-center items-center gap-2">Enviar</button>
+                </div>
             </form>
         </div>
     </div>
