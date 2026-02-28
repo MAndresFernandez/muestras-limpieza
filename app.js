@@ -268,25 +268,8 @@ function showRatingPopup() {
     if (popup) {
         popup.classList.remove('hidden');
         popup.style.display = 'flex';
-        // Initialize stars logic
-        document.querySelectorAll('.star-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                const val = parseInt(btn.dataset.val);
-                document.getElementById('ratingValue').value = val;
-                document.querySelectorAll('.star-btn i').forEach((icon, index) => {
-                    if (index < val) {
-                        icon.classList.remove('text-gray-300');
-                        icon.classList.add('text-amber-400', 'fill-amber-400');
-                    } else {
-                        icon.classList.add('text-gray-300');
-                        icon.classList.remove('text-amber-400', 'fill-amber-400');
-                    }
-                });
-            });
-        });
-
         // Initial setup for 5 stars
-        document.querySelector('.star-btn[data-val="5"]').click();
+        document.querySelector('.star-btn[data-val="5"]')?.click();
     }
 }
 
@@ -301,6 +284,23 @@ function closeRatingPopup() {
 function setupRatingPopup() {
     const form = document.getElementById('ratingForm');
     if (!form) return;
+
+    // Initialize stars logic
+    document.querySelectorAll('.star-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const val = parseInt(btn.dataset.val);
+            document.getElementById('ratingValue').value = val;
+            document.querySelectorAll('.star-btn i').forEach((icon, index) => {
+                if (index < val) {
+                    icon.classList.remove('text-gray-300');
+                    icon.classList.add('text-amber-400', 'fill-amber-400');
+                } else {
+                    icon.classList.add('text-gray-300');
+                    icon.classList.remove('text-amber-400', 'fill-amber-400');
+                }
+            });
+        });
+    });
 
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
