@@ -285,25 +285,29 @@ function setupRatingPopup() {
     const form = document.getElementById('ratingForm');
     if (!form) return;
 
-    // Initialize stars logic
+    // Initialize stars logic using inline styles (works with any SVG)
     const starBtns = document.querySelectorAll('.star-btn');
+
+    function updateStars(selectedVal) {
+        starBtns.forEach((btn) => {
+            const val = parseInt(btn.dataset.val);
+            const svg = btn.querySelector('svg');
+            if (!svg) return;
+
+            if (val <= selectedVal) {
+                svg.style.fill = '#f59e0b';    // amber-500
+                svg.style.stroke = '#f59e0b';
+            } else {
+                svg.style.fill = 'none';
+                svg.style.stroke = '#d1d5db';  // gray-300
+            }
+        });
+        document.getElementById('ratingValue').value = selectedVal;
+    }
+
     starBtns.forEach(btn => {
         btn.addEventListener('click', () => {
-            const val = parseInt(btn.dataset.val);
-            document.getElementById('ratingValue').value = val;
-
-            starBtns.forEach((otherBtn, index) => {
-                const icon = otherBtn.querySelector('svg') || otherBtn.querySelector('i');
-                if (!icon) return;
-
-                if (index < val) {
-                    icon.classList.remove('text-gray-300');
-                    icon.classList.add('text-amber-400', 'fill-amber-400');
-                } else {
-                    icon.classList.add('text-gray-300');
-                    icon.classList.remove('text-amber-400', 'fill-amber-400');
-                }
-            });
+            updateStars(parseInt(btn.dataset.val));
         });
     });
 
