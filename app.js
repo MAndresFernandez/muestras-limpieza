@@ -286,11 +286,16 @@ function setupRatingPopup() {
     if (!form) return;
 
     // Initialize stars logic
-    document.querySelectorAll('.star-btn').forEach(btn => {
+    const starBtns = document.querySelectorAll('.star-btn');
+    starBtns.forEach(btn => {
         btn.addEventListener('click', () => {
             const val = parseInt(btn.dataset.val);
             document.getElementById('ratingValue').value = val;
-            document.querySelectorAll('.star-btn i').forEach((icon, index) => {
+
+            starBtns.forEach((otherBtn, index) => {
+                const icon = otherBtn.querySelector('svg') || otherBtn.querySelector('i');
+                if (!icon) return;
+
                 if (index < val) {
                     icon.classList.remove('text-gray-300');
                     icon.classList.add('text-amber-400', 'fill-amber-400');
