@@ -3,7 +3,7 @@
 // ═══════════════════════════════════════════════════════════
 
 let appData = null;
-const WA_NUMBER = '542216924104';
+const WA_NUMBER = '5492216924104';
 
 // ── Initialize ─────────────────────────────────────────────
 
@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     setupTabs();
     setupRecruitmentForm();
     setupLeadPopup();
+    setupRatingPopup();
     lucide.createIcons();
 });
 
@@ -258,6 +259,98 @@ function showLeadPopup() {
         popup.classList.remove('hidden');
         popup.style.display = 'flex';
     }
+}
+
+// ── Rating Popup ───────────────────────────────────────────
+
+function showRatingPopup() {
+    const popup = document.getElementById('ratingPopup');
+    if (popup) {
+        popup.classList.remove('hidden');
+        popup.style.display = 'flex';
+        // Initialize stars logic
+        document.querySelectorAll('.star-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const val = parseInt(btn.dataset.val);
+                document.getElementById('ratingValue').value = val;
+                document.querySelectorAll('.star-btn i').forEach((icon, index) => {
+                    if (index < val) {
+                        icon.classList.remove('text-gray-300');
+                        icon.classList.add('text-amber-400', 'fill-amber-400');
+                    } else {
+                        icon.classList.add('text-gray-300');
+                        icon.classList.remove('text-amber-400', 'fill-amber-400');
+                    }
+                });
+            });
+        });
+
+        // Initial setup for 5 stars
+        document.querySelector('.star-btn[data-val="5"]').click();
+    }
+}
+
+function closeRatingPopup() {
+    const popup = document.getElementById('ratingPopup');
+    if (popup) {
+        popup.classList.add('hidden');
+        popup.style.display = 'none';
+    }
+}
+
+function setupRatingPopup() {
+    const form = document.getElementById('ratingForm');
+    if (!form) return;
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const btn = form.querySelector('button[type="submit"]');
+        const originalText = btn.innerHTML;
+        btn.innerHTML = '<i data-lucide="loader-2" class="w-5 h-5 animate-spin"></i> Enviando...';
+        btn.disabled = true;
+
+        const rating = document.getElementById('ratingValue').value;
+        const comment = document.getElementById('ratingComment').value;
+        const emailTo = "Redrabbitgo28@gmail.com";
+        const subject = "Nueva Calificación del Servicio - Red Rabbit Go";
+
+        try {
+            const response = await fetch("https://formspree.io/f/Redrabbitgo28@gmail.com", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
+                },
+                body: JSON.stringify({
+                    _subject: subject,
+                    "Valoración (Estrellas)": rating,
+                    "Comentarios": comment || "Sin comentarios"
+                })
+            });
+
+            if (response.ok) {
+                btn.innerHTML = '<i data-lucide="check" class="w-5 h-5"></i> ¡Enviado!';
+                setTimeout(() => {
+                    closeRatingPopup();
+                    btn.innerHTML = originalText;
+                    btn.disabled = false;
+                    form.reset();
+                    // Reset stars
+                    document.querySelector('.star-btn[data-val="5"]').click();
+                }, 2000);
+            } else {
+                throw new Error("Error respondiendo al servidor");
+            }
+        } catch (error) {
+            console.error(error);
+            btn.innerHTML = '<i data-lucide="x" class="w-5 h-5"></i> Error al enviar';
+            setTimeout(() => {
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+            }, 3000);
+        }
+    });
 }
 
 // ── Quote Summary Modal (kept for compatibility) ──────────

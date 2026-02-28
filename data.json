@@ -2,8 +2,8 @@
   "empresa": {
     "nombre": "Red Rabbit Go",
     "slogan": "Limpieza de Clase, Ahora en tu Hogar",
-    "telefono": "542216924104",
-    "whatsapp": "542216924104",
+    "telefono": "5492216924104",
+    "whatsapp": "5492216924104",
     "email": "contacto@redrabbitgo.com",
     "cobertura": [
       "La Plata",
@@ -24,7 +24,7 @@
     {
       "id": "hogar-regular",
       "nombre": "Limpieza Regular del Hogar",
-      "descripcion": "Mantenimiento semanal o quincenal de tu casa: pisos, baños, cocina y áreas comunes con protocolos profesionales.",
+      "descripcion": "Mantenimiento semanal o quincenal de tu casa: pisos, baños, cocina y áreas comunes con protocolos específicos.",
       "icono": "home"
     },
     {
@@ -35,8 +35,8 @@
     },
     {
       "id": "hogar-premium",
-      "nombre": "Servicio Premium",
-      "descripcion": "Atención personalizada con productos de alta gama, planchado, organización de espacios e higienización de tapizados.",
+      "nombre": "Servicio Especializado",
+      "descripcion": "Atención personalizada con productos específicos, planchado, organización de espacios e higienización de tapizados.",
       "icono": "crown"
     },
     {
@@ -49,7 +49,7 @@
   "diferenciales": [
     {
       "titulo": "Capital Humano Especializado",
-      "descripcion": "Personal seleccionado bajo rigurosos estándares de seguridad y capacitado en técnicas de higienización avanzada y atención premium.",
+      "descripcion": "Personal seleccionado bajo rigurosos estándares de seguridad y capacitado en técnicas de higienización avanzada y atención de primer nivel.",
       "icono": "users"
     },
     {
@@ -68,7 +68,7 @@
       "id": 1,
       "nombre": "Carlos García",
       "puesto": "Especialista en Hogares",
-      "especialidad": "Limpieza residencial premium",
+      "especialidad": "Limpieza residencial a medida",
       "experiencia": "5 años",
       "verificado": true,
       "destacado": true,
@@ -76,13 +76,13 @@
       "foto": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face",
       "telefono": "+54 221 555-0101",
       "email": "carlos@redrabbitgo.com",
-      "bio": "Especialista en limpieza residencial de alta gama. Con más de 5 años de experiencia, Carlos se destaca por su atención al detalle y uso de técnicas profesionales adaptadas al hogar. Capacitado en protocolos de bioseguridad y manejo de productos premium.",
+      "bio": "Especialista en limpieza residencial de alta calidad. Con más de 5 años de experiencia, Carlos se destaca por su atención al detalle y uso de técnicas específicas adaptadas al hogar. Capacitado en protocolos de bioseguridad y manejo de productos adecuados.",
       "habilidades": [
         "Desinfección avanzada",
         "Limpieza de tapizados",
         "Organización de espacios",
         "Cristales y ventanales",
-        "Atención premium"
+        "Atención personalizada"
       ],
       "disponibilidad": "Tiempo completo",
       "fechaIngreso": "2020-03-15",
@@ -103,14 +103,14 @@
         {
           "autor": "Juan P.",
           "empresa": "Departamento en La Plata",
-          "texto": "Excelente profesional. Usa productos de primera calidad y se nota la diferencia con otros servicios.",
+          "texto": "Excelente colaborador. Usa productos de primera calidad y se nota la diferencia con otros servicios.",
           "rating": 5,
           "fecha": "2025-10-22"
         },
         {
           "autor": "Sofía R.",
           "empresa": "Casa en Gonnet",
-          "texto": "Muy profesional y confiable. Mi casa queda impecable cada vez que viene.",
+          "texto": "Muy trabajador y confiable. Mi casa queda impecable cada vez que viene.",
           "rating": 4,
           "fecha": "2025-09-15"
         }
@@ -156,7 +156,7 @@
         {
           "autor": "Marcos D.",
           "empresa": "Departamento en Berisso",
-          "texto": "Organiza todo perfecto, llega con todo lo necesario y el resultado es profesional de verdad.",
+          "texto": "Organiza todo perfecto, llega con todo lo necesario y el resultado es de calidad de verdad.",
           "rating": 5,
           "fecha": "2025-11-20"
         }
@@ -210,8 +210,8 @@
     {
       "id": 4,
       "nombre": "Lucía Fernández",
-      "puesto": "Especialista Premium",
-      "especialidad": "Atención VIP y organización",
+      "puesto": "Especialista a Medida",
+      "especialidad": "Atención especializada y organización",
       "experiencia": "4 años",
       "verificado": true,
       "destacado": false,
@@ -219,13 +219,13 @@
       "foto": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&h=300&fit=crop&crop=face",
       "telefono": "+54 221 555-0104",
       "email": "lucia@redrabbitgo.com",
-      "bio": "Lucía se especializa en el servicio premium: limpieza, planchado, organización de armarios y atención personalizada para hogares que buscan un estándar superior. Cada visita es una experiencia de orden y confort.",
+      "bio": "Lucía se especializa en el servicio a medida: limpieza, planchado, organización de armarios y atención personalizada para hogares que buscan un estándar superior. Cada visita es una experiencia de orden y confort.",
       "habilidades": [
         "Organización Marie Kondo",
-        "Planchado profesional",
+        "Planchado cuidadoso",
         "Limpieza de textiles",
         "Aromaterapia del hogar",
-        "Atención VIP"
+        "Atención a medida"
       ],
       "disponibilidad": "Tiempo completo",
       "fechaIngreso": "2021-01-20",
@@ -294,12 +294,12 @@
     {
       "nombre": "Marina Gómez",
       "cargo": "Vecina de City Bell",
-      "texto": "Nunca había contratado un servicio así para mi casa. La diferencia con una empleada particular es abismal. Todo legal, seguro y profesional.",
+      "texto": "Nunca había contratado un servicio así para mi casa. La diferencia con una empleada particular es abismal. Todo legal, seguro y detallado.",
       "rating": 5
     },
     {
       "nombre": "Esteban Ruiz",
-      "cargo": "Profesional, La Plata centro",
+      "cargo": "Vecino, La Plata centro",
       "texto": "Trabajo todo el día y no tengo tiempo para limpiar. Con Red Rabbit Go resuelvo en una llamada y confío plenamente en quien entra a mi departamento.",
       "rating": 5
     },
