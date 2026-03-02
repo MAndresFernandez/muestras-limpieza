@@ -4,6 +4,7 @@
 let appData = null;
 let currentSession = null;
 let deleteTargetId = null;
+let deleteReviewTarget = null;
 
 const SESSION_KEY = 'redrabbit_session';
 const DATA_KEY = 'redrabbit_admin_data';
@@ -441,8 +442,8 @@ function renderAllReviews() {
 
     const allReviews = [];
     appData.staff.forEach(w => {
-        (w.resenas || []).forEach(r => {
-            allReviews.push({ ...r, workerName: w.nombre, workerFoto: w.foto, workerId: w.id });
+        (w.resenas || []).forEach((r, rIndex) => {
+            allReviews.push({ ...r, workerName: w.nombre, workerFoto: w.foto, workerId: w.id, rIndex });
         });
     });
 
@@ -468,15 +469,160 @@ function renderAllReviews() {
                             <p class="text-sm text-gray-500">Por: ${r.autor} · ${r.empresa}</p>
                         </div>
                     </div>
-                    <span class="text-sm text-gray-400">${date}</span>
+                    <div class="flex items-center gap-3">
+                        <span class="text-sm text-gray-400 hidden sm:inline">${date}</span>
+                        <div class="flex items-center gap-1 border-l border-gray-200 pl-3">
+                            <button onclick="editReview(${r.workerId}, ${r.rIndex})" class="p-1.5 rounded-lg hover:bg-primary-50 text-gray-400 hover:text-primary-600 transition-colors" title="Editar">
+                                <i data-lucide="pencil" class="w-4 h-4"></i>
+                            </button>
+                            <button onclick="openDeleteReviewModal(${r.workerId}, ${r.rIndex})" class="p-1.5 rounded-lg hover:bg-red-50 text-gray-400 hover:text-red-600 transition-colors" title="Eliminar">
+                                <i data-lucide="trash-2" class="w-4 h-4"></i>
+                            </button>
+                        </div>
+                    </div>
                 </div>
                 <div class="flex items-center gap-1 mb-2">${stars}</div>
                 <p class="text-gray-600 italic">"${r.texto}"</p>
+                <p class="text-sm text-gray-400 sm:hidden mt-2">${date}</p>
             </div>
         `;
     }).join('');
 
     lucide.createIcons();
+}
+
+function recalculateWorkerRating(worker) {
+    if (!worker.resenas || worker.resenas.length === 0) {
+        worker.rating = 0;
+        return;
+    }
+    const sum = worker.resenas.reduce((acc, r) => acc + parseInt(r.rating || 0), 0);
+    worker.rating = parseFloat((sum / worker.resenas.length).toFixed(1));
+}
+
+function openReviewModal(workerId = null, reviewIndex = null) {
+    const modal = document.getElementById('reviewModal');
+    const title = document.getElementById('reviewModalTitle');
+    const form = document.getElementById('reviewForm');
+    const workerSelect = document.getElementById('rf_worker_select');
+    const workerSelectContainer = document.getElementById('worker_select_container');
+    const hiddenWorkerId = document.getElementById('rf_worker_id_hidden');
+
+    // Populate worker select
+    workerSelect.innerHTML = '<option value="">Seleccione un trabajador...</option>' +
+        appData.staff.map(w => `<option value="${w.id}">${w.nombre}</option>`).join('');
+
+    form.reset();
+
+    if (workerId !== null && reviewIndex !== null) {
+        // Editing Mode
+        title.textContent = 'Editar Reseña';
+        const worker = appData.staff.find(w => w.id === workerId);
+        if (!worker || !worker.resenas || !worker.resenas[reviewIndex]) return;
+        const review = worker.resenas[reviewIndex];
+
+        hiddenWorkerId.value = workerId;
+        document.getElementById('rf_review_index').value = reviewIndex;
+        workerSelectContainer.classList.add('hidden');
+        workerSelect.removeAttribute('required');
+
+        document.getElementById('rf_autor').value = review.autor || '';
+        document.getElementById('rf_empresa').value = review.empresa || '';
+        document.getElementById('rf_rating').value = review.rating || 5;
+        document.getElementById('rf_fecha').value = review.fecha || '';
+        document.getElementById('rf_texto').value = review.texto || '';
+    } else {
+        // Create Mode
+        title.textContent = 'Agregar Reseña';
+        hiddenWorkerId.value = '';
+        document.getElementById('rf_review_index').value = '';
+        workerSelectContainer.classList.remove('hidden');
+        workerSelect.setAttribute('required', 'required');
+
+        document.getElementById('rf_rating').value = 5;
+        document.getElementById('rf_fecha').value = new Date().toISOString().split('T')[0];
+    }
+
+    modal.classList.remove('hidden');
+    lucide.createIcons();
+}
+
+function closeReviewModal() {
+    document.getElementById('reviewModal').classList.add('hidden');
+}
+
+function editReview(workerId, reviewIndex) {
+    openReviewModal(workerId, reviewIndex);
+}
+
+function handleReviewSubmit(e) {
+    e.preventDefault();
+
+    const hiddenWorkerId = document.getElementById('rf_worker_id_hidden').value;
+    const workerSelectId = document.getElementById('rf_worker_select').value;
+    const isEdit = hiddenWorkerId !== '';
+    const workerId = isEdit ? parseInt(hiddenWorkerId) : parseInt(workerSelectId);
+    const reviewIndexStr = document.getElementById('rf_review_index').value;
+
+    const worker = appData.staff.find(w => w.id === workerId);
+    if (!worker) return;
+
+    if (!worker.resenas) {
+        worker.resenas = [];
+    }
+
+    const reviewData = {
+        autor: document.getElementById('rf_autor').value.trim(),
+        empresa: document.getElementById('rf_empresa').value.trim(),
+        rating: parseInt(document.getElementById('rf_rating').value),
+        fecha: document.getElementById('rf_fecha').value,
+        texto: document.getElementById('rf_texto').value.trim()
+    };
+
+    if (isEdit) {
+        const reviewIndex = parseInt(reviewIndexStr);
+        worker.resenas[reviewIndex] = { ...worker.resenas[reviewIndex], ...reviewData };
+        showPanelNotification('Reseña actualizada correctamente', 'success');
+    } else {
+        worker.resenas.push(reviewData);
+        showPanelNotification('Reseña agregada correctamente', 'success');
+    }
+
+    recalculateWorkerRating(worker);
+    saveDataLocally();
+    closeReviewModal();
+    renderAllReviews();
+    renderWorkersTable(); // update rating
+    renderDashboard(); // update totals
+}
+
+function openDeleteReviewModal(workerId, reviewIndex) {
+    deleteReviewTarget = { workerId, reviewIndex };
+    document.getElementById('deleteReviewModal').classList.remove('hidden');
+    lucide.createIcons();
+}
+
+function closeDeleteReviewModal() {
+    document.getElementById('deleteReviewModal').classList.add('hidden');
+    deleteReviewTarget = null;
+}
+
+function confirmDeleteReview() {
+    if (!deleteReviewTarget) return;
+
+    const worker = appData.staff.find(w => w.id === deleteReviewTarget.workerId);
+    if (worker && worker.resenas) {
+        worker.resenas.splice(deleteReviewTarget.reviewIndex, 1);
+        recalculateWorkerRating(worker);
+
+        saveDataLocally();
+        closeDeleteReviewModal();
+        renderAllReviews();
+        renderWorkersTable();
+        renderDashboard();
+
+        showPanelNotification('Reseña eliminada', 'info');
+    }
 }
 
 // ========== SETTINGS - CHANGE PASSWORD ==========
@@ -560,6 +706,9 @@ function setupEventListeners() {
     // Worker form
     document.getElementById('workerForm')?.addEventListener('submit', handleWorkerSubmit);
 
+    // Review form
+    document.getElementById('reviewForm')?.addEventListener('submit', handleReviewSubmit);
+
     // Change password form
     document.getElementById('changePassForm')?.addEventListener('submit', handleChangePassword);
 
@@ -599,3 +748,9 @@ window.closeDeleteModal = closeDeleteModal;
 window.confirmDelete = confirmDelete;
 window.filterWorkers = filterWorkers;
 window.exportData = exportData;
+window.openReviewModal = openReviewModal;
+window.closeReviewModal = closeReviewModal;
+window.editReview = editReview;
+window.openDeleteReviewModal = openDeleteReviewModal;
+window.closeDeleteReviewModal = closeDeleteReviewModal;
+window.confirmDeleteReview = confirmDeleteReview;
