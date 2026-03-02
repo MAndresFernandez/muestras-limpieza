@@ -5,6 +5,7 @@ let appData = null;
 let currentSession = null;
 let deleteTargetId = null;
 let deleteReviewTarget = null;
+let deleteCompanyReviewTarget = null;
 
 const SESSION_KEY = 'redrabbit_session';
 const DATA_KEY = 'redrabbit_admin_data';
@@ -173,7 +174,10 @@ function showTab(tab) {
     // Refresh data on tab switch
     if (tab === 'dashboard') renderDashboard();
     if (tab === 'workers') renderWorkersTable();
-    if (tab === 'reviews') renderAllReviews();
+    if (tab === 'reviews') {
+        renderAllReviews();
+        renderCompanyReviews();
+    }
 
     lucide.createIcons();
 }
@@ -432,6 +436,7 @@ function confirmDelete() {
     renderDashboard();
     renderWorkersTable();
     renderAllReviews();
+    renderCompanyReviews();
     showPanelNotification('Trabajador eliminado', 'info');
 }
 
@@ -625,6 +630,152 @@ function confirmDeleteReview() {
     }
 }
 
+// ========== COMPANY REVIEWS (TESTIMONIALS) ==========
+function renderCompanyReviews() {
+    if (!appData?.testimonios) return;
+    const container = document.getElementById('companyReviewsList');
+
+    if (appData.testimonios.length === 0) {
+        container.innerHTML = '<p class="text-gray-400 text-center py-12">No hay testimonios de la empresa aún.</p>';
+        return;
+    }
+
+    container.innerHTML = appData.testimonios.map((r, index) => {
+        const stars = Array(5).fill().map((_, i) =>
+            `<i data-lucide="star" class="w-4 h-4 ${i < r.rating ? 'text-amber-400 fill-amber-400' : 'text-gray-300'}"></i>`
+        ).join('');
+        return `
+            <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+                <div class="flex items-start justify-between mb-3">
+                    <div>
+                        <p class="font-semibold text-gray-900">${r.nombre}</p>
+                        <p class="text-sm text-gray-500">${r.cargo}</p>
+                    </div>
+                    <div class="flex items-center gap-1 border-l border-gray-200 pl-3">
+                        <button onclick="editCompanyReview(${index})" class="p-1.5 rounded-lg hover:bg-primary-50 text-gray-400 hover:text-primary-600 transition-colors" title="Editar">
+                            <i data-lucide="pencil" class="w-4 h-4"></i>
+                        </button>
+                        <button onclick="openDeleteCompanyReviewModal(${index})" class="p-1.5 rounded-lg hover:bg-red-50 text-gray-400 hover:text-red-600 transition-colors" title="Eliminar">
+                            <i data-lucide="trash-2" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="flex items-center gap-1 mb-2">${stars}</div>
+                <p class="text-gray-600 italic">"${r.texto}"</p>
+            </div>
+        `;
+    }).join('');
+
+    lucide.createIcons();
+}
+
+function openCompanyReviewModal(index = null) {
+    const modal = document.getElementById('companyReviewModal');
+    const title = document.getElementById('companyReviewModalTitle');
+    const form = document.getElementById('companyReviewForm');
+
+    form.reset();
+
+    if (index !== null) {
+        // Editing Mode
+        title.textContent = 'Editar Testimonio';
+        const review = appData.testimonios[index];
+        if (!review) return;
+
+        document.getElementById('crf_index').value = index;
+        document.getElementById('crf_nombre').value = review.nombre || '';
+        document.getElementById('crf_cargo').value = review.cargo || '';
+        document.getElementById('crf_rating').value = review.rating || 5;
+        document.getElementById('crf_texto').value = review.texto || '';
+    } else {
+        // Create Mode
+        title.textContent = 'Agregar Testimonio';
+        document.getElementById('crf_index').value = '';
+        document.getElementById('crf_rating').value = 5;
+    }
+
+    modal.classList.remove('hidden');
+    lucide.createIcons();
+}
+
+function closeCompanyReviewModal() {
+    document.getElementById('companyReviewModal').classList.add('hidden');
+}
+
+function editCompanyReview(index) {
+    openCompanyReviewModal(index);
+}
+
+function handleCompanyReviewSubmit(e) {
+    e.preventDefault();
+
+    const isEdit = document.getElementById('crf_index').value !== '';
+
+    if (!appData.testimonios) {
+        appData.testimonios = [];
+    }
+
+    const reviewData = {
+        nombre: document.getElementById('crf_nombre').value.trim(),
+        cargo: document.getElementById('crf_cargo').value.trim(),
+        rating: parseInt(document.getElementById('crf_rating').value),
+        texto: document.getElementById('crf_texto').value.trim()
+    };
+
+    if (isEdit) {
+        const index = parseInt(document.getElementById('crf_index').value);
+        appData.testimonios[index] = { ...appData.testimonios[index], ...reviewData };
+        showPanelNotification('Testimonio actualizado correctamente', 'success');
+    } else {
+        appData.testimonios.push(reviewData);
+        showPanelNotification('Testimonio agregado correctamente', 'success');
+    }
+
+    saveDataLocally();
+    closeCompanyReviewModal();
+    renderCompanyReviews();
+}
+
+function openDeleteCompanyReviewModal(index) {
+    deleteCompanyReviewTarget = index;
+    // We can reuse the same delete review modal or create a specific one.
+    // For simplicity, let's reuse the existing delete review modal text but change the confirm action
+    document.getElementById('deleteReviewModal').classList.remove('hidden');
+    // Update the onclick of the confirm button to point to company review delete
+    const confirmBtn = document.querySelector('#deleteReviewModal .bg-red-500');
+    confirmBtn.setAttribute('onclick', 'confirmDeleteCompanyReview()');
+
+    // Also update the cancel button to clear this specific target
+    const cancelBtn = document.querySelector('#deleteReviewModal .border-gray-200');
+    cancelBtn.setAttribute('onclick', 'closeDeleteCompanyReviewModal()');
+    lucide.createIcons();
+}
+
+function closeDeleteCompanyReviewModal() {
+    document.getElementById('deleteReviewModal').classList.add('hidden');
+    deleteCompanyReviewTarget = null;
+
+    // Restore original onclicks for worker reviews
+    const confirmBtn = document.querySelector('#deleteReviewModal .bg-red-500');
+    confirmBtn.setAttribute('onclick', 'confirmDeleteReview()');
+    const cancelBtn = document.querySelector('#deleteReviewModal .border-gray-200');
+    cancelBtn.setAttribute('onclick', 'closeDeleteReviewModal()');
+}
+
+function confirmDeleteCompanyReview() {
+    if (deleteCompanyReviewTarget === null) return;
+
+    if (appData.testimonios) {
+        appData.testimonios.splice(deleteCompanyReviewTarget, 1);
+
+        saveDataLocally();
+        closeDeleteCompanyReviewModal();
+        renderCompanyReviews();
+
+        showPanelNotification('Testimonio eliminado', 'info');
+    }
+}
+
 // ========== SETTINGS - CHANGE PASSWORD ==========
 async function handleChangePassword(e) {
     e.preventDefault();
@@ -709,6 +860,9 @@ function setupEventListeners() {
     // Review form
     document.getElementById('reviewForm')?.addEventListener('submit', handleReviewSubmit);
 
+    // Company Review form
+    document.getElementById('companyReviewForm')?.addEventListener('submit', handleCompanyReviewSubmit);
+
     // Change password form
     document.getElementById('changePassForm')?.addEventListener('submit', handleChangePassword);
 
@@ -754,3 +908,11 @@ window.editReview = editReview;
 window.openDeleteReviewModal = openDeleteReviewModal;
 window.closeDeleteReviewModal = closeDeleteReviewModal;
 window.confirmDeleteReview = confirmDeleteReview;
+window.handleReviewSubmit = handleReviewSubmit;
+window.openCompanyReviewModal = openCompanyReviewModal;
+window.closeCompanyReviewModal = closeCompanyReviewModal;
+window.editCompanyReview = editCompanyReview;
+window.openDeleteCompanyReviewModal = openDeleteCompanyReviewModal;
+window.closeDeleteCompanyReviewModal = closeDeleteCompanyReviewModal;
+window.confirmDeleteCompanyReview = confirmDeleteCompanyReview;
+window.handleCompanyReviewSubmit = handleCompanyReviewSubmit;
